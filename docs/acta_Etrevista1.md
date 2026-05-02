@@ -8,7 +8,7 @@
 |---|---|
 | **Acta No.** | 001 |
 | **Fecha** | Abril 2026 |
-| **Lugar** | Oficina Departamento de Humanidades Ciudadanas — Universidad Icesi, Cali |
+| **Lugar** | Salón 207C — Universidad Icesi, Cali |
 | **Proyecto** | EduMobility — Plataforma Integral de Gestión Académica y Movilidad Internacional |
 
 ## Asistencia
