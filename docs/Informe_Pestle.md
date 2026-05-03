@@ -1,6 +1,7 @@
 # Evaluación de Requerimientos Funcionales para Análisis PESTLE
 
 
+
 | RF | Requerimiento funcional resumido | ¿Necesita análisis PESTLE? | Nivel sugerido | Comentario / justificación |
 |---|---|---|---|---|
 | RF1.1 | Mostrar catálogo navegable de cursos electivos activos HAC | No | No aplica | Es una función principalmente informativa y pública. No toma decisiones ni usa datos sensibles de estudiantes. |
@@ -55,6 +56,19 @@
 
 
 # Análisis PESTLE de Requerimientos Funcionales Seleccionados
+# RF1.3 — Mostrar porcentajes, tipos de evaluación y perfil recomendado 
+**Requerimiento base:**  
+El sistema debe mostrar al estudiante los porcentajes de evaluación, tipos de actividades y el perfil recomendado para cada curso electivo HAC.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | La descripción del perfil recomendado debe alinearse con la política de inclusión y no discriminación de la Universidad Icesi. | Perfiles redactados con criterios excluyentes pueden generar barreras de acceso implícitas para ciertos grupos de estudiantes. | El sistema debe validar que el texto del perfil recomendado no contenga lenguaje discriminatorio o excluyente antes de publicarse. |
+| **Económico** | La información sobre evaluación influye en la decisión de inscripción del estudiante, lo que afecta la demanda de cupos. | Mostrar datos incorrectos o desactualizados puede generar desequilibrios en la distribución de estudiantes entre cursos. | El sistema debe garantizar que los porcentajes de evaluación estén actualizados antes de publicar o mostrar el catálogo. |
+| **Social** | El perfil recomendado puede ser interpretado como un requisito obligatorio por algunos estudiantes. | Estudiantes que no se identifican con el perfil podrían descartar cursos a los que tienen pleno derecho a acceder. | El sistema debe incluir una nota aclaratoria que indique que el perfil recomendado es orientativo y no excluyente. |
+| **Tecnológico** | Los porcentajes se alimentan desde el repositorio centralizado de cursos. | Un error de datos en el repositorio puede mostrar información errónea de evaluación a todos los estudiantes. | El sistema debe mostrar la fecha de última actualización de la información de cada curso. |
+| **Legal** | La información de evaluación hace parte de la propuesta académica formal del curso. | Mostrar condiciones de evaluación que no correspondan a lo registrado oficialmente puede generar conflictos académicos. | Los porcentajes mostrados deben corresponder exactamente al registro oficial del curso en el sistema académico institucional. |
+| **Ético** | El perfil recomendado puede generar percepciones de inclusión o exclusión según cómo esté redactado. | Una redacción inadecuada puede reforzar estereotipos o desincentivar la participación de ciertos estudiantes. | El sistema debe incluir lineamientos editoriales para que quienes redacten el perfil usen lenguaje inclusivo y neutro. |
+
 
 
 ## RF3.8 — Clasificación automática como nivel MEDIO
