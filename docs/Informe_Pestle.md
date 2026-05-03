@@ -227,3 +227,51 @@ El sistema debe permitir al agente sugerir universidades de destino donde es má
 | Tecnológico | El agente depende del historial de preaprobaciones y del perfil académico del estudiante. | Si los datos históricos están incompletos, el agente puede generar recomendaciones sesgadas o poco precisas. | El sistema debe mostrar el nivel de confianza de cada recomendación y la razón por la cual fue sugerida. |
 | Legal | El agente utiliza datos del perfil académico del estudiante para generar recomendaciones. | Usar datos académicos sin autorización o sin finalidad clara puede incumplir normas de protección de datos. | El sistema debe solicitar autorización para usar el perfil académico del estudiante en recomendaciones personalizadas. |
 | Ético | La IA puede influir mucho en la decisión del estudiante, aunque no sea una autoridad académica. | El estudiante podría asumir que la recomendación es una garantía de homologación futura. | El sistema debe indicar explícitamente que la sugerencia del agente no garantiza aprobación ni equivalencia formal. |
+
+---
+
+## RF5.1 — Autenticar usuarios mediante SSO o Banner
+
+**Requerimiento base:**  
+El sistema debe autenticar usuarios mediante integración con SSO o Banner institucional.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La autenticación debe alinearse con las políticas institucionales de identidad digital de la Universidad Icesi. | Si el sistema permite accesos por mecanismos no oficiales, se pierde control sobre la identidad de los usuarios. | El sistema debe permitir el ingreso únicamente mediante los mecanismos de autenticación institucional autorizados, como SSO o Banner. |
+| Económico | Usar SSO o Banner evita crear un sistema de usuarios independiente desde cero. | Si se duplican cuentas o credenciales, aumenta el esfuerzo de mantenimiento y soporte técnico. | El sistema debe reutilizar la identidad institucional existente para reducir administración manual de usuarios. |
+| Social | Los estudiantes, docentes y administrativos esperan que su información académica esté protegida. | Una autenticación débil puede generar desconfianza en el uso de EduMobility. | El sistema debe mostrar mensajes claros sobre inicio de sesión seguro, cierre de sesión y protección de la cuenta. |
+| Tecnológico | La autenticación depende de la integración con servicios institucionales externos. | Si SSO o Banner fallan, los usuarios podrían no acceder al sistema o quedar bloqueados temporalmente. | El sistema debe manejar errores de autenticación con mensajes claros y registrar técnicamente el incidente. |
+| Legal | La autenticación protege el acceso a datos personales, académicos y documentos sensibles. | Accesos no autorizados pueden generar vulneraciones de privacidad y problemas legales por manejo indebido de información. | El sistema debe impedir el acceso a funcionalidades protegidas cuando el usuario no esté autenticado correctamente. |
+| Ético | Cada usuario debe ingresar con su propia identidad institucional. | Compartir cuentas o ingresar con identidades incorrectas afecta la responsabilidad sobre las acciones realizadas. | El sistema debe asociar toda acción relevante al usuario autenticado que la realiza. |
+
+---
+
+## RF5.2 — Asignar roles y permisos diferenciados
+
+**Requerimiento base:**  
+El sistema debe asignar roles con permisos diferenciados a cada usuario autenticado.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | Los roles deben corresponder a las responsabilidades institucionales de cada usuario dentro del proceso académico. | Si un usuario tiene permisos que no le corresponden, puede intervenir en procesos fuera de su autoridad. | El sistema debe definir permisos diferenciados para estudiante, asistente académica, jefe de departamento, director de programa y administrador. |
+| Económico | Una correcta asignación de roles reduce reprocesos y errores administrativos. | Si los permisos están mal configurados, pueden generarse correcciones manuales, soporte técnico y pérdida de tiempo. | El sistema debe permitir administrar roles de forma controlada y registrar cambios de permisos. |
+| Social | Los estudiantes deben acceder únicamente a su propia información académica y solicitudes. | Un error de permisos puede exponer solicitudes, documentos o estados de otros estudiantes. | El sistema debe permitir que cada estudiante consulte únicamente sus propias solicitudes y documentos asociados. |
+| Tecnológico | El control de permisos debe aplicarse en todos los módulos del sistema. | Si los permisos solo se controlan en la interfaz, un usuario podría intentar acceder por rutas no autorizadas. | El sistema debe validar permisos tanto en la interfaz como en el servidor antes de mostrar, modificar o eliminar información. |
+| Legal | Los permisos protegen datos personales, académicos y documentos adjuntos. | Una mala asignación de roles puede causar acceso indebido a información sensible. | El sistema debe restringir funcionalidades y datos según el rol asignado al usuario autenticado. |
+| Ético | Los roles evitan abusos de poder o decisiones no autorizadas. | Un usuario sin autoridad podría modificar estados, consultar información sensible o influir en decisiones académicas. | El sistema debe registrar auditoría de las acciones realizadas por usuarios con permisos administrativos. |
+
+---
+
+## RF5.3 — Integrarse con Workflow vía API para reconocer el preaprobado como soporte válido
+
+**Requerimiento base:**  
+El sistema debe integrarse con Workflow vía API para que el documento de preaprobado sea reconocido como soporte válido dentro del proceso formal de equivalencias.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | EduMobility complementa Workflow, pero no reemplaza el proceso formal de equivalencias de la universidad. | Si la integración se interpreta como aprobación definitiva, puede haber confusión administrativa entre preaprobación y equivalencia formal. | El sistema debe indicar claramente que el preaprobado generado es un soporte para Workflow y no una equivalencia formal definitiva. |
+| Económico | Una integración correcta reduce reprocesos entre EduMobility y Workflow. | Si el documento no es reconocido correctamente, el estudiante o las áreas administrativas tendrían que repetir trámites o corregir información manualmente. | El sistema debe registrar si el documento de preaprobado fue reconocido correctamente por Workflow. |
+| Social | El estudiante necesita claridad sobre los pasos posteriores después de obtener el preaprobado. | Si no entiende que debe continuar el proceso formal en Workflow, puede creer que su trámite ya terminó. | El sistema debe mostrar instrucciones claras sobre el proceso que continúa en Workflow después de descargar o generar el preaprobado. |
+| Tecnológico | La integración depende de una API institucional y de la disponibilidad de Workflow. | Fallas de comunicación pueden impedir que el documento sea reconocido como soporte válido. | El sistema debe registrar errores de integración con Workflow y permitir reintentar el envío o reconocimiento del documento. |
+| Legal | El documento enviado o reconocido por Workflow contiene información personal y académica sensible. | Una transferencia insegura puede exponer datos del estudiante o alterar información oficial. | El sistema debe enviar la información mediante canales seguros y conservar trazabilidad de la transferencia. |
+| Ético | El sistema debe ser transparente sobre el alcance real de la preaprobación. | Presentar el preaprobado como aprobación final podría inducir al estudiante a tomar decisiones equivocadas. | La interfaz debe aclarar que la aprobación formal final se realiza en Workflow según el procedimiento institucional. |
