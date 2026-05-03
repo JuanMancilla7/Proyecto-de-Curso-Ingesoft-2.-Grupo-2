@@ -164,6 +164,8 @@ El sistema debe mostrar a docentes y coordinadores el promedio general del curso
 | **Tecnológico** | El cálculo de promedios debe ser preciso y reproducible a partir de los datos almacenados. | Un error de cálculo o redondeo puede distorsionar los resultados y generar percepciones equivocadas sobre la calidad del curso. | El sistema debe documentar el método de cálculo de promedios y permitir trazabilidad desde el agregado hasta los datos fuente (anonimizados). |
 | **Legal** | Aunque se muestran promedios agregados, en grupos pequeños puede ser posible inferir respuestas individuales. | La identificación indirecta de estudiantes a través de promedios viola la promesa de anonimato del proceso. | El sistema debe ocultar los promedios cuando el número de respuestas sea inferior al mínimo establecido por la política de privacidad. |
 | **Ético** | El docente puede ver resultados que afecten su autopercepción o motivación sin recibir contexto suficiente. | Mostrar solo números sin orientación puede generar reacciones emocionales negativas y desmotivación. | El sistema debe acompañar los promedios con orientaciones sobre cómo interpretar los resultados y qué acciones son posibles. |
+
+
 # RF2.6 — Mostrar distribución de calificaciones por curso  
 **Requerimiento base:**  
 El sistema debe permitir a docentes y coordinadores ver la distribución de calificaciones para cada curso.
@@ -176,6 +178,19 @@ El sistema debe permitir a docentes y coordinadores ver la distribución de cali
 | **Tecnológico** | La visualización de distribuciones requiere cálculo correcto de frecuencias y representación gráfica adecuada. | Un error en los rangos o agrupaciones puede distorsionar la percepción de la distribución real de calificaciones. | El sistema debe validar que los datos usados para la distribución correspondan exclusivamente a respuestas del período seleccionado. |
 | **Legal** | La distribución puede mostrar patrones que permitan inferir información sobre estudiantes específicos en grupos pequeños. | Mostrar datos que comprometan la anonimización puede constituir una infracción a la política de tratamiento de datos personales. | El sistema debe ocultar automáticamente la distribución si el número de respuestas es inferior al umbral mínimo de anonimidad. |
 | **Ético** | La distribución puede ser usada para comparar cursos o docentes sin tener en cuenta diferencias de contexto. | Una comparación sin contexto puede ser injusta y generar estigmatización de ciertos cursos o áreas académicas. | El sistema debe desaconsejar comparaciones directas entre distribuciones de cursos de diferentes departamentos o semestres. |
+
+# RF2.7 — Mostrar evolución histórica de promedios por semestre 
+**Requerimiento base:**  
+El sistema debe permitir visualizar cómo ha evolucionado el promedio de calificación de un curso a lo largo de varios semestres académicos.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | La tendencia histórica puede usarse como argumento para tomar decisiones sobre continuidad, ajuste o cierre de cursos. | Decisiones basadas en tendencias parciales o mal interpretadas pueden afectar la oferta académica de manera injustificada. | El sistema debe indicar claramente el número de períodos y de respuestas incluidos antes de presentar cualquier tendencia histórica. |
+| **Económico** | El mantenimiento del historial de datos requiere capacidad de almacenamiento y procesamiento a largo plazo. | Un sistema que acumula datos sin depuración puede volverse lento o generar costos crecientes de infraestructura. | El sistema debe definir una política de retención de datos históricos con criterios claros de conservación y depuración. |
+| **Social** | La evolución histórica puede mostrar mejoras o deterioros en la percepción del curso a lo largo del tiempo. | Una tendencia negativa mostrada sin contexto puede generar alarma injustificada en estudiantes que aún no han cursado el curso. | El sistema debe restringir el acceso a la evolución histórica a roles con capacidad de interpretación y acción sobre los datos. |
+| **Tecnológico** | La visualización histórica requiere consistencia en el método de cálculo a través de todos los períodos. | Si el sistema cambió la escala de calificación en algún período, las comparaciones históricas pueden ser inválidas. | El sistema debe registrar y mostrar cualquier cambio metodológico que haya afectado la forma de calcular los promedios históricos. |
+| **Legal** | Los datos históricos pueden contener información de estudiantes que ya no están en la institución. | Conservar y usar datos de ex-estudiantes sin una base legal clara puede incumplir normativas de protección de datos. | El sistema debe aplicar anonimización irreversible a los datos históricos antes de usarlos en cálculos de tendencias. |
+| **Ético** | Las tendencias pueden ser usadas para evaluar docentes a través del tiempo sin un proceso formal de evaluación. | Usar datos de retroalimentación estudiantil como evaluación de desempeño docente sin el marco ético adecuado puede ser injusto. | El sistema debe prohibir explícitamente el uso de la evolución histórica como único insumo para decisiones sobre el docente. |
 
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
