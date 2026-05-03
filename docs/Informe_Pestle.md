@@ -256,6 +256,38 @@ El sistema debe permitir al jefe de departamento emitir la decisión de preaprob
 
 ---
 
+## RF4.1 — Consultar al agente de IA materias previamente preaprobadas en una universidad destino
+
+**Requerimiento base:**  
+El sistema debe permitir que el estudiante consulte al agente de IA qué materias han sido previamente preaprobadas en una universidad destino específica.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | Las respuestas del agente deben respetar los lineamientos institucionales de movilidad académica y equivalencias. | Si el agente presenta información sin aclarar su alcance, el estudiante puede interpretar una preaprobación anterior como una autorización automática. | El agente debe indicar que las materias previamente preaprobadas son antecedentes informativos y no garantizan una nueva aprobación. |
+| Económico | La consulta puede influir en la elección de universidad, cursos externos y planeación de movilidad. | Una respuesta incorrecta puede llevar al estudiante a tomar decisiones que impliquen costos de matrícula, viaje o alojamiento. | El agente debe advertir que la información debe ser confirmada con las áreas académicas antes de tomar decisiones económicas o de movilidad. |
+| Social | Los estudiantes pueden confiar demasiado en la respuesta del agente por estar presentada en lenguaje natural. | Si la respuesta no es clara, puede generar falsas expectativas sobre la facilidad de homologar materias en una universidad destino. | El agente debe responder en lenguaje claro, indicando el curso externo, el curso HAC relacionado y el nivel histórico de compatibilidad cuando esté disponible. |
+| Tecnológico | El agente depende del repositorio de materias previamente preaprobadas. | Si el historial está incompleto, desactualizado o mal registrado, el agente puede entregar información imprecisa. | El agente debe mostrar la fuente o fecha de actualización de la información utilizada para responder. |
+| Legal | El repositorio de preaprobaciones puede contener información académica asociada a solicitudes anteriores. | Si el agente muestra datos personales de estudiantes anteriores, se puede vulnerar la privacidad académica. | El agente debe responder sin revelar nombres, códigos, correos ni datos personales de estudiantes anteriores. |
+| Ético | El agente puede parecer una autoridad académica, aunque solo sea una herramienta de apoyo. | El estudiante podría asumir que la IA tiene capacidad para aprobar equivalencias. | El agente debe aclarar que no toma decisiones académicas y que la aprobación depende de la revisión formal del jefe de departamento. |
+
+---
+
+## RF4.2 — Consultar al agente de IA asignaturas HAC disponibles en una franja horaria
+
+**Requerimiento base:**  
+El sistema debe permitir que el estudiante consulte al agente de IA qué asignaturas electivas HAC están disponibles en una franja horaria específica.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La información de disponibilidad de asignaturas debe estar alineada con la oferta académica oficial del semestre vigente. | Si el agente responde con cursos no ofertados o con horarios no oficiales, puede generar confusión en el proceso de matrícula. | El agente debe consultar únicamente información oficial y vigente sobre la oferta de electivas HAC. |
+| Económico | Una recomendación incorrecta de horarios puede afectar la planeación académica y económica del estudiante. | El estudiante podría organizar su matrícula, transporte o actividades externas con base en información equivocada. | El agente debe indicar que la disponibilidad horaria debe verificarse en el sistema oficial de matrícula antes de tomar una decisión final. |
+| Social | La consulta por franja horaria facilita que estudiantes con restricciones de tiempo encuentren electivas compatibles. | Si la respuesta es incompleta, algunos estudiantes podrían creer que no tienen opciones disponibles cuando sí existen. | El agente debe mostrar todas las opciones disponibles en la franja consultada o indicar claramente cuando no haya resultados. |
+| Tecnológico | El agente depende de datos actualizados sobre horarios, cupos y cursos disponibles. | Si la información no se sincroniza correctamente, la respuesta puede quedar desactualizada. | El sistema debe mostrar la fecha o momento de última actualización de los datos usados por el agente. |
+| Legal | Aunque la consulta es principalmente informativa, puede relacionarse con datos académicos del estudiante si se personaliza la respuesta. | Si se usan datos del perfil académico sin autorización, se puede afectar la privacidad del estudiante. | El sistema debe usar datos personales del estudiante solo cuando sea necesario y con finalidad clara de orientación académica. |
+| Ético | El agente debe evitar presentar una opción como “mejor” sin criterios claros. | Podría orientar al estudiante hacia ciertos cursos sin transparencia, afectando su autonomía de elección. | El agente debe presentar las asignaturas disponibles de forma neutral, sin favorecer cursos específicos salvo que explique el criterio utilizado. |
+
+---
+
 ## RF4.3 — Sugerencia de universidades por parte del agente inteligente
 
 **Requerimiento base:**  
