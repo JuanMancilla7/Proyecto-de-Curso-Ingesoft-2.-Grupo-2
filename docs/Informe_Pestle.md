@@ -72,6 +72,20 @@ El sistema debe mostrar los porcentajes, tipos de evaluación y el perfil recome
 | Ético | El perfil recomendado debe evitar sesgos hacia ciertos programas, habilidades previas o tipos de estudiante. | Una redacción sesgada puede limitar la participación de estudiantes de diferentes carreras o contextos académicos. | El sistema debe incluir una revisión previa del perfil recomendado para evitar lenguaje discriminatorio, excluyente o ambiguo. |
 
 ---
+# RF1.10 — Editar información de un curso existente
+**Requerimiento base:**  
+El sistema debe permitir editar la información de un curso activo en el repositorio, incluyendo contenidos, evaluación y metodología.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | Los cambios en la información del curso deben respetar las decisiones académicas ya tomadas por el departamento. | Ediciones no autorizadas pueden contradecir acuerdos institucionales sobre la metodología o evaluación del curso. | El sistema debe requerir justificación y confirmación del usuario antes de guardar cambios en campos críticos como evaluación y metodología. |
+| **Económico** | Cambios en créditos o evaluación pueden afectar la planeación académica y financiera de estudiantes ya matriculados. | Un estudiante que tomó decisiones basado en información anterior puede verse perjudicado por cambios no notificados. | El sistema debe notificar a los estudiantes activos del curso cuando se realicen cambios en información de evaluación o créditos. |
+| **Social** | Los estudiantes pueden haber elegido el curso basándose en la información publicada originalmente. | Cambios en el perfil o metodología pueden generar inconformidad o sensación de engaño en los estudiantes. | El sistema debe mantener un historial visible de las versiones anteriores de la información del curso. |
+| **Tecnológico** | La edición modifica el registro en el repositorio centralizado que alimenta todas las vistas del sistema. | Un cambio erróneo puede afectar simultáneamente el catálogo, los formularios de homologación y el agente IA. | El sistema debe guardar automáticamente un respaldo de la versión anterior antes de aplicar cualquier cambio. |
+| **Legal** | La información editada puede contradecir compromisos registrados en syllabus oficiales o actas académicas. | Una edición que cambie condiciones de evaluación después del inicio del curso puede tener implicaciones disciplinarias. | El sistema debe impedir cambios en evaluación y créditos durante el período en que el curso está activo con estudiantes matriculados. |
+| **Ético** | Editar información sin trazabilidad puede dar lugar a cambios arbitrarios o no justificados. | La falta de registro de quién modificó qué puede afectar la rendición de cuentas y la confianza en el sistema. | El sistema debe registrar el usuario, fecha, hora y campo modificado en cada operación de edición realizada. |
+
+
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
 
