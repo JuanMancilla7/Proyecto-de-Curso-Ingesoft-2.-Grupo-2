@@ -302,3 +302,19 @@ El sistema debe integrarse con Workflow vía API para que el documento de preapr
 | Tecnológico | La integración depende de una API institucional y de la disponibilidad de Workflow. | Fallas de comunicación pueden impedir que el documento sea reconocido como soporte válido. | El sistema debe registrar errores de integración con Workflow y permitir reintentar el envío o reconocimiento del documento. |
 | Legal | El documento enviado o reconocido por Workflow contiene información personal y académica sensible. | Una transferencia insegura puede exponer datos del estudiante o alterar información oficial. | El sistema debe enviar la información mediante canales seguros y conservar trazabilidad de la transferencia. |
 | Ético | El sistema debe ser transparente sobre el alcance real de la preaprobación. | Presentar el preaprobado como aprobación final podría inducir al estudiante a tomar decisiones equivocadas. | La interfaz debe aclarar que la aprobación formal final se realiza en Workflow según el procedimiento institucional. |
+
+---
+
+## RF5.4 — Consumir datos académicos de Banner para validar el perfil del estudiante
+
+**Requerimiento base:**  
+El sistema debe consumir datos académicos de Banner para validar el perfil del estudiante en procesos de retroalimentación, solicitudes de preaprobación y uso de funcionalidades institucionales.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | Banner es el sistema institucional oficial donde se encuentra la información académica de los estudiantes. | Si EduMobility usa datos no oficiales o desactualizados, puede generar validaciones inconsistentes frente a los procesos académicos de la universidad. | El sistema debe usar Banner como fuente oficial para validar la información académica del estudiante. |
+| Económico | La consulta automática de datos académicos reduce la carga manual de Sara, directores y jefes de departamento. | Si la integración falla, el personal administrativo tendría que revisar información manualmente, aumentando tiempos de respuesta y reprocesos. | El sistema debe registrar fallas de consulta a Banner y permitir revisión administrativa cuando la validación automática no sea posible. |
+| Social | El estudiante espera que su información académica sea usada correctamente para validar su perfil. | Una validación incorrecta puede impedirle registrar retroalimentación, crear solicitudes o avanzar en procesos de preaprobación. | El sistema debe mostrar mensajes claros cuando no sea posible validar el perfil académico del estudiante. |
+| Tecnológico | El consumo de datos depende de la interoperabilidad entre EduMobility y Banner. | Problemas de conexión, datos incompletos o respuestas lentas pueden afectar funciones clave del sistema. | El sistema debe manejar respuestas fallidas, incompletas o tardías de Banner sin perder la información ya registrada por el estudiante. |
+| Legal | Banner contiene datos personales y académicos oficiales del estudiante. | Consultar más información de la necesaria puede incumplir principios de protección de datos y finalidad específica. | El sistema debe consultar únicamente los datos académicos mínimos necesarios para la validación requerida. |
+| Ético | El uso de datos académicos debe ser transparente para el estudiante. | Si el estudiante no sabe qué información se consulta ni para qué se usa, puede desconfiar del sistema. | El sistema debe informar al estudiante qué tipo de datos académicos se consultan desde Banner y con qué finalidad. |
