@@ -198,4 +198,20 @@ Ambas problemáticas comparten la necesidad de un repositorio centralizado de in
 - **RF5.2** El sistema debe asignar a cada usuario autenticado un rol con permisos diferenciados: Estudiante, Asistente Académica, Director de Programa, Jefe de Departamento o Administrador del Sistema.
 - **RF5.3** El sistema debe integrarse con Workflow vía API para que el documento de preaprobado generado sea reconocido como soporte válido en el flujo formal de equivalencias.
 - **RF5.4** El sistema debe consumir datos académicos de Banner (matrícula, cursos cursados) para validar el perfil del estudiante en procesos de retroalimentación y solicitudes.
+  
+---
 
+## Requerimientos No Funcionales
+
+- **RNF1 — Rendimiento:** El catálogo de electivas debe cargarse en menos de 3 segundos bajo condiciones normales de uso.
+- **RNF2 — Disponibilidad:** El sistema debe estar disponible al menos el 99% del tiempo durante los periodos académicos activos (semanas 1 a 16 de cada semestre).
+- **RNF3 — Seguridad de acceso:** El acceso a cada funcionalidad debe estar restringido estrictamente al rol que le corresponde. Un estudiante no puede ver solicitudes de otros estudiantes ni emitir decisiones.
+- **RNF4 — Seguridad de sesión:** Las sesiones de usuario deben expirar automáticamente tras 30 minutos de inactividad.
+- **RNF5 — Protección de datos:** El sistema debe cumplir con la Ley 1581 de 2012 (habeas data) para el tratamiento de información personal de los estudiantes.
+- **RNF6 — Escalabilidad:** El sistema debe soportar el crecimiento del catálogo a 90 o más cursos y el aumento de solicitudes de equivalencia sin degradación del rendimiento.
+- **RNF7 — Compatibilidad:** La aplicación debe funcionar correctamente en Chrome, Firefox y Safari en sus versiones vigentes.
+- **RNF8 — Responsive:** La interfaz debe adaptarse correctamente a dispositivos móviles y tabletas.
+- **RNF9 — Mantenibilidad:** El código debe seguir el patrón de arquitectura MVC y estar documentado para facilitar futuras extensiones de funcionalidad por parte del Grupo SIRI.
+- **RNF10 — Compatibilidad tecnológica:** El stack tecnológico debe ser compatible con Java y TypeScript, siguiendo los estándares institucionales del Grupo SIRI.
+- **RNF11 — Trazabilidad:** Todas las acciones sobre solicitudes de preaprobación deben quedar auditadas con usuario, fecha y hora.
+- **RNF12 — Interoperabilidad:** Los documentos de preaprobado generados deben ser compatibles con el formato aceptado por Workflow para no duplicar el proceso formal de equivalencias.
