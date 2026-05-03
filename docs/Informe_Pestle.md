@@ -98,6 +98,20 @@ El sistema debe permitir desactivar un curso electivo HAC para que deje de apare
 | **Legal** | Un curso desactivado puede estar referenciado en solicitudes de homologación activas o históricas. | Eliminar o desactivar sin trazabilidad puede afectar la validez de documentos académicos generados con ese curso. | El sistema debe impedir la desactivación si el curso tiene solicitudes de homologación activas o pendientes de decisión. |
 | **Ético** | La desactivación sin justificación puede afectar la transparencia del catálogo y la confianza de los estudiantes. | Los estudiantes tienen derecho a saber por qué una oferta académica fue retirada, especialmente si la consultaron previamente. | El sistema debe registrar la fecha, usuario y justificación de cada desactivación como parte del historial del curso. |
 
+# RF2.1 — Registrar calificación general de un curso cursado 
+**Requerimiento base:**  
+El sistema debe permitir al estudiante registrar una calificación general del curso electivo HAC que cursó.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | La calificación registrada puede influir en decisiones institucionales sobre continuidad o ajuste del curso. | Si el proceso de calificación no es transparente, puede cuestionarse la representatividad y validez de los resultados. | El sistema debe publicar los criterios y el uso que se dará a los datos de calificación antes de que el estudiante los registre. |
+| **Económico** | Las calificaciones bajas pueden desincentivar inscripciones futuras y afectar la demanda del curso. | Una disminución de demanda no justificada por calidad real puede generar pérdidas de cupos y recursos docentes. | El sistema debe mostrar promedios solo cuando haya un número mínimo de respuestas suficiente para ser estadísticamente representativo. |
+| **Social** | La calificación refleja la percepción colectiva de los estudiantes sobre la calidad del curso. | Una calificación sesgada o poco representativa puede afectar injustamente la reputación del curso o del docente. | El sistema debe validar que solo estudiantes que hayan cursado y aprobado la asignatura puedan registrar calificación. |
+| **Tecnológico** | Los datos de calificación se almacenan en el sistema y se usan para generar promedios y reportes. | Un error de almacenamiento o cálculo puede generar promedios incorrectos que afecten decisiones académicas. | El sistema debe aplicar validaciones de rango y tipo de dato al momento de registrar la calificación. |
+| **Legal** | La calificación está asociada a la identidad del estudiante autenticado. | El manejo inadecuado de esta asociación puede vulnerar la protección de datos personales del estudiante. | El sistema debe disociar la identidad del estudiante de su calificación en los reportes agregados accesibles a terceros. |
+| **Ético** | El estudiante debe poder calificar con confianza de que su respuesta será anónima frente al docente. | Si el docente puede identificar quién calificó su curso negativamente, puede generarse una relación de poder injusta. | El sistema debe garantizar anonimato técnico efectivo: ningún usuario con rol de docente puede asociar una calificación a un estudiante específico. |
+
+
 
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
