@@ -126,7 +126,18 @@ El sistema debe permitir al estudiante valorar el nivel de desarrollo de cada co
 | **Ético** | La valoración de competencias puede tener implicaciones sobre la percepción del desempeño docente. | Si los docentes sienten que son evaluados a través de esta herramienta sin saberlo, puede erosionar la confianza institucional. | El sistema debe informar claramente a todos los actores el propósito de la valoración y quién puede acceder a los resultados. |
 
 
+# RF2.3 — Registrar comentarios sobre la metodología del curso
+**Requerimiento base:**  
+El sistema debe permitir al estudiante escribir comentarios cualitativos sobre la metodología del curso electivo cursado.
 
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | Los comentarios sobre metodología pueden contener críticas directas a políticas académicas o a decisiones institucionales. | Comentarios sin moderación pueden generar controversias públicas si se divulgan sin control adecuado. | El sistema debe definir una política clara de uso y acceso a los comentarios, con visibilidad restringida a roles autorizados. |
+| **Económico** | El proceso de moderación de comentarios implica recursos humanos y tecnológicos. | Sin moderación, comentarios inapropiados pueden requerir gestión de crisis que consume más recursos que la moderación preventiva. | El sistema debe incluir un mecanismo automático de detección de contenido inapropiado como primer filtro antes de la revisión manual. |
+| **Social** | Los comentarios cualitativos son el canal más valioso de retroalimentación para el mejoramiento docente. | Si los estudiantes sienten que sus comentarios no tienen efecto, perderán motivación para completar el formulario. | El sistema debe garantizar que los comentarios lleguen a quienes tienen capacidad de actuar sobre ellos, con mecanismos de seguimiento. |
+| **Tecnológico** | El campo de texto libre puede recibir contenido muy variado en longitud, idioma y tipo. | Sin límites o validaciones, el sistema puede recibir contenido que exceda capacidades de almacenamiento o procesamiento. | El sistema debe establecer un límite de caracteres razonable y un formato de almacenamiento seguro para los comentarios. |
+| **Legal** | Los comentarios pueden contener datos personales de terceros (compañeros, docentes) o información sensible. | Un comentario que identifique a una persona o divulgue información privada puede constituir una violación de privacidad. | El sistema debe incluir un aviso explícito antes del campo indicando que no se deben incluir datos personales de terceros. |
+| **Ético** | El anonimato en los comentarios debe ser real y no solo declarado. | Si un docente puede inferir quién escribió un comentario por el contexto, el anonimato declarado no protege al estudiante. | El sistema debe implementar anonimización efectiva y no almacenar metadatos que permitan asociar un comentario a un estudiante específico. |
 
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
