@@ -57,6 +57,38 @@
 # Análisis PESTLE de Requerimientos Funcionales Seleccionados
 
 
+
+## RF1.3 — Mostrar porcentajes, tipos de evaluación y perfil recomendado del estudiante
+
+**Requerimiento base:**  
+El sistema debe mostrar los porcentajes, tipos de evaluación y el perfil recomendado del estudiante para cada curso electivo HAC.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La información sobre evaluación y perfil recomendado debe estar alineada con las políticas académicas del área HAC y de la Universidad Icesi. | Si cada curso presenta criterios de evaluación o perfiles de forma diferente, los estudiantes podrían recibir información poco estandarizada para tomar decisiones de matrícula. | El sistema debe mostrar los porcentajes, tipos de evaluación y perfil recomendado usando una estructura institucional estandarizada. |
+| Social | El perfil recomendado puede influir en la decisión del estudiante al momento de elegir una electiva. | Si el perfil se redacta de forma excluyente, algunos estudiantes podrían pensar que no son aptos para cursar una asignatura, aunque sí puedan matricularla. | El sistema debe presentar el perfil recomendado como una orientación académica y no como una restricción obligatoria para el estudiante. |
+| Tecnológico | La información de evaluación y perfil debe mantenerse actualizada en la ficha de cada curso. | Si el sistema muestra datos desactualizados, el estudiante puede matricular una asignatura con expectativas equivocadas sobre metodología o evaluación. | El sistema debe registrar la fecha de última actualización de los criterios de evaluación y del perfil recomendado de cada curso. |
+| Legal | La información publicada puede ser usada por el estudiante como referencia para su proceso académico. | Si la información no coincide con el syllabus oficial, podría generar reclamos por inconsistencia entre lo publicado y lo aplicado en clase. | El sistema debe permitir que la información de evaluación publicada esté vinculada al syllabus oficial vigente del curso. |
+| Ético | El perfil recomendado debe evitar sesgos hacia ciertos programas, habilidades previas o tipos de estudiante. | Una redacción sesgada puede limitar la participación de estudiantes de diferentes carreras o contextos académicos. | El sistema debe incluir una revisión previa del perfil recomendado para evitar lenguaje discriminatorio, excluyente o ambiguo. |
+
+---
+
+## RF1.9 — Crear un nuevo curso en el repositorio centralizado
+
+**Requerimiento base:**  
+El sistema debe permitir crear un nuevo curso en el repositorio centralizado de cursos electivos HAC.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La creación de cursos debe responder a la estructura académica oficial del área HAC y sus departamentos HUM, HTC y CRE. | Si se crean cursos sin relación clara con un departamento o sin aprobación académica, el catálogo puede perder validez institucional. | El sistema debe exigir que todo nuevo curso quede asociado a un departamento académico válido y a un responsable autorizado. |
+| Económico | La creación de cursos en el repositorio puede reducir carga administrativa al centralizar la información académica. | Si la información se registra incompleta o incorrecta, se generan reprocesos y pérdida de tiempo para coordinadores y administradores. | El sistema debe validar campos obligatorios antes de permitir guardar un nuevo curso en el repositorio. |
+| Social | La información creada será consultada por estudiantes para tomar decisiones de matrícula. | Un curso mal registrado puede confundir al estudiante sobre contenidos, metodología, competencias o perfil recomendado. | El sistema debe mostrar una vista previa del curso antes de publicarlo en el catálogo estudiantil. |
+| Tecnológico | El repositorio centralizado depende de datos consistentes para búsquedas, filtros y visualización. | Si los cursos se crean con nombres duplicados, departamentos incorrectos o campos vacíos, se afecta la calidad del catálogo. | El sistema debe validar duplicados y consistencia de datos antes de crear un nuevo curso. |
+| Legal | La creación de un curso puede incluir información académica oficial y recursos asociados. | Publicar información no autorizada o no revisada puede generar inconsistencias institucionales. | El sistema debe permitir publicar un curso solo cuando haya sido revisado por un usuario con rol autorizado. |
+| Ético | La información del curso debe ser clara y honesta frente a lo que realmente ofrece la asignatura. | Si se presenta el curso de forma exagerada o imprecisa, el estudiante puede tomar una decisión basada en información poco confiable. | El sistema debe exigir que la descripción del curso sea académica, verificable y coherente con el syllabus vigente. |
+
+---
+
 ## RF3.8 — Clasificación automática como nivel MEDIO
 
 **Requerimiento base:**  
