@@ -215,3 +215,25 @@ Ambas problemáticas comparten la necesidad de un repositorio centralizado de in
 - **RNF10 — Compatibilidad tecnológica:** El stack tecnológico debe ser compatible con Java y TypeScript, siguiendo los estándares institucionales del Grupo SIRI.
 - **RNF11 — Trazabilidad:** Todas las acciones sobre solicitudes de preaprobación deben quedar auditadas con usuario, fecha y hora.
 - **RNF12 — Interoperabilidad:** Los documentos de preaprobado generados deben ser compatibles con el formato aceptado por Workflow para no duplicar el proceso formal de equivalencias.
+
+---
+
+## Requerimientos de Proceso
+
+- **RP1 — Sprints:** El desarrollo se realizará en sprints iterativos de 3 semanas. El Sprint 1 corresponde a la Semana 12, con fecha del 2 de mayo de 2026, y tiene como entregable el SRS completo. El Sprint 2 corresponde a la Semana 15, con fecha del 23 de mayo de 2026, y tiene como entregable los casos de uso y los formatos bicolumnares. Finalmente, las sustentaciones se realizarán en la Semana 16.
+
+- **RP2 — Control de versiones:** El código fuente del proyecto debe gestionarse en el repositorio GitHub compartido del equipo. Cada integrante debe realizar commits individuales que evidencien su aporte al desarrollo y documentación del proyecto.
+
+- **RP3 — Gitflow:** Cada commit debe realizarse siguiendo la metodología Gitflow, diferenciando ramas de desarrollo, funcionalidades y releases. Para esto, el equipo debe trabajar con ramas como *`develop`, `feature`, `release` y `main`*, evitando realizar cambios directamente sobre la rama principal.
+
+- **RP4 — Uso de IAG:** El uso de herramientas de Inteligencia Artificial Generativa debe documentarse mediante un registro de prompts utilizados y contenido de autoría propia aportado por los integrantes. Todo contenido generado o asistido con IAG debe citarse explícitamente en el documento correspondiente.
+
+- **RP5 — Configurabilidad:** Los criterios de aprobación de equivalencias, como la coincidencia de competencias y la conversión de créditos entre sistemas internacionales, deben ser configurables por el jefe de departamento sin necesidad de realizar cambios en el código fuente.
+
+- **RP6 — Complementariedad con Workflow:** EduMobility debe funcionar como un complemento al proceso formal de Workflow. El preaprobado generado por el sistema tiene carácter de soporte académico previo; sin embargo, la equivalencia formal se tramita en Workflow cuando el estudiante regresa de su movilidad. El sistema no debe interferir con ese proceso institucional.
+
+- **RP7 — Criterios administrativos:** Los criterios administrativos del proceso de movilidad, como requisitos formales y plazos, deben consultarse con la Oficina de Admisiones Académicas de Icesi. Estos criterios no serán gestionados directamente por EduMobility.
+
+- **RP8 — Integración vía API:** Las integraciones con Banner y Workflow deben realizarse vía API, siguiendo el modelo establecido por el Grupo SIRI. Además, deben coordinarse con la Oficina de Admisiones Académicas para definir correctamente los flujos de información entre los sistemas.
+
+- **RP9 — Documentación técnica:** La documentación técnica del sistema, incluyendo el SRS, diagramas, mockups, casos de uso y formatos bicolumnares, debe mantenerse actualizada en el repositorio GitHub del proyecto.
