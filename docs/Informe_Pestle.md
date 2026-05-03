@@ -1,0 +1,104 @@
+# Evaluación de Requerimientos Funcionales para Análisis PESTLE
+
+
+| RF | Requerimiento funcional resumido | ¿Necesita análisis PESTLE? | Nivel sugerido | Comentario / justificación |
+|---|---|---|---|---|
+| RF1.1 | Mostrar catálogo navegable de cursos electivos activos HAC | No | No aplica | Es una función principalmente informativa y pública. No toma decisiones ni usa datos sensibles de estudiantes. |
+| RF1.2 | Mostrar contenidos temáticos y metodología del curso | No | No aplica | Solo presenta información académica del curso. Puede requerir buena redacción y actualización, pero no un análisis PESTLE profundo. |
+| RF1.3 | Mostrar porcentajes, tipos de evaluación y perfil recomendado del estudiante | Sí | Medio | Puede influir en la decisión del estudiante al elegir una electiva. El “perfil recomendado” debe revisarse para evitar mensajes excluyentes o sesgados. |
+| RF1.4 | Mostrar competencias transversales desarrolladas por la asignatura | No | No aplica | Es información académica general. No usa datos personales ni decide sobre usuarios. |
+| RF1.5 | Mostrar video introductorio del docente | No | No aplica | Es un recurso multimedia informativo. Se puede revisar accesibilidad, pero no requiere PESTLE profundo. |
+| RF1.6 | Filtrar catálogo por departamento | No | No aplica | Es una herramienta de búsqueda simple. No afecta derechos, datos sensibles ni decisiones institucionales. |
+| RF1.7 | Filtrar catálogo por competencia transversal | No | No aplica | Facilita la navegación del catálogo. No representa riesgo social, legal o ético importante. |
+| RF1.8 | Buscar cursos por palabras clave | No | No aplica | Es una funcionalidad de consulta. No toma decisiones ni procesa información sensible. |
+| RF1.9 | Crear un nuevo curso en el repositorio centralizado | Sí | Medio | La información creada puede afectar la elección académica de los estudiantes. Si se registra mal, puede generar desinformación. |
+| RF1.10 | Editar información de un curso existente | Sí | Medio | Cambios incorrectos en contenidos, evaluación o metodología pueden afectar decisiones de matrícula y confianza en el sistema. |
+| RF1.11 | Desactivar un curso del catálogo | Sí | Medio | Puede afectar la disponibilidad visible de asignaturas y la planeación académica de los estudiantes. Debe tener justificación y trazabilidad. |
+| RF1.12 | Cargar y actualizar recursos multimedia asociados a un curso | No | No aplica | Es una función administrativa sobre recursos. No impacta directamente decisiones sobre personas, aunque debe cumplir criterios de accesibilidad. |
+| RF2.1 | Registrar calificación general de un curso cursado | Sí | Medio | Usa información asociada a un estudiante autenticado y puede influir en la percepción institucional del curso. Requiere privacidad y uso responsable. |
+| RF2.2 | Valorar competencias transversales del curso | Sí | Medio | Genera datos evaluativos sobre cursos y competencias. Puede afectar decisiones de mejora curricular o evaluación docente. |
+| RF2.3 | Registrar comentarios sobre la metodología del curso | Sí | Alto | Los comentarios pueden contener opiniones sensibles, datos personales o lenguaje inadecuado. Requiere control de privacidad y moderación. |
+| RF2.4 | Validar que el estudiante haya cursado la asignatura | Sí | Alto | Consume datos académicos del estudiante y restringe el acceso al formulario. Debe garantizarse que la validación sea justa y correcta. |
+| RF2.5 | Mostrar promedio general y por competencia a docentes/coordinadores | Sí | Medio | Aunque se muestran datos agregados, puede impactar la evaluación del curso o del docente. Debe evitarse la identificación indirecta de estudiantes. |
+| RF2.6 | Mostrar distribución de calificaciones por curso | Sí | Medio | En grupos pequeños podría permitir inferir respuestas individuales. Requiere cuidado con anonimización y representación estadística. |
+| RF2.7 | Mostrar evolución histórica de promedios por semestre | Sí | Medio | Usa datos acumulados en el tiempo. Puede influir en decisiones académicas sobre cursos y docentes, por eso debe revisarse su interpretación. |
+| RF3.1 | Registrar nombre y país de universidad destino | Sí | Alto | Maneja información personal y académica relacionada con movilidad del estudiante. Requiere protección de datos y finalidad clara. |
+| RF3.2 | Indicar si la movilidad es nacional o internacional | Sí | Medio | Es información académica del proceso de movilidad. Puede afectar rutas de revisión o criterios aplicados. |
+| RF3.3 | Registrar nombre del curso externo y créditos | Sí | Medio | La información se usa para evaluar equivalencias. Un error puede afectar la preaprobación académica. |
+| RF3.4 | Seleccionar curso HAC al que se desea equivaler | Sí | Medio | Forma parte de una decisión académica que puede afectar el avance del estudiante en su plan de estudios. |
+| RF3.5 | Adjuntar syllabus del curso externo | Sí | Alto | Procesa documentos académicos externos que pueden estar en otros idiomas y contener información institucional. Debe revisarse privacidad, almacenamiento y validez. |
+| RF3.6 | Adjuntar documentación adicional de apoyo | Sí | Alto | Puede incluir información personal o académica sensible. Requiere límites claros, seguridad y control de acceso. |
+| RF3.7 | Clasificar automáticamente solicitud como nivel ALTO | Sí | Alto | Es una clasificación automática que puede influir en la revisión. Debe evitar sesgos y explicar por qué se asigna ese nivel. |
+| RF3.8 | Clasificar automáticamente solicitud como nivel MEDIO | Sí | Alto | Usa análisis automático del syllabus y competencias. Puede afectar la prioridad o percepción de viabilidad de la solicitud. |
+| RF3.9 | Clasificar automáticamente solicitud como nivel BAJO | Sí | Alto | Puede perjudicar al estudiante si la clasificación es incorrecta. Requiere revisión humana y posibilidad de corrección. |
+| RF3.10 | Mantener repositorio de materias externas previamente preaprobadas | Sí | Alto | Almacena historial académico y decisiones previas. Debe garantizar trazabilidad, actualización y protección de datos. |
+| RF3.11 | Sara consulta listado de solicitudes activas y estado actual | Sí | Alto | Permite acceso a información de estudiantes y solicitudes activas. Requiere permisos claros y control de privacidad. |
+| RF3.12 | Sara verifica si la documentación adjunta está completa | Sí | Medio | Puede afectar el avance de una solicitud. Debe evitar errores que retrasen injustamente al estudiante. |
+| RF3.13 | Sara registra observaciones de acompañamiento | Sí | Medio | Las observaciones quedan asociadas a una solicitud estudiantil. Deben ser respetuosas, claras y no discriminatorias. |
+| RF3.14 | Jefe de departamento consulta detalle completo de solicitud | Sí | Alto | Involucra acceso a datos del estudiante, syllabus, clasificación automática y documentos adjuntos. Requiere seguridad y trazabilidad. |
+| RF3.15 | Jefe de departamento emite decisión: Aprobado, Rechazado o Requiere información adicional | Sí | Alto | Es una decisión académica directa sobre el estudiante. Debe ser justa, transparente y sustentada. |
+| RF3.16 | Exigir observaciones cuando la decisión sea Rechazado o Requiere información adicional | Sí | Alto | Garantiza explicación al estudiante y evita decisiones arbitrarias. Es clave para transparencia y confianza. |
+| RF3.17 | Estudiante consulta estado e historial de sus solicitudes | Sí | Alto | Maneja información personal y académica del estudiante. Debe garantizar acceso solo al titular y claridad del estado. |
+| RF3.18 | Sara y jefe filtran historial por estado, universidad, curso y fechas | Sí | Alto | Permite consultar historial sensible de solicitudes. Requiere control de acceso, uso justificado y protección de datos. |
+| RF3.19 | Registrar fecha, hora y usuario responsable en cada cambio de estado | Sí | Alto | Es fundamental para auditoría y trazabilidad. Ayuda a responder ante reclamos o revisiones institucionales. |
+| RF3.20 | Notificar por correo cuando la solicitud cambie a Aprobado o Rechazado | Sí | Medio | Comunica decisiones académicas sensibles. Debe cuidar privacidad, claridad del mensaje y evitar exposición indebida por correo. |
+| RF3.21 | Notificar cuando la solicitud requiera información adicional | Sí | Medio | Impacta el avance del trámite del estudiante. Debe indicar claramente qué falta para evitar retrasos o confusiones. |
+| RF3.22 | Generar PDF de preaprobado descargable por el estudiante | Sí | Alto | Produce un documento académico oficial de soporte. Debe ser seguro, verificable y compatible con el flujo institucional. |
+| RF3.23 | Incluir datos del estudiante, universidad, curso externo, curso HAC, decisión y fecha en el PDF | Sí | Alto | El documento contiene datos personales y académicos sensibles. Debe cumplir protección de datos y evitar divulgación indebida. |
+| RF4.1 | Consultar al agente de IA materias previamente preaprobadas en una universidad destino | Sí | Alto | El agente usa historial de preaprobaciones y puede influir en decisiones de movilidad. Debe entregar información confiable y no inventada. |
+| RF4.2 | Consultar al agente de IA asignaturas HAC disponibles en una franja horaria | Sí | Medio | Aunque es consulta informativa, al ser IA puede generar respuestas incorrectas que afecten la matrícula del estudiante. Requiere validación de fuente. |
+| RF4.3 | Agente sugiere universidades donde es más factible homologar créditos según historial y perfil | Sí | Alto | Toma una recomendación automatizada sobre decisiones académicas y de movilidad. Usa perfil del estudiante y puede generar sesgos o exclusión. |
+| RF5.1 | Autenticar usuarios mediante SSO o Banner | Sí | Alto | Maneja identidad institucional y acceso al sistema. Requiere seguridad, privacidad y cumplimiento de políticas institucionales. |
+| RF5.2 | Asignar roles y permisos diferenciados | Sí | Alto | Define quién puede ver, modificar o decidir sobre información académica. Un error puede exponer datos o permitir decisiones no autorizadas. |
+| RF5.3 | Integrarse con Workflow vía API para reconocer el preaprobado como soporte válido | Sí | Alto | Conecta con el proceso formal institucional. Debe garantizar interoperabilidad, validez del documento y no interferir con Workflow. |
+| RF5.4 | Consumir datos académicos de Banner para validar perfil, retroalimentación y solicitudes | Sí | Alto | Usa datos académicos oficiales del estudiante. Requiere protección de datos, consentimiento, seguridad y uso limitado a la finalidad definida. |
+
+
+# Análisis PESTLE de Requerimientos Funcionales Seleccionados
+
+
+## RF3.8 — Clasificación automática como nivel MEDIO
+
+**Requerimiento base:**  
+El sistema debe clasificar automáticamente cada solicitud como nivel MEDIO cuando el análisis del syllabus externo muestra alta coincidencia con las competencias del curso HAC propuesto.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La clasificación automática debe respetar las políticas académicas internas de la Universidad Icesi sobre equivalencias y movilidad académica. | Si el sistema clasifica una solicitud sin criterios alineados con la institución, puede generar decisiones poco transparentes o inconsistentes frente a estudiantes y directivos. | El sistema debe mostrar los criterios institucionales utilizados para clasificar una solicitud como nivel MEDIO. |
+| Económico | La automatización puede reducir carga operativa para Sara y los jefes de departamento. | Si la clasificación automática falla, se pueden generar reprocesos, revisiones adicionales y pérdida de tiempo administrativo. | El sistema debe permitir que el jefe de departamento corrija manualmente la clasificación automática cuando encuentre inconsistencias. |
+| Social | Los syllabus externos pueden variar mucho según país, idioma, formato o universidad. | Estudiantes de ciertas universidades podrían quedar en desventaja si el sistema interpreta peor sus documentos por diferencias de formato o idioma. | El sistema debe permitir adjuntar aclaraciones o traducciones de apoyo cuando el análisis automático no sea suficiente. |
+| Tecnológico | El sistema depende de un análisis automático del syllabus y de la comparación con competencias del curso HAC. | Si el algoritmo no está bien calibrado, puede clasificar solicitudes con coincidencia real como si fueran menos compatibles. | El sistema debe registrar el porcentaje de coincidencia, los criterios comparados y una explicación básica de la clasificación generada. |
+| Legal | El syllabus y la solicitud pueden estar asociados a información académica del estudiante. | Un manejo incorrecto de los documentos puede vulnerar la protección de datos personales y académicos. | El sistema debe almacenar los syllabus y resultados de análisis con acceso restringido solo a usuarios autorizados. |
+| Ético | La clasificación automática puede influir en la percepción del evaluador, aunque no sea una decisión final. | El jefe de departamento podría confiar demasiado en el sistema y no revisar el caso con suficiente criterio académico. | El sistema debe indicar claramente que la clasificación automática es solo una ayuda preliminar y no reemplaza la revisión humana. |
+
+---
+
+## RF3.15 — Decisión de preaprobado por parte del jefe de departamento
+
+**Requerimiento base:**  
+El sistema debe permitir al jefe de departamento emitir la decisión de preaprobado: Aprobado, Rechazado o Requiere información adicional.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La decisión de preaprobado debe ajustarse a las políticas académicas de movilidad y equivalencias de la universidad. | Si cada jefe decide con criterios diferentes, el proceso puede verse arbitrario o poco confiable. | El sistema debe mostrar al jefe de departamento los criterios institucionales de evaluación antes de emitir una decisión. |
+| Económico | Una decisión incorrecta puede afectar la planeación académica y económica del estudiante en movilidad. | El estudiante podría inscribirse en un curso externo que luego no le sea reconocido, generando pérdida de dinero, tiempo y créditos. | El sistema debe solicitar confirmación final antes de guardar una decisión de Aprobado o Rechazado. |
+| Social | La decisión impacta directamente la trayectoria académica del estudiante. | Un rechazo sin explicación clara puede generar frustración, sensación de injusticia o desconfianza hacia el área HAC. | El sistema debe exigir una justificación clara y comprensible cuando la decisión sea Rechazado o Requiere información adicional. |
+| Tecnológico | El jefe depende de que el sistema muestre correctamente los datos del estudiante, curso externo, syllabus y clasificación automática. | Si la información se carga incompleta o desordenada, la decisión puede tomarse con base en datos incorrectos. | El sistema debe validar que la solicitud tenga todos los documentos obligatorios antes de permitir emitir una decisión final. |
+| Legal | La decisión debe quedar registrada para efectos de trazabilidad académica. | Si no queda evidencia de quién decidió, cuándo y por qué, la universidad tendría dificultades para responder ante reclamos. | El sistema debe guardar usuario, fecha, hora, estado anterior, nuevo estado y observaciones de cada decisión emitida. |
+| Ético | El estudiante tiene derecho a conocer la razón de una decisión que afecta su proceso académico. | Una decisión sin explicación puede sentirse injusta, incluso si académicamente está bien sustentada. | El sistema debe permitir que el estudiante consulte la decisión y su justificación desde su historial de solicitudes. |
+
+---
+
+## RF4.3 — Sugerencia de universidades por parte del agente inteligente
+
+**Requerimiento base:**  
+El sistema debe permitir al agente sugerir universidades de destino donde es más factible homologar créditos, basándose en el historial de preaprobaciones y el perfil del estudiante.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | Las recomendaciones del agente deben respetar los lineamientos institucionales de movilidad académica. | Si el agente sugiere universidades sin considerar restricciones institucionales, podría orientar mal al estudiante. | El agente solo debe sugerir universidades que estén alineadas con las políticas y convenios académicos vigentes de la universidad. |
+| Económico | La sugerencia puede influir en una decisión de movilidad que implica costos de viaje, matrícula, alojamiento y sostenimiento. | Una recomendación poco confiable puede llevar al estudiante a tomar una decisión costosa basada en información incompleta. | El sistema debe aclarar que la recomendación es orientativa y que el estudiante debe validar costos y requisitos con las áreas correspondientes. |
+| Social | El agente podría favorecer universidades con más historial de preaprobaciones y dejar por fuera opciones menos frecuentes. | Estudiantes interesados en destinos nuevos o menos comunes podrían recibir menos apoyo o recomendaciones limitadas. | El sistema debe permitir mostrar también opciones nuevas o no frecuentes, indicando que tienen menor historial y requieren revisión adicional. |
+| Tecnológico | El agente depende del historial de preaprobaciones y del perfil académico del estudiante. | Si los datos históricos están incompletos, el agente puede generar recomendaciones sesgadas o poco precisas. | El sistema debe mostrar el nivel de confianza de cada recomendación y la razón por la cual fue sugerida. |
+| Legal | El agente utiliza datos del perfil académico del estudiante para generar recomendaciones. | Usar datos académicos sin autorización o sin finalidad clara puede incumplir normas de protección de datos. | El sistema debe solicitar autorización para usar el perfil académico del estudiante en recomendaciones personalizadas. |
+| Ético | La IA puede influir mucho en la decisión del estudiante, aunque no sea una autoridad académica. | El estudiante podría asumir que la recomendación es una garantía de homologación futura. | El sistema debe indicar explícitamente que la sugerencia del agente no garantiza aprobación ni equivalencia formal. |
