@@ -139,6 +139,20 @@ El sistema debe permitir al estudiante escribir comentarios cualitativos sobre l
 | **Legal** | Los comentarios pueden contener datos personales de terceros (compañeros, docentes) o información sensible. | Un comentario que identifique a una persona o divulgue información privada puede constituir una violación de privacidad. | El sistema debe incluir un aviso explícito antes del campo indicando que no se deben incluir datos personales de terceros. |
 | **Ético** | El anonimato en los comentarios debe ser real y no solo declarado. | Si un docente puede inferir quién escribió un comentario por el contexto, el anonimato declarado no protege al estudiante. | El sistema debe implementar anonimización efectiva y no almacenar metadatos que permitan asociar un comentario a un estudiante específico. |
 
+# RF2.4 — Validar que el estudiante haya cursado la asignatura
+**Requerimiento base:**  
+El sistema debe verificar en Banner que el estudiante autenticado haya cursado efectivamente el curso antes de permitirle acceder al formulario de retroalimentación.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | La validación consume datos académicos oficiales de Banner, sistema de gestión institucional. | Una falla en la integración puede impedir que estudiantes válidos retroalimenten, reduciendo la representatividad de los datos. | El sistema debe implementar un mecanismo alternativo de validación manual cuando la conexión con Banner no esté disponible. |
+| **Económico** | La validación automatizada evita el costo de revisión manual de elegibilidad para retroalimentar. | Si la validación falla y permite retroalimentación a quienes no cursaron, los datos pierden valor y requieren depuración costosa. | El sistema debe registrar los intentos de acceso no validados para permitir auditoría posterior si se detectan irregularidades. |
+| **Social** | La validación garantiza que solo quien vivió la experiencia del curso pueda calificarlo. | Una validación incorrecta puede excluir a estudiantes que sí cursaron, generando frustración y desconfianza en el proceso. | El sistema debe ofrecer un canal de reporte para que el estudiante informe si considera que la validación es incorrecta. |
+| **Tecnológico** | La validación depende de la disponibilidad y calidad de los datos en Banner. | Datos desactualizados en Banner pueden generar validaciones incorrectas, tanto en falsos positivos como en falsos negativos. | El sistema debe indicar claramente al estudiante cuándo no pudo verificar su elegibilidad y cuál es el paso a seguir. |
+| **Legal** | El proceso de validación accede a datos académicos del estudiante sin su intervención directa. | Un acceso no autorizado o mal delimitado a los datos de Banner puede constituir una violación a la política de protección de datos. | El sistema debe acceder a Banner únicamente con los permisos mínimos necesarios para la validación de cursado de la asignatura. |
+| **Ético** | La restricción de acceso basada en validación automatizada puede resultar injusta si el algoritmo falla. | Un estudiante que cursó el curso pero es rechazado por error técnico pierde su derecho a retroalimentar, sin posibilidad de recurso. | El sistema debe garantizar un proceso de apelación claro y accesible para estudiantes que sean bloqueados incorrectamente. |
+
+
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
 
