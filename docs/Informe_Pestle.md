@@ -85,6 +85,19 @@ El sistema debe permitir editar la información de un curso activo en el reposit
 | **Legal** | La información editada puede contradecir compromisos registrados en syllabus oficiales o actas académicas. | Una edición que cambie condiciones de evaluación después del inicio del curso puede tener implicaciones disciplinarias. | El sistema debe impedir cambios en evaluación y créditos durante el período en que el curso está activo con estudiantes matriculados. |
 | **Ético** | Editar información sin trazabilidad puede dar lugar a cambios arbitrarios o no justificados. | La falta de registro de quién modificó qué puede afectar la rendición de cuentas y la confianza en el sistema. | El sistema debe registrar el usuario, fecha, hora y campo modificado en cada operación de edición realizada. |
 
+# RF1.11 — Desactivar un curso del catálogo  
+**Requerimiento base:**  
+El sistema debe permitir desactivar un curso electivo HAC para que deje de aparecer en el catálogo visible por los estudiantes.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | La desactivación de un curso puede afectar la oferta académica publicada y compromisos institucionales. | Desactivar un curso sin coordinación con el área académica puede generar conflictos con la planeación de la universidad. | El sistema debe requerir que la desactivación sea aprobada o validada por el coordinador académico antes de ejecutarse. |
+| **Económico** | La desactivación elimina el curso de la vista de los estudiantes, reduciendo opciones de matrícula. | Si un estudiante planificaba tomar el curso en el siguiente semestre, la desactivación sin aviso puede afectar su plan de estudios. | El sistema debe notificar con anticipación a los estudiantes que tienen el curso guardado como favorito o en su plan académico. |
+| **Social** | La desaparición de un curso del catálogo puede generar confusión o preguntas entre los estudiantes. | Si la desactivación no tiene comunicación visible, los estudiantes pueden pensar que el sistema tiene errores. | El sistema debe mostrar una razón de desactivación a los usuarios con rol administrativo cuando consulten el historial del curso. |
+| **Tecnológico** | La desactivación debe reflejarse en todas las vistas del sistema sin afectar registros históricos. | Si el sistema elimina el registro en lugar de desactivarlo, se puede perder información histórica de homologaciones asociadas. | El sistema debe implementar desactivación lógica (no eliminación física) para preservar la integridad del historial de solicitudes. |
+| **Legal** | Un curso desactivado puede estar referenciado en solicitudes de homologación activas o históricas. | Eliminar o desactivar sin trazabilidad puede afectar la validez de documentos académicos generados con ese curso. | El sistema debe impedir la desactivación si el curso tiene solicitudes de homologación activas o pendientes de decisión. |
+| **Ético** | La desactivación sin justificación puede afectar la transparencia del catálogo y la confianza de los estudiantes. | Los estudiantes tienen derecho a saber por qué una oferta académica fue retirada, especialmente si la consultaron previamente. | El sistema debe registrar la fecha, usuario y justificación de cada desactivación como parte del historial del curso. |
+
 
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
