@@ -112,6 +112,21 @@ El sistema debe permitir al estudiante registrar una calificación general del c
 | **Ético** | El estudiante debe poder calificar con confianza de que su respuesta será anónima frente al docente. | Si el docente puede identificar quién calificó su curso negativamente, puede generarse una relación de poder injusta. | El sistema debe garantizar anonimato técnico efectivo: ningún usuario con rol de docente puede asociar una calificación a un estudiante específico. |
 
 
+# RF2.2 — Valorar competencias transversales del curso  
+**Requerimiento base:**  
+El sistema debe permitir al estudiante valorar el nivel de desarrollo de cada competencia transversal trabajada en el curso electivo cursado.
+
+| Dimensión   | Hallazgo                                                                 | Impacto                                                                 | Requerimiento derivado                                                                 |
+|-------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **Político** | Los resultados de valoración por competencias pueden usarse para evaluar el cumplimiento del modelo pedagógico institucional. | Si la valoración no está alineada con los descriptores oficiales de competencias, los datos pueden ser mal interpretados. | El sistema debe mostrar una descripción clara de cada competencia al momento de valorarla para garantizar respuestas coherentes. |
+| **Económico** | Los datos de valoración pueden usarse para justificar ajustes curriculares que implican recursos. | Datos poco confiables o sesgados pueden llevar a inversiones curriculares innecesarias o a descuidar áreas que sí lo necesitan. | El sistema debe distinguir entre cursos con alta y baja tasa de respuesta al mostrar los resultados de valoración por competencia. |
+| **Social** | La valoración de competencias retroalimenta directamente el diseño pedagógico de los cursos. | Si los estudiantes no comprenden qué se les pregunta, las valoraciones serán inconsistentes y poco útiles. | El sistema debe ofrecer ejemplos concretos de lo que significa cada nivel de valoración en una escala descriptiva. |
+| **Tecnológico** | Los datos se agregan para generar reportes de cumplimiento por competencia en cada curso. | Un error en la agregación puede mostrar resultados incorrectos que afecten decisiones de diseño curricular. | El sistema debe separar el almacenamiento de valoraciones individuales del cálculo de promedios para facilitar auditorías. |
+| **Legal** | Los datos de valoración están vinculados a cursos específicos y pueden relacionarse indirectamente con docentes. | Usar datos de valoración de competencias para evaluar desempeño docente sin un marco legal claro puede generar conflictos laborales. | El sistema debe definir y documentar explícitamente el uso permitido de los datos de valoración por competencia. |
+| **Ético** | La valoración de competencias puede tener implicaciones sobre la percepción del desempeño docente. | Si los docentes sienten que son evaluados a través de esta herramienta sin saberlo, puede erosionar la confianza institucional. | El sistema debe informar claramente a todos los actores el propósito de la valoración y quién puede acceder a los resultados. |
+
+
+
 
 
 ## RF1.9 — Crear un nuevo curso en el repositorio centralizado
