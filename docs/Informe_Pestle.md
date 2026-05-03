@@ -224,6 +224,38 @@ El sistema debe permitir visualizar cómo ha evolucionado el promedio de calific
 
 ---
 
+## RF3.1 — Registrar nombre y país de universidad destino
+
+**Requerimiento base:**  
+El sistema debe permitir registrar el nombre y el país de la universidad de destino dentro de la solicitud de preaprobación.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La universidad de destino debe estar relacionada con los lineamientos institucionales de movilidad académica. | Si se registra una universidad sin relación clara con los convenios o políticas de movilidad, puede generar confusión durante la revisión de la solicitud. | El sistema debe permitir identificar si la universidad de destino está asociada a convenios o lineamientos institucionales vigentes. |
+| Económico | La universidad y el país de destino pueden influir en costos de movilidad, matrícula, alojamiento y sostenimiento. | Si la información se registra de forma incorrecta, el estudiante podría recibir una orientación equivocada sobre su proceso de movilidad. | El sistema debe validar que el nombre y país de la universidad estén completos antes de permitir enviar la solicitud. |
+| Social | El país de destino puede estar asociado a diferencias culturales, académicas e idiomáticas. | Si no se tiene claridad sobre el país o la institución, la revisión académica puede ser incompleta o poco contextualizada. | El sistema debe permitir registrar información complementaria sobre la universidad de destino cuando sea necesaria para la revisión académica. |
+| Tecnológico | El sistema debe almacenar correctamente el nombre de la universidad y el país para búsquedas, filtros e historial. | Registros duplicados, mal escritos o inconsistentes pueden afectar la consulta de antecedentes y el análisis de preaprobaciones futuras. | El sistema debe usar listas controladas o mecanismos de validación para reducir errores en el registro de universidad y país. |
+| Legal | La información sobre universidad y país forma parte del expediente académico de movilidad del estudiante. | Un manejo inadecuado puede afectar la privacidad del proceso académico del estudiante. | El sistema debe restringir la consulta de esta información únicamente a usuarios autorizados según su rol. |
+| Ético | La universidad o país de destino no debe generar un trato injusto hacia el estudiante. | Podrían presentarse sesgos si ciertas universidades o países se consideran mejores o peores sin criterios académicos claros. | El sistema debe evaluar la solicitud con base en criterios académicos y no únicamente por el prestigio, país o nombre de la universidad destino. |
+
+---
+
+## RF3.2 — Indicar si la movilidad es nacional o internacional
+
+**Requerimiento base:**  
+El sistema debe permitir indicar si la movilidad académica del estudiante es nacional o internacional.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La movilidad nacional e internacional puede seguir rutas administrativas o criterios institucionales diferentes. | Si el tipo de movilidad se registra mal, la solicitud podría ser revisada bajo un procedimiento equivocado. | El sistema debe permitir clasificar claramente la solicitud como movilidad nacional o internacional desde el momento del registro. |
+| Económico | La movilidad internacional puede implicar costos y tiempos adicionales frente a la movilidad nacional. | Una clasificación incorrecta puede afectar la orientación que recibe el estudiante sobre tiempos, requisitos y planeación económica. | El sistema debe mostrar advertencias o información básica sobre posibles diferencias del proceso según el tipo de movilidad seleccionado. |
+| Social | Los estudiantes en movilidad internacional pueden enfrentar diferencias de idioma, calendario académico y contexto cultural. | Si el sistema no distingue el tipo de movilidad, puede omitir necesidades específicas del estudiante internacional. | El sistema debe permitir agregar observaciones relacionadas con condiciones particulares de la movilidad seleccionada. |
+| Tecnológico | El tipo de movilidad puede usarse para filtros, reportes y priorización de solicitudes. | Si el dato se registra de manera inconsistente, los reportes y búsquedas pueden perder precisión. | El sistema debe almacenar el tipo de movilidad como un campo obligatorio con opciones predefinidas: nacional o internacional. |
+| Legal | La movilidad internacional puede estar asociada a requisitos documentales, tiempos de visa o procesos académicos externos. | Si esta información no se identifica correctamente, el estudiante podría perder plazos importantes o presentar documentación incompleta. | El sistema debe permitir marcar solicitudes internacionales con alertas de revisión cuando existan plazos documentales críticos. |
+| Ético | El tipo de movilidad no debe generar trato discriminatorio entre estudiantes. | Priorizar o retrasar solicitudes solo por ser nacionales o internacionales, sin justificación académica o documental, puede ser injusto. | El sistema debe aplicar criterios de revisión transparentes para ambos tipos de movilidad y justificar cualquier prioridad asignada. |
+
+---
+
 ## RF3.8 — Clasificación automática como nivel MEDIO
 
 **Requerimiento base:**  
