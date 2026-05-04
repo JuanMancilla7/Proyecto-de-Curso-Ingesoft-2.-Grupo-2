@@ -49,7 +49,7 @@
 | **Given** | el estudiante envía una solicitud para un curso externo |
 | **When** | el análisis automático identifica poca o ninguna coincidencia con las competencias del curso HAC propuesto |
 | **Then** | el sistema asigna automáticamente el nivel Bajo a la solicitud |
-| **And** | el sistema sugiere al jefe revisar la solicitud con detalle para sustentar bien una posible respuesta argumentada |
+| **And** | el sistema marca la solicitud con una etiqueta de revisión detallada de forma clara y verificable |
 
 ---
 
@@ -65,7 +65,7 @@
 | **Requerimientos cubiertos** | RF3.10 |
 | **Dependencias** | Solicitudes históricas en estado Aprobado registradas en el sistema |
 
-**Notas técnicas:** La idea de esto es reemplazar el Excel personal que tiene Sara ahora, para que la información esté disponible para todos los estudiantes y no dependa de ella. Cada vez que el jefe apruebe una solicitud (HU34), el repositorio se actualiza solo.
+**Notas técnicas:** La idea de esto es reemplazar el Excel personal que tiene Sara ahora, para que la información esté disponible para todos los estudiantes y no dependa de ella. Cada vez que una solicitud cambia a estado Aprobado, el sistema registra automáticamente la preaprobación en el repositorio.
 
 ---
 
@@ -149,7 +149,7 @@
 | **Given** | la asistente abre el detalle de una solicitud activa |
 | **When** | confirma que el syllabus es legible, corresponde al curso externo y los créditos son consistentes |
 | **Then** | marca la solicitud con el indicador "Documentación verificada" |
-| **And** | la solicitud avanza para revisión del jefe de departamento |
+| **And** | la solicitud queda dispobible para revisión del jefe de departamento |
 
 ---
 
@@ -160,7 +160,7 @@
 | **Given** | la asistente abre el detalle de una solicitud |
 | **When** | detecta que un documento no es legible, no corresponde, o falta información requerida |
 | **Then** | marca la solicitud con el indicador "Requiere completar documentación" |
-| **And** | registra una observación detallando lo faltante (HU32), sin cambiar el estado oficial de la solicitud |
+| **And** | registra una observación detallando la información faltante (HU32), sin cambiar el estado oficial de la solicitud |
 
 ---
 
@@ -171,12 +171,12 @@
 | **Historia N°** | 32 |
 | **Yo como** | asistente académica |
 | **Quiero** | registrar observaciones de acompañamiento en una solicitud |
-| **Para** | dejar constancia de mi orientación al estudiante sin estar emitiendo decisiones de aprobación o rechazo |
+| **Para** | dejar constancia de mi orientación al estudiante sin estar emitiendo decisiónes de aprobación o rechazo |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF3.13 |
 | **Dependencias** | HU30, HU31 |
 
-**Notas técnicas:** Pablo y Robin lo dijeron en sus entrevistas, la asistente no tiene autoridad para aprobar ni rechazar nada, solo el jefe de departamento puede tomar esas decisiones. El sistema debería bloquear esto a nivel de permisos.
+**Notas técnicas:** Pablo y Robin lo dijeron en sus entrevistas, la asistente no tiene autoridad para aprobar ni rechazar nada, solo el jefe de departamento puede tomar esas decisiónes. El sistema debería bloquear esto a nivel de permisos.
 
 ---
 
@@ -250,7 +250,7 @@
 | **Requerimientos cubiertos** | RF3.15, RF3.16 |
 | **Dependencias** | HU33 |
 
-**Notas técnicas:** Si el jefe rechaza la solicitud o pide más info, sí o sí tiene que dejar observaciones, no se puede saltar ese campo. Esto sale del RF3.16 y también del PESTLE (RFEt-02-02), que pedía que las decisiones fueran transparentes para el estudiante. Cada decisión queda registrada en la trazabilidad de HU37.
+**Notas técnicas:** Si el jefe rechaza la solicitud o pide más info, sí o sí tiene que dejar observaciones, no se puede saltar ese campo. Esto sale del RF3.16 y también del PESTLE (RFEt-02-02), que pedía que las decisiónes fueran transparentes para el estudiante. Cada decisión queda registrada en la trazabilidad de HU37.
 
 ---
 
@@ -262,8 +262,8 @@
 | **When** | selecciona Aprobado y confirma |
 | **Then** | el sistema cambia el estado a Aprobado |
 | **And** | registra fecha, hora y usuario responsable |
-| **And** | dispara el flujo de notificación al estudiante (HU38) y la generación del documento de preaprobado (HU39) |
-
+| **And** | el sistema notifica al estudiante sobre la decision |
+| **And** | el sistema habilita la generación del documento de preaprobado | 
 ---
 
 ### Escenario 34.2 — Decisión Rechazado con observaciones argumentadas
@@ -375,7 +375,7 @@
 |---|---|
 | **Given** | la asistente o el jefe accede al historial |
 | **When** | aplica el filtro por estado (por ejemplo, Aprobado) |
-| **Then** | el sistema muestra solo las solicitudes con ese estado |
+| **Then** | el sistema muestra solo las solicitudes que cumple con los filtros seleccionados |
 | **And** | indica la cantidad total de resultados encontrados |
 
 ---
@@ -628,12 +628,12 @@
 | **Historia N°** | 42 |
 | **Yo como** | estudiante interesado en hacer movilidad académica |
 | **Quiero** | recibir recomendaciones de universidades destino donde sea más factible homologar créditos |
-| **Para** | tomar decisiones informadas sobre dónde realizar mi intercambio |
+| **Para** | tomar decisiónes informadas sobre dónde realizar mi intercambio |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF4.3 |
 | **Dependencias** | HU29 (repositorio histórico), RF5.4 (perfil del estudiante en Banner, Persona 3) |
 
-**Notas técnicas:** La recomendación se basa en el historial de preaprobaciones y el perfil académico del estudiante. Igual que con las otras funciones de IA, son sugerencias y no decisiones (RNFT-11-01). También sería bueno auditar el algoritmo cada cierto tiempo, para que no termine favoreciendo siempre las mismas universidades (RFEt-11-02).
+**Notas técnicas:** La recomendación se basa en el historial de preaprobaciones y el perfil académico del estudiante. Igual que con las otras funciones de IA, son sugerencias y no decisiónes (RNFT-11-01). También sería bueno auditar el algoritmo cada cierto tiempo, para que no termine favoreciendo siempre las mismas universidades (RFEt-11-02).
 
 ---
 
