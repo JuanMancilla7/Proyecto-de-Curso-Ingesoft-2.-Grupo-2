@@ -3,11 +3,11 @@
 
 ---
 
-## Historia de Usuario N° 8 — Clasificación automática de solicitudes por nivel de prioridad
+## Historia de Usuario N° 28 — Clasificación automática de solicitudes por nivel de prioridad
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 8 |
+| **Historia N°** | 28 |
 | **Yo como** | jefe de departamento |
 | **Quiero** | recibir las solicitudes de preaprobación clasificadas automáticamente en niveles Alto, Medio o Bajo |
 | **Para** | priorizar mi tiempo de revisión y enfocarme primero en los casos que requieren más análisis |
@@ -19,7 +19,7 @@
 
 ---
 
-### Escenario 8.1 — Clasificación nivel Alto por preaprobación previa registrada
+### Escenario 28.1 — Clasificación nivel Alto por preaprobación previa registrada
 
 | Scenario: | Curso externo previamente preaprobado en la misma universidad destino |
 |---|---|
@@ -31,7 +31,7 @@
 
 ---
 
-### Escenario 8.2 — Clasificación nivel Medio por alta coincidencia de competencias
+### Escenario 28.2 — Clasificación nivel Medio por alta coincidencia de competencias
 
 | Scenario: | Syllabus externo con alta compatibilidad académica |
 |---|---|
@@ -42,7 +42,7 @@
 
 ---
 
-### Escenario 8.3 — Clasificación nivel Bajo por baja compatibilidad
+### Escenario 28.3 — Clasificación nivel Bajo por baja compatibilidad
 
 | Scenario: | Syllabus externo con baja compatibilidad académica |
 |---|---|
@@ -53,11 +53,11 @@
 
 ---
 
-## Historia de Usuario N° 9 — Consultar repositorio de materias previamente preaprobadas
+## Historia de Usuario N° 29 — Consultar repositorio de materias previamente preaprobadas
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 9 |
+| **Historia N°** | 29 |
 | **Yo como** | estudiante interesado en movilidad académica |
 | **Quiero** | consultar las materias que ya fueron preaprobadas previamente para una universidad destino específica |
 | **Para** | ver qué opciones tienen mayor probabilidad de aprobación cuando esté planeando mi movilidad |
@@ -65,11 +65,11 @@
 | **Requerimientos cubiertos** | RF3.10 |
 | **Dependencias** | Solicitudes históricas en estado Aprobado registradas en el sistema |
 
-**Notas técnicas:** La idea de esto es reemplazar el Excel personal que tiene Sara ahora, para que la información esté disponible para todos los estudiantes y no dependa de ella. Cada vez que el jefe apruebe una solicitud (HU14), el repositorio se actualiza solo.
+**Notas técnicas:** La idea de esto es reemplazar el Excel personal que tiene Sara ahora, para que la información esté disponible para todos los estudiantes y no dependa de ella. Cada vez que el jefe apruebe una solicitud (HU34), el repositorio se actualiza solo.
 
 ---
 
-### Escenario 9.1 — Consulta exitosa con resultados disponibles
+### Escenario 29.1 — Consulta exitosa con resultados disponibles
 
 | Scenario: | Universidad destino con preaprobaciones registradas |
 |---|---|
@@ -80,22 +80,22 @@
 
 ---
 
-### Escenario 9.2 — Universidad sin historial registrado
+### Escenario 29.2 — Universidad sin historial registrado
 
 | Scenario: | Universidad sin preaprobaciones previas |
 |---|---|
 | **Given** | el usuario consulta una universidad destino |
 | **When** | no existen preaprobaciones registradas para esa universidad |
 | **Then** | el sistema muestra un mensaje indicando que no hay historial |
-| **And** | sugiere iniciar una solicitud nueva o consultar al agente IA (HU22) para ver alternativas |
+| **And** | sugiere iniciar una solicitud nueva o consultar al agente IA (HU42) para ver alternativas |
 
 ---
 
-## Historia de Usuario N° 10 — Consultar listado de solicitudes activas (Asistente Académica)
+## Historia de Usuario N° 30 — Consultar listado de solicitudes activas (Asistente Académica)
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 10 |
+| **Historia N°** | 30 |
 | **Yo como** | asistente académica |
 | **Quiero** | ver el listado de todas las solicitudes activas con su estado actual |
 | **Para** | hacerles seguimiento y orientar a los estudiantes a tiempo |
@@ -105,7 +105,7 @@
 
 ---
 
-### Escenario 10.1 — Acceso al panel de solicitudes activas
+### Escenario 30.1 — Acceso al panel de solicitudes activas
 
 | Scenario: | Listado completo visible al rol Asistente |
 |---|---|
@@ -115,7 +115,7 @@
 
 ---
 
-### Escenario 10.2 — Restricción de visibilidad para roles no autorizados
+### Escenario 30.2 — Restricción de visibilidad para roles no autorizados
 
 | Scenario: | Acceso bloqueado a usuarios sin rol autorizado |
 |---|---|
@@ -126,23 +126,23 @@
 
 ---
 
-## Historia de Usuario N° 11 — Verificar completitud y validez de la documentación
+## Historia de Usuario N° 31 — Verificar completitud y validez de la documentación
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 11 |
+| **Historia N°** | 31 |
 | **Yo como** | asistente académica |
 | **Quiero** | revisar y marcar si la documentación adjunta a cada solicitud está completa, legible y es la apropiada |
 | **Para** | confirmar que la solicitud está lista para pasar al jefe o pedirle al estudiante que complete información |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.12 |
-| **Dependencias** | HU10 (listado de solicitudes), RF3.5 a RF3.6 (carga de documentos, bloque Persona 2) |
+| **Dependencias** | HU30 (listado de solicitudes), RF3.5 a RF3.6 (carga de documentos, bloque Persona 2) |
 
 **Notas técnicas:** La asistente solo revisa que la documentación esté en orden (que el syllabus sea legible, que corresponda al curso, que los créditos sean claros). No puede aprobar ni rechazar nada, eso lo dejaron claro Sara y Robin en las entrevistas.
 
 ---
 
-### Escenario 11.1 — Validación exitosa de documentación
+### Escenario 31.1 — Validación exitosa de documentación
 
 | Scenario: | Documentación completa y legible |
 |---|---|
@@ -153,34 +153,34 @@
 
 ---
 
-### Escenario 11.2 — Documentación con observaciones requeridas
+### Escenario 31.2 — Documentación con observaciones requeridas
 
 | Scenario: | Documentación incompleta o ilegible |
 |---|---|
 | **Given** | la asistente abre el detalle de una solicitud |
 | **When** | detecta que un documento no es legible, no corresponde, o falta información requerida |
 | **Then** | marca la solicitud con el indicador "Requiere completar documentación" |
-| **And** | registra una observación detallando lo faltante (HU12), sin cambiar el estado oficial de la solicitud |
+| **And** | registra una observación detallando lo faltante (HU32), sin cambiar el estado oficial de la solicitud |
 
 ---
 
-## Historia de Usuario N° 12 — Registrar observaciones de acompañamiento
+## Historia de Usuario N° 32 — Registrar observaciones de acompañamiento
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 12 |
+| **Historia N°** | 32 |
 | **Yo como** | asistente académica |
 | **Quiero** | registrar observaciones de acompañamiento en una solicitud |
 | **Para** | dejar constancia de mi orientación al estudiante sin estar emitiendo decisiones de aprobación o rechazo |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF3.13 |
-| **Dependencias** | HU10, HU11 |
+| **Dependencias** | HU30, HU31 |
 
 **Notas técnicas:** Pablo y Robin lo dijeron en sus entrevistas, la asistente no tiene autoridad para aprobar ni rechazar nada, solo el jefe de departamento puede tomar esas decisiones. El sistema debería bloquear esto a nivel de permisos.
 
 ---
 
-### Escenario 12.1 — Registro exitoso de observación
+### Escenario 32.1 — Registro exitoso de observación
 
 | Scenario: | Observación registrada correctamente |
 |---|---|
@@ -191,7 +191,7 @@
 
 ---
 
-### Escenario 12.2 — Bloqueo de acciones fuera del rol
+### Escenario 32.2 — Bloqueo de acciones fuera del rol
 
 | Scenario: | Intento de cambio de estado por la asistente |
 |---|---|
@@ -202,21 +202,21 @@
 
 ---
 
-## Historia de Usuario N° 13 — Consultar detalle completo de una solicitud para revisión
+## Historia de Usuario N° 33 — Consultar detalle completo de una solicitud para revisión
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 13 |
+| **Historia N°** | 33 |
 | **Yo como** | jefe de departamento |
 | **Quiero** | consultar el detalle completo de cada solicitud asignada a mi departamento |
 | **Para** | tomar una decisión informada sobre la equivalencia |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.14 |
-| **Dependencias** | HU8 (clasificación automática), HU11 (verificación de documentación), RF5.1 y RF5.2 (autenticación y rol, Persona 3) |
+| **Dependencias** | HU28 (clasificación automática), HU31 (verificación de documentación), RF5.1 y RF5.2 (autenticación y rol, Persona 3) |
 
 ---
 
-### Escenario 13.1 — Visualización del detalle completo
+### Escenario 33.1 — Visualización del detalle completo
 
 | Scenario: | Detalle disponible al jefe del departamento correspondiente |
 |---|---|
@@ -227,7 +227,7 @@
 
 ---
 
-### Escenario 13.2 — Solicitud asignada a otro departamento
+### Escenario 33.2 — Solicitud asignada a otro departamento
 
 | Scenario: | Acceso restringido por departamento |
 |---|---|
@@ -238,23 +238,23 @@
 
 ---
 
-## Historia de Usuario N° 14 — Emitir decisión de preaprobado con observaciones obligatorias
+## Historia de Usuario N° 34 — Emitir decisión de preaprobado con observaciones obligatorias
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 14 |
+| **Historia N°** | 34 |
 | **Yo como** | jefe de departamento |
 | **Quiero** | registrar la decisión de cada solicitud (Aprobado, Rechazado o Requiere información adicional) |
 | **Para** | dar respuesta formal al estudiante y avanzar el proceso de movilidad |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.15, RF3.16 |
-| **Dependencias** | HU13 |
+| **Dependencias** | HU33 |
 
-**Notas técnicas:** Si el jefe rechaza la solicitud o pide más info, sí o sí tiene que dejar observaciones, no se puede saltar ese campo. Esto sale del RF3.16 y también del PESTLE (RFEt-02-02), que pedía que las decisiones fueran transparentes para el estudiante. Cada decisión queda registrada en la trazabilidad de HU17.
+**Notas técnicas:** Si el jefe rechaza la solicitud o pide más info, sí o sí tiene que dejar observaciones, no se puede saltar ese campo. Esto sale del RF3.16 y también del PESTLE (RFEt-02-02), que pedía que las decisiones fueran transparentes para el estudiante. Cada decisión queda registrada en la trazabilidad de HU37.
 
 ---
 
-### Escenario 14.1 — Decisión Aprobado
+### Escenario 34.1 — Decisión Aprobado
 
 | Scenario: | Solicitud aprobada por el jefe |
 |---|---|
@@ -262,11 +262,11 @@
 | **When** | selecciona Aprobado y confirma |
 | **Then** | el sistema cambia el estado a Aprobado |
 | **And** | registra fecha, hora y usuario responsable |
-| **And** | dispara el flujo de notificación al estudiante (HU18) y la generación del documento de preaprobado (HU19) |
+| **And** | dispara el flujo de notificación al estudiante (HU38) y la generación del documento de preaprobado (HU39) |
 
 ---
 
-### Escenario 14.2 — Decisión Rechazado con observaciones argumentadas
+### Escenario 34.2 — Decisión Rechazado con observaciones argumentadas
 
 | Scenario: | Solicitud rechazada con justificación obligatoria |
 |---|---|
@@ -274,22 +274,22 @@
 | **When** | selecciona Rechazado, redacta observaciones argumentadas y confirma |
 | **Then** | el sistema cambia el estado a Rechazado |
 | **And** | guarda las observaciones como retroalimentación al estudiante |
-| **And** | dispara la notificación correspondiente (HU18) |
+| **And** | dispara la notificación correspondiente (HU38) |
 
 ---
 
-### Escenario 14.3 — Decisión Requiere información adicional con detalle del faltante
+### Escenario 34.3 — Decisión Requiere información adicional con detalle del faltante
 
 | Scenario: | Solicitud devuelta para complementar información |
 |---|---|
 | **Given** | el jefe necesita más información para tomar una decisión |
 | **When** | selecciona Requiere información adicional, especifica qué documentación o aclaración solicita y confirma |
 | **Then** | el sistema cambia el estado a Requiere información adicional |
-| **And** | dispara la notificación correspondiente (HU18) |
+| **And** | dispara la notificación correspondiente (HU38) |
 
 ---
 
-### Escenario 14.4 — Bloqueo por observaciones obligatorias vacías
+### Escenario 34.4 — Bloqueo por observaciones obligatorias vacías
 
 | Scenario: | Intento de Rechazado o Requiere información sin observaciones |
 |---|---|
@@ -300,11 +300,11 @@
 
 ---
 
-## Historia de Usuario N° 15 — Consultar estado e historial propio de solicitudes (Estudiante)
+## Historia de Usuario N° 35 — Consultar estado e historial propio de solicitudes (Estudiante)
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 15 |
+| **Historia N°** | 35 |
 | **Yo como** | estudiante |
 | **Quiero** | consultar el estado y la trayectoria de mis propias solicitudes de preaprobación |
 | **Para** | hacerle seguimiento a mis procesos de movilidad sin depender de correos electrónicos |
@@ -314,7 +314,7 @@
 
 ---
 
-### Escenario 15.1 — Estudiante con solicitudes registradas
+### Escenario 35.1 — Estudiante con solicitudes registradas
 
 | Scenario: | Listado propio visible |
 |---|---|
@@ -324,7 +324,7 @@
 
 ---
 
-### Escenario 15.2 — Detalle del historial de cambios de una solicitud
+### Escenario 35.2 — Detalle del historial de cambios de una solicitud
 
 | Scenario: | Trayectoria cronológica de una solicitud específica |
 |---|---|
@@ -334,7 +334,7 @@
 
 ---
 
-### Escenario 15.3 — Estudiante sin solicitudes previas
+### Escenario 35.3 — Estudiante sin solicitudes previas
 
 | Scenario: | Sección vacía |
 |---|---|
@@ -345,7 +345,7 @@
 
 ---
 
-### Escenario 15.4 — Restricción de visibilidad cruzada entre estudiantes
+### Escenario 35.4 — Restricción de visibilidad cruzada entre estudiantes
 
 | Scenario: | Intento de acceso a solicitud ajena |
 |---|---|
@@ -355,21 +355,21 @@
 
 ---
 
-## Historia de Usuario N° 16 — Filtrar historial de solicitudes
+## Historia de Usuario N° 36 — Filtrar historial de solicitudes
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 16 |
+| **Historia N°** | 36 |
 | **Yo como** | asistente académica o jefe de departamento |
 | **Quiero** | filtrar el historial de solicitudes por estado, universidad, curso HAC y rango de fechas |
 | **Para** | encontrar rápidamente solicitudes específicas cuando hay mucho volumen |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF3.18 |
-| **Dependencias** | HU10 (listado de solicitudes) |
+| **Dependencias** | HU30 (listado de solicitudes) |
 
 ---
 
-### Escenario 16.1 — Filtro simple por estado
+### Escenario 36.1 — Filtro simple por estado
 
 | Scenario: | Resultados filtrados por estado |
 |---|---|
@@ -380,7 +380,7 @@
 
 ---
 
-### Escenario 16.2 — Combinación de múltiples filtros
+### Escenario 36.2 — Combinación de múltiples filtros
 
 | Scenario: | Filtros combinados (universidad, fechas y estado) |
 |---|---|
@@ -390,7 +390,7 @@
 
 ---
 
-### Escenario 16.3 — Sin coincidencias
+### Escenario 36.3 — Sin coincidencias
 
 | Scenario: | Filtros muy restrictivos |
 |---|---|
@@ -401,23 +401,23 @@
 
 ---
 
-## Historia de Usuario N° 17 — Trazabilidad de cambios de estado de las solicitudes
+## Historia de Usuario N° 37 — Trazabilidad de cambios de estado de las solicitudes
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 17 |
+| **Historia N°** | 37 |
 | **Yo como** | jefe de departamento o auditor del sistema |
 | **Quiero** | consultar el registro completo de cambios de estado de cada solicitud, con fecha, hora y usuario responsable |
 | **Para** | auditar el proceso, resolver disputas y garantizar la trazabilidad institucional |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.19 |
-| **Dependencias** | Cada acción que cambia el estado (HU11, HU12, HU14) |
+| **Dependencias** | Cada acción que cambia el estado (HU31, HU32, HU34) |
 
 **Notas técnicas:** Esto cubre el RNF11 de auditoría y va de la mano con lo que sacamos en el PESTLE sobre prevenir fraude académico (RNFL-16-01). El registro tiene que ser inmutable, una vez escrito no se puede editar ni borrar, ni siquiera por un admin.
 
 ---
 
-### Escenario 17.1 — Visualización del registro de auditoría
+### Escenario 37.1 — Visualización del registro de auditoría
 
 | Scenario: | Audit log accesible desde el detalle |
 |---|---|
@@ -428,7 +428,7 @@
 
 ---
 
-### Escenario 17.2 — Inmutabilidad del registro de auditoría
+### Escenario 37.2 — Inmutabilidad del registro de auditoría
 
 | Scenario: | Intento de modificación del audit log |
 |---|---|
@@ -439,32 +439,32 @@
 
 ---
 
-## Historia de Usuario N° 18 — Notificación al estudiante sobre el estado de su solicitud
+## Historia de Usuario N° 38 — Notificación al estudiante sobre el estado de su solicitud
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 18 |
+| **Historia N°** | 38 |
 | **Yo como** | estudiante |
 | **Quiero** | recibir notificación por correo cuando cambie el estado de mi solicitud |
 | **Para** | actuar a tiempo sin tener que estar entrando a la plataforma todo el tiempo |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.20, RF3.21 |
-| **Dependencias** | HU14 (decisión emitida) |
+| **Dependencias** | HU34 (decisión emitida) |
 
 ---
 
-### Escenario 18.1 — Notificación de Aprobado
+### Escenario 38.1 — Notificación de Aprobado
 
 | Scenario: | Solicitud aprobada con correo y enlace al PDF |
 |---|---|
 | **Given** | el jefe aprueba una solicitud |
 | **When** | el cambio de estado se confirma |
 | **Then** | el sistema envía un correo al estudiante con el resultado Aprobado |
-| **And** | incluye un enlace al documento PDF de preaprobado descargable (HU19) |
+| **And** | incluye un enlace al documento PDF de preaprobado descargable (HU39) |
 
 ---
 
-### Escenario 18.2 — Notificación de Rechazado
+### Escenario 38.2 — Notificación de Rechazado
 
 | Scenario: | Solicitud rechazada con justificación |
 |---|---|
@@ -475,7 +475,7 @@
 
 ---
 
-### Escenario 18.3 — Notificación de Requiere información adicional
+### Escenario 38.3 — Notificación de Requiere información adicional
 
 | Scenario: | Solicitud devuelta con detalle del faltante |
 |---|---|
@@ -486,7 +486,7 @@
 
 ---
 
-### Escenario 18.4 — Falla temporal del servicio de correo
+### Escenario 38.4 — Falla temporal del servicio de correo
 
 | Scenario: | Reintentos automáticos ante caída del servicio |
 |---|---|
@@ -497,23 +497,23 @@
 
 ---
 
-## Historia de Usuario N° 19 — Generar documento PDF oficial de preaprobado
+## Historia de Usuario N° 39 — Generar documento PDF oficial de preaprobado
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 19 |
+| **Historia N°** | 39 |
 | **Yo como** | estudiante con solicitud aprobada |
 | **Quiero** | descargar un documento PDF oficial de mi preaprobado |
 | **Para** | usarlo como soporte en el trámite formal de equivalencia en Workflow cuando regrese de la movilidad |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF3.22, RF3.23 |
-| **Dependencias** | HU14 (decisión Aprobado) |
+| **Dependencias** | HU34 (decisión Aprobado) |
 
-**Notas técnicas:** El PDF tiene que ser compatible con Workflow (RNF12) y llevar las medidas de seguridad que pusimos en el PESTLE: marca de agua institucional (RNFL-19-01) y un hash que lo vincule al syllabus original (RNFL-07-02). Así nadie puede falsificarlo y se valida automático en HU23.
+**Notas técnicas:** El PDF tiene que ser compatible con Workflow (RNF12) y llevar las medidas de seguridad que pusimos en el PESTLE: marca de agua institucional (RNFL-19-01) y un hash que lo vincule al syllabus original (RNFL-07-02). Así nadie puede falsificarlo y se valida automático en HU43.
 
 ---
 
-### Escenario 19.1 — Descarga exitosa del documento
+### Escenario 39.1 — Descarga exitosa del documento
 
 | Scenario: | Generación de PDF para solicitud aprobada |
 |---|---|
@@ -524,7 +524,7 @@
 
 ---
 
-### Escenario 19.2 — Solicitud sin estado Aprobado
+### Escenario 39.2 — Solicitud sin estado Aprobado
 
 | Scenario: | Descarga deshabilitada para estados distintos a Aprobado |
 |---|---|
@@ -535,7 +535,7 @@
 
 ---
 
-### Escenario 19.3 — Verificación de integridad por terceros
+### Escenario 39.3 — Verificación de integridad por terceros
 
 | Scenario: | Validación externa del documento (Workflow u otra entidad) |
 |---|---|
@@ -546,23 +546,23 @@
 
 ---
 
-## Historia de Usuario N° 20 — Consultar al agente IA materias preaprobadas en una universidad destino
+## Historia de Usuario N° 40 — Consultar al agente IA materias preaprobadas en una universidad destino
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 20 |
+| **Historia N°** | 40 |
 | **Yo como** | estudiante interesado en planear mi movilidad |
 | **Quiero** | preguntarle al agente de IA qué materias han sido preaprobadas en una universidad destino específica |
 | **Para** | identificar rápido cursos con alta probabilidad de aprobación sin tener que revisar manualmente todo el repositorio |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF4.1 |
-| **Dependencias** | HU9 (repositorio poblado), RF5.1 (autenticación, Persona 3) |
+| **Dependencias** | HU29 (repositorio poblado), RF5.1 (autenticación, Persona 3) |
 
 **Notas técnicas:** Las respuestas del agente son sugerencias, no garantizan que la materia vaya a ser aprobada. Cada respuesta debería mostrar de dónde sacó la información (los registros del repositorio) para que el estudiante pueda verificarla. Esto sale del PESTLE (RNFT-11-01).
 
 ---
 
-### Escenario 20.1 — Consulta con resultados disponibles
+### Escenario 40.1 — Consulta con resultados disponibles
 
 | Scenario: | Universidad con historial de preaprobaciones |
 |---|---|
@@ -572,22 +572,22 @@
 
 ---
 
-### Escenario 20.2 — Universidad sin historial registrado
+### Escenario 40.2 — Universidad sin historial registrado
 
 | Scenario: | El agente sugiere alternativas |
 |---|---|
 | **Given** | el estudiante pregunta por una universidad sin preaprobaciones registradas |
 | **When** | el agente consulta el repositorio |
 | **Then** | el agente informa que no hay historial registrado para esa universidad |
-| **And** | ofrece encadenar la consulta con una recomendación de universidades alternativas (HU22) |
+| **And** | ofrece encadenar la consulta con una recomendación de universidades alternativas (HU42) |
 
 ---
 
-## Historia de Usuario N° 21 — Consultar al agente IA electivas HAC disponibles por franja horaria
+## Historia de Usuario N° 41 — Consultar al agente IA electivas HAC disponibles por franja horaria
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 21 |
+| **Historia N°** | 41 |
 | **Yo como** | estudiante de pregrado |
 | **Quiero** | preguntarle al agente de IA qué electivas HAC están disponibles en una franja horaria específica |
 | **Para** | armar mi horario académico sin que se me crucen con otras asignaturas |
@@ -599,7 +599,7 @@
 
 ---
 
-### Escenario 21.1 — Franja horaria con coincidencias
+### Escenario 41.1 — Franja horaria con coincidencias
 
 | Scenario: | Electivas disponibles en la franja consultada |
 |---|---|
@@ -610,7 +610,7 @@
 
 ---
 
-### Escenario 21.2 — Franja sin coincidencias
+### Escenario 41.2 — Franja sin coincidencias
 
 | Scenario: | El agente sugiere franjas adyacentes |
 |---|---|
@@ -621,23 +621,23 @@
 
 ---
 
-## Historia de Usuario N° 22 — Recomendación de universidades destino por agente IA
+## Historia de Usuario N° 42 — Recomendación de universidades destino por agente IA
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 22 |
+| **Historia N°** | 42 |
 | **Yo como** | estudiante interesado en hacer movilidad académica |
 | **Quiero** | recibir recomendaciones de universidades destino donde sea más factible homologar créditos |
 | **Para** | tomar decisiones informadas sobre dónde realizar mi intercambio |
 | **Prioridad** | Media |
 | **Requerimientos cubiertos** | RF4.3 |
-| **Dependencias** | HU9 (repositorio histórico), RF5.4 (perfil del estudiante en Banner, Persona 3) |
+| **Dependencias** | HU29 (repositorio histórico), RF5.4 (perfil del estudiante en Banner, Persona 3) |
 
 **Notas técnicas:** La recomendación se basa en el historial de preaprobaciones y el perfil académico del estudiante. Igual que con las otras funciones de IA, son sugerencias y no decisiones (RNFT-11-01). También sería bueno auditar el algoritmo cada cierto tiempo, para que no termine favoreciendo siempre las mismas universidades (RFEt-11-02).
 
 ---
 
-### Escenario 22.1 — Recomendación basada en perfil
+### Escenario 42.1 — Recomendación basada en perfil
 
 | Scenario: | Estudiante con perfil completo |
 |---|---|
@@ -648,7 +648,7 @@
 
 ---
 
-### Escenario 22.2 — Datos insuficientes para recomendación
+### Escenario 42.2 — Datos insuficientes para recomendación
 
 | Scenario: | Perfil incompleto o sin historial académico |
 |---|---|
@@ -659,23 +659,23 @@
 
 ---
 
-## Historia de Usuario N° 23 — Integración con Workflow para reconocimiento del documento de preaprobado
+## Historia de Usuario N° 43 — Integración con Workflow para reconocimiento del documento de preaprobado
 
 | Campo | Detalle |
 |---|---|
-| **Historia N°** | 23 |
+| **Historia N°** | 43 |
 | **Yo como** | estudiante que regresa de movilidad académica |
 | **Quiero** | que el documento de preaprobado generado por EduMobility sea reconocido automáticamente por Workflow |
 | **Para** | iniciar el trámite formal de equivalencia sin tener que volver a subir el documento |
 | **Prioridad** | Alta |
 | **Requerimientos cubiertos** | RF5.3 |
-| **Dependencias** | HU19 (PDF generado), API de Workflow disponible |
+| **Dependencias** | HU39 (PDF generado), API de Workflow disponible |
 
-**Notas técnicas:** El Grupo SIRI fue claro en la entrevista, la integración va por API igual que ellos hicieron con Workflow (RP8). El documento usa el hash que se genera en HU19 para que Workflow pueda validarlo solo. Importante: EduMobility no reemplaza a Workflow, solo lo complementa (RP6), el proceso formal de equivalencias sigue funcionando como siempre.
+**Notas técnicas:** El Grupo SIRI fue claro en la entrevista, la integración va por API igual que ellos hicieron con Workflow (RP8). El documento usa el hash que se genera en HU39 para que Workflow pueda validarlo solo. Importante: EduMobility no reemplaza a Workflow, solo lo complementa (RP6), el proceso formal de equivalencias sigue funcionando como siempre.
 
 ---
 
-### Escenario 23.1 — Reconocimiento exitoso del documento
+### Escenario 43.1 — Reconocimiento exitoso del documento
 
 | Scenario: | Documento válido reconocido automáticamente |
 |---|---|
@@ -686,7 +686,7 @@
 
 ---
 
-### Escenario 23.2 — Documento alterado o no emitido por EduMobility
+### Escenario 43.2 — Documento alterado o no emitido por EduMobility
 
 | Scenario: | Validación fallida por adulteración o falsificación |
 |---|---|
@@ -697,7 +697,7 @@
 
 ---
 
-### Escenario 23.3 — Indisponibilidad temporal del servicio
+### Escenario 43.3 — Indisponibilidad temporal del servicio
 
 | Scenario: | Caída temporal de la API de EduMobility |
 |---|---|
