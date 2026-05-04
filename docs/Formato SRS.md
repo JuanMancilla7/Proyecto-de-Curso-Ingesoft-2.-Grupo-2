@@ -62,8 +62,8 @@ En esta sección se describirán y analizarán los requerimientos del proyecto t
 
 EduMobility es una plataforma web que centraliza dos procesos del Área de Humanidades, Artes y Ciencias (HAC) de la Universidad Icesi que actualmente carecen de soporte digital adecuado:
 
-•	Componente 1 — Catálogo de Electivas y Retroalimentación: La plataforma publica la información completa de los más de 40 cursos electivos HAC (syllabus, metodología, video del docente, competencias), y permite a los estudiantes registrar retroalimentación estructurada orientada al pensamiento crítico. Actualmente los estudiantes eligen asignaturas basándose únicamente en el nombre del curso porque la plataforma Banner no muestra el syllabus.
-•	Componente 2 — Gestión de Preaprobaciones de Equivalencias Internacionales: La plataforma digitaliza y centraliza el proceso de preaprobación académica de equivalencias para estudiantes en movilidad nacional e internacional. Este proceso hoy se gestiona completamente por correo electrónico sin registro histórico, sin criterios estandarizados y con alta carga manual para la asistente académica y el jefe de departamento. EduMobility NO reemplaza el proceso formal en Workflow; lo complementa registrando el preaprobado previo que el estudiante luego usa como soporte al regresar.
+•	**Componente 1 — Catálogo de Electivas y Retroalimentación:** La plataforma publica la información completa de los más de 40 cursos electivos HAC (syllabus, metodología, video del docente, competencias), y permite a los estudiantes registrar retroalimentación estructurada orientada al pensamiento crítico. Actualmente los estudiantes eligen asignaturas basándose únicamente en el nombre del curso porque la plataforma Banner no muestra el syllabus.
+•	**Componente 2 — Gestión de Preaprobaciones de Equivalencias Internacionales:** La plataforma digitaliza y centraliza el proceso de preaprobación académica de equivalencias para estudiantes en movilidad nacional e internacional. Este proceso hoy se gestiona completamente por correo electrónico sin registro histórico, sin criterios estandarizados y con alta carga manual para la asistente académica y el jefe de departamento. EduMobility NO reemplaza el proceso formal en Workflow; lo complementa registrando el preaprobado previo que el estudiante luego usa como soporte al regresar.
 
 Ambos componentes comparten una base común: un repositorio centralizado de información académica sobre los cursos HAC, que sirve como catálogo público para el Componente 1 y como insumo de comparación para el Componente 2.
 
@@ -72,19 +72,19 @@ Ambos componentes comparten una base común: un repositorio centralizado de info
 
 Las funcionalidades que EduMobility ofrece se organizan en torno a cuatro módulos principales, articulados por el repositorio centralizado de cursos HAC:
 
-Módulo 1: Catálogo Interactivo de Electivas
+**Módulo 1: Catálogo Interactivo de Electivas**
 El sistema permite gestionar el repositorio de cursos del área HAC (departamentos HUM, HTC y CRE) y los expone a los estudiantes a través de un catálogo navegable con información completa: contenidos temáticos, actividades y metodología, porcentajes y criterios de evaluación, perfil del estudiante recomendado, competencias transversales desarrolladas (pensamiento crítico, multiperspectivismo, creatividad, entre otras) y video introductorio del docente. Los estudiantes pueden filtrar y buscar cursos según sus intereses y necesidades de formación integral.
 
-Módulo 2: Retroalimentación Estudiantil Estructurada
+**Módulo 2: Retroalimentación Estudiantil Estructurada**
 El sistema permite a los estudiantes que han cursado una asignatura HAC registrar su experiencia mediante formularios estructurados con criterios académicos objetivos (no emocionales), orientados a medir el alcance del pensamiento crítico y las competencias del curso. Los docentes y coordinadores acceden a un panel de análisis con indicadores agregados por curso y semestre.
 
-Módulo 3: Gestión de Preaprobaciones de Equivalencias
+**Módulo 3: Gestión de Preaprobaciones de Equivalencias**
 El sistema soporta el flujo completo de preaprobación académica: el estudiante registra su solicitud indicando universidad de destino, curso externo propuesto y curso HAC al que desea equivalerlo, y adjunta el syllabus externo. El sistema clasifica automáticamente la solicitud en nivel Alto, Medio o Bajo según compatibilidad con los cursos HAC, usando el repositorio de preaprobaciones históricas y análisis de contenido. La asistente académica hace seguimiento y el jefe de departamento emite la decisión. El sistema genera el documento de preaprobado que el estudiante usa como soporte en la solicitud formal posterior en Workflow.
 
-Módulo 4: Agente Inteligente de Consulta
+**Módulo 4: Agente Inteligente de Consulta**
 El sistema incorpora un agente basado en Inteligencia Artificial (propuesta de Robin, Jefe de Departamento HTC) que permite a los estudiantes consultar en lenguaje natural qué materias externas han sido previamente preaprobadas en una universidad destino, qué electivas HAC están disponibles en una franja horaria específica, y cuáles universidades ofrecen mayor facilidad de homologación según el perfil del estudiante. Este módulo es especialmente relevante para garantizar la escalabilidad del sistema cuando la oferta de electivas crezca a 90 o más cursos.
 
-Integración con Sistemas Institucionales
+**Integración con Sistemas Institucionales**
 EduMobility se integra con las plataformas institucionales existentes mediante APIs: Banner (SQL/Oracle) para validación académica de estudiantes, y Workflow (Java/TypeScript) para complementar el proceso formal de equivalencias. La configuración de los flujos de proceso se coordina con la Oficina de Admisiones Académicas, siguiendo el mismo modelo de gobernanza que se utilizó para implementar Workflow.
 
 ### 1.3 Requisitos
