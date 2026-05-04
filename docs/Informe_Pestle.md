@@ -256,6 +256,38 @@ El sistema debe permitir indicar si la movilidad académica del estudiante es na
 
 ---
 
+## RF3.5 — Adjuntar syllabus del curso externo
+
+**Requerimiento base:**  
+El sistema debe permitir que el estudiante adjunte el syllabus del curso externo como soporte principal para la solicitud de preaprobación.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | El syllabus externo es un documento clave para evaluar si el curso cumple con los criterios académicos de equivalencia definidos por la universidad. | Si el syllabus no se adjunta o no es válido, el jefe de departamento no podrá tomar una decisión académica suficientemente sustentada. | El sistema debe exigir el syllabus del curso externo como documento obligatorio antes de permitir el envío de la solicitud. |
+| Económico | La revisión del syllabus puede reducir reprocesos administrativos si el documento llega completo desde el inicio. | Si el estudiante adjunta un documento incorrecto o incompleto, Sara y el jefe de departamento deben solicitar correcciones, aumentando tiempos y carga operativa. | El sistema debe mostrar instrucciones claras sobre qué información mínima debe contener el syllabus antes de adjuntarlo. |
+| Social | Los syllabus externos pueden estar en diferentes idiomas, formatos o estructuras según la universidad de destino. | Estudiantes que aplican a universidades internacionales podrían verse afectados si el sistema no acepta documentos en otros idiomas o formatos válidos. | El sistema debe permitir adjuntar syllabus en diferentes formatos y, cuando sea necesario, permitir agregar una traducción o aclaración complementaria. |
+| Tecnológico | El sistema debe almacenar y permitir consultar documentos adjuntos de forma segura, organizada y disponible para los roles autorizados. | Si el archivo no se guarda correctamente o no puede abrirse, la solicitud puede quedar detenida o ser evaluada sin el soporte principal. | El sistema debe validar tipo de archivo, tamaño máximo, carga exitosa y disponibilidad del syllabus adjunto. |
+| Legal | El syllabus puede contener información institucional de la universidad externa y datos asociados al proceso académico del estudiante. | Un manejo inadecuado del documento puede exponer información académica o institucional sin autorización. | El sistema debe restringir el acceso al syllabus únicamente a usuarios autorizados que participen en la revisión de la solicitud. |
+| Ético | El syllabus debe ser usado únicamente para evaluar la equivalencia académica solicitada. | Si el documento se usa para otros fines o se comparte con personas no involucradas, se afecta la confianza del estudiante en el proceso. | El sistema debe informar que el syllabus será utilizado exclusivamente como soporte para la revisión académica de la preaprobación. |
+
+---
+
+## RF3.7 — Clasificar automáticamente solicitud como nivel ALTO
+
+**Requerimiento base:**  
+El sistema debe clasificar automáticamente una solicitud como nivel ALTO cuando el análisis del syllabus externo y su comparación con el curso HAC indiquen alta coincidencia o alta compatibilidad académica.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La clasificación automática como nivel ALTO debe estar alineada con los criterios institucionales de movilidad y equivalencias académicas. | Si el sistema clasifica una solicitud como ALTA sin criterios claros, puede generar expectativas incorrectas o influir de manera indebida en la revisión del jefe de departamento. | El sistema debe mostrar los criterios institucionales usados para clasificar una solicitud como nivel ALTO. |
+| Económico | Una clasificación ALTA puede influir en la planeación académica y económica del estudiante. | Si el estudiante interpreta el nivel ALTO como una aprobación asegurada, puede tomar decisiones de matrícula, movilidad o inversión económica antes de recibir la decisión formal. | El sistema debe indicar que la clasificación ALTA es preliminar y no garantiza la aprobación de la equivalencia. |
+| Social | Una solicitud clasificada como ALTA puede generar confianza en el estudiante sobre la viabilidad de su proceso. | Si luego la solicitud es rechazada, el estudiante puede sentir frustración, confusión o desconfianza frente al sistema. | El sistema debe presentar el nivel ALTO como una orientación de apoyo y no como una decisión definitiva. |
+| Tecnológico | La clasificación depende del análisis automático del syllabus, competencias, créditos y curso HAC seleccionado. | Si el algoritmo interpreta mal el documento o no reconoce información relevante, puede asignar nivel ALTO a una solicitud que no cumple realmente con los criterios académicos. | El sistema debe registrar los elementos comparados, el porcentaje de coincidencia y una explicación básica de por qué se asignó nivel ALTO. |
+| Legal | La clasificación automática se realiza con base en documentos académicos y datos asociados al estudiante. | Si el estudiante no conoce que sus documentos serán procesados automáticamente, puede haber falta de transparencia en el tratamiento de su información académica. | El sistema debe informar al estudiante que sus documentos serán analizados automáticamente para generar una clasificación preliminar. |
+| Ético | Una clasificación ALTA puede influir positivamente en la percepción del evaluador humano. | El jefe de departamento podría confiar demasiado en la clasificación y no revisar con suficiente detalle el syllabus o las condiciones académicas reales. | El sistema debe aclarar que la clasificación automática no reemplaza la revisión humana ni constituye una decisión académica final. |
+
+---
+
 ## RF3.8 — Clasificación automática como nivel MEDIO
 
 **Requerimiento base:**  
@@ -272,6 +304,54 @@ El sistema debe clasificar automáticamente cada solicitud como nivel MEDIO cuan
 
 ---
 
+## RF3.9 — Clasificar automáticamente solicitud como nivel BAJO
+
+**Requerimiento base:**  
+El sistema debe clasificar automáticamente una solicitud como nivel BAJO cuando el análisis del syllabus externo y su comparación con el curso HAC indiquen baja coincidencia o baja compatibilidad académica.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La clasificación automática como nivel BAJO debe estar alineada con los criterios institucionales de movilidad y equivalencias académicas. | Si el sistema clasifica una solicitud como BAJA sin criterios claros, puede afectar la confianza en el proceso y generar percepciones de arbitrariedad. | El sistema debe mostrar los criterios institucionales usados para clasificar una solicitud como nivel BAJO. |
+| Económico | Una clasificación BAJA puede influir en la decisión del estudiante sobre continuar o no con una movilidad académica. | Si la clasificación es incorrecta, el estudiante podría cancelar una opción de movilidad viable o invertir recursos en una solicitud que será rechazada. | El sistema debe permitir revisión manual de solicitudes clasificadas como nivel BAJO antes de que esa clasificación influya en la decisión final. |
+| Social | Una solicitud clasificada como BAJA puede desmotivar al estudiante o hacerlo sentir en desventaja frente a otros procesos de movilidad. | Si el estudiante no entiende por qué su solicitud fue clasificada así, puede percibir el proceso como injusto o excluyente. | El sistema debe presentar la clasificación BAJA con una explicación clara, respetuosa y orientada a la mejora de la solicitud. |
+| Tecnológico | La clasificación depende del análisis automático del syllabus, competencias, créditos y curso HAC seleccionado. | Si el algoritmo interpreta mal el documento o no reconoce información relevante, puede asignar nivel BAJO a una solicitud que sí tiene compatibilidad académica. | El sistema debe registrar los elementos comparados, el porcentaje de coincidencia y las razones técnicas de la clasificación BAJA. |
+| Legal | La clasificación automática se realiza con base en documentos académicos y datos asociados al estudiante. | Si el estudiante no sabe cómo se procesó su información, puede presentar reclamos por falta de transparencia en el tratamiento de sus datos. | El sistema debe informar al estudiante que sus documentos serán analizados automáticamente para generar una clasificación preliminar. |
+| Ético | Una clasificación BAJA puede influir negativamente en la percepción del evaluador humano. | El jefe de departamento podría asumir que la solicitud no es viable sin revisar a profundidad el caso, afectando la justicia del proceso. | El sistema debe aclarar que la clasificación automática no reemplaza la revisión humana ni constituye una decisión definitiva. |
+
+---
+
+## RF3.10 — Mantener repositorio de materias externas previamente preaprobadas
+
+**Requerimiento base:**  
+El sistema debe mantener un repositorio de materias externas previamente preaprobadas para apoyar futuras solicitudes de movilidad y equivalencia académica.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | El repositorio debe reflejar decisiones académicas previas tomadas bajo criterios institucionales válidos. | Si se consultan antecedentes desactualizados o no alineados con políticas actuales, se pueden orientar mal nuevas solicitudes. | El sistema debe permitir actualizar el repositorio cuando cambien los criterios institucionales de equivalencia o movilidad. |
+| Económico | El repositorio puede reducir tiempos de revisión al reutilizar información de solicitudes previamente evaluadas. | Si el repositorio está desordenado o incompleto, se pierden los beneficios de eficiencia y se generan reprocesos administrativos. | El sistema debe organizar las materias preaprobadas por universidad, curso externo, curso HAC, fecha y decisión registrada. |
+| Social | Los estudiantes pueden usar antecedentes de preaprobación para orientar sus decisiones de movilidad. | Si el estudiante interpreta un antecedente como garantía de aprobación futura, puede tomar decisiones equivocadas. | El sistema debe indicar que una preaprobación anterior es solo un antecedente informativo y no garantiza una nueva aprobación. |
+| Tecnológico | El repositorio debe permitir búsquedas, filtros y consultas confiables sobre materias externas preaprobadas. | Si los datos no están correctamente estructurados, el sistema puede mostrar resultados incompletos o incorrectos. | El sistema debe permitir consultar el repositorio mediante filtros por universidad, país, curso externo, curso HAC y período académico. |
+| Legal | El repositorio puede contener información asociada a solicitudes académicas de estudiantes anteriores. | Si se conservan datos personales innecesarios, se puede vulnerar la privacidad de estudiantes que ya realizaron solicitudes. | El sistema debe almacenar antecedentes de preaprobación sin revelar datos personales de estudiantes anteriores. |
+| Ético | El uso de antecedentes debe apoyar la orientación académica sin generar trato desigual entre estudiantes. | Favorecer solicitudes solo porque existen antecedentes puede afectar a estudiantes que proponen universidades o cursos nuevos. | El sistema debe aclarar que el repositorio sirve como apoyo y que cada solicitud debe evaluarse individualmente según sus documentos y criterios académicos. |
+
+---
+
+## RF3.14 — Jefe de departamento consulta detalle completo de solicitud
+
+**Requerimiento base:**  
+El sistema debe permitir que el jefe de departamento consulte el detalle completo de una solicitud de preaprobación, incluyendo datos del estudiante, universidad destino, curso externo, curso HAC, documentos adjuntos y clasificación automática.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | El jefe de departamento necesita consultar el detalle completo para emitir una decisión alineada con los criterios académicos institucionales. | Si no tiene acceso a toda la información relevante, la decisión puede ser incompleta, inconsistente o difícil de justificar. | El sistema debe mostrar al jefe de departamento toda la información necesaria para evaluar académicamente la solicitud. |
+| Económico | Una consulta completa reduce reprocesos y evita solicitar información repetida al estudiante o a Sara. | Si el detalle está incompleto o desorganizado, el jefe puede tardar más en decidir y retrasar la planeación académica del estudiante. | El sistema debe organizar el detalle de la solicitud en secciones claras: estudiante, universidad, curso externo, curso HAC, documentos y clasificación. |
+| Social | La decisión del jefe impacta directamente el avance académico y la experiencia de movilidad del estudiante. | Si la revisión se hace con información incompleta, el estudiante puede recibir una decisión injusta o poco comprensible. | El sistema debe permitir al jefe consultar los documentos y antecedentes antes de emitir cualquier decisión. |
+| Tecnológico | El detalle completo integra información de varios módulos del sistema, como documentos, clasificación automática, historial y datos del estudiante. | Si algún dato no carga correctamente, el jefe puede tomar una decisión basada en información parcial o errónea. | El sistema debe validar que todos los datos requeridos estén disponibles antes de habilitar la decisión final. |
+| Legal | El detalle completo incluye datos personales, académicos y documentos sensibles del estudiante. | El acceso sin control puede vulnerar la privacidad del estudiante y exponer información protegida. | El sistema debe restringir el acceso al detalle completo únicamente al jefe de departamento correspondiente y usuarios autorizados. |
+| Ético | El jefe debe usar la información consultada únicamente para evaluar la equivalencia académica solicitada. | Consultar o usar datos del estudiante para fines distintos puede afectar la confianza y la imparcialidad del proceso. | El sistema debe registrar auditoría de acceso al detalle completo de la solicitud, incluyendo usuario, fecha y hora de consulta. |
+
+---
+
 ## RF3.15 — Decisión de preaprobado por parte del jefe de departamento
 
 **Requerimiento base:**  
@@ -285,6 +365,86 @@ El sistema debe permitir al jefe de departamento emitir la decisión de preaprob
 | Tecnológico | El jefe depende de que el sistema muestre correctamente los datos del estudiante, curso externo, syllabus y clasificación automática. | Si la información se carga incompleta o desordenada, la decisión puede tomarse con base en datos incorrectos. | El sistema debe validar que la solicitud tenga todos los documentos obligatorios antes de permitir emitir una decisión final. |
 | Legal | La decisión debe quedar registrada para efectos de trazabilidad académica. | Si no queda evidencia de quién decidió, cuándo y por qué, la universidad tendría dificultades para responder ante reclamos. | El sistema debe guardar usuario, fecha, hora, estado anterior, nuevo estado y observaciones de cada decisión emitida. |
 | Ético | El estudiante tiene derecho a conocer la razón de una decisión que afecta su proceso académico. | Una decisión sin explicación puede sentirse injusta, incluso si académicamente está bien sustentada. | El sistema debe permitir que el estudiante consulte la decisión y su justificación desde su historial de solicitudes. |
+
+---
+
+## RF3.16 — Exigir observaciones cuando la decisión sea Rechazado o Requiere información adicional
+
+**Requerimiento base:**  
+El sistema debe exigir que el jefe de departamento registre observaciones cuando la decisión de una solicitud sea Rechazado o Requiere información adicional.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | Las decisiones de rechazo o solicitud de información adicional deben estar alineadas con los criterios institucionales de movilidad y equivalencias académicas. | Si una decisión negativa no tiene explicación, el proceso puede percibirse como arbitrario o poco transparente. | El sistema debe exigir observaciones obligatorias cuando la decisión sea Rechazado o Requiere información adicional. |
+| Económico | Una observación clara puede evitar reprocesos y reducir tiempos administrativos para corregir o completar la solicitud. | Si el estudiante no entiende por qué fue rechazado o qué información falta, puede repetir errores y generar más carga administrativa. | El sistema debe permitir que las observaciones indiquen de forma precisa qué aspecto debe corregirse o complementarse. |
+| Social | El estudiante necesita comprender las razones de una decisión que afecta su proceso académico y de movilidad. | Una respuesta sin explicación puede generar frustración, desconfianza o sensación de injusticia hacia la institución. | El sistema debe mostrar al estudiante las observaciones registradas de forma clara y comprensible. |
+| Tecnológico | Las observaciones deben quedar asociadas correctamente a la solicitud y al cambio de estado correspondiente. | Si las observaciones se pierden o no se vinculan al estado correcto, se afecta la trazabilidad del proceso. | El sistema debe guardar las observaciones junto con el estado, fecha, hora y usuario que realizó el cambio. |
+| Legal | La decisión y su justificación forman parte del expediente académico de la solicitud. | Si no existe evidencia de la razón del rechazo o requerimiento adicional, la universidad puede tener dificultades para responder ante reclamos. | El sistema debe conservar las observaciones como parte del historial formal de la solicitud. |
+| Ético | El estudiante tiene derecho a recibir una explicación respetuosa y suficiente sobre una decisión que lo afecta. | Una decisión sin justificación puede ser injusta, incluso si académicamente está bien sustentada. | El sistema debe impedir registrar decisiones negativas o incompletas sin una justificación clara, respetuosa y relacionada con criterios académicos. |
+
+---
+
+
+## RF3.17 — Estudiante consulta estado e historial de sus solicitudes
+
+**Requerimiento base:**  
+El sistema debe permitir que el estudiante consulte el estado actual y el historial de sus solicitudes de preaprobación.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La consulta del estado e historial debe apoyar la transparencia del proceso institucional de movilidad académica. | Si el estudiante no puede ver el avance de su solicitud, puede percibir el proceso como poco claro o desorganizado. | El sistema debe permitir que el estudiante consulte el estado actual de cada una de sus solicitudes. |
+| Económico | El seguimiento en línea reduce consultas manuales, correos y reprocesos administrativos. | Si el estudiante debe preguntar constantemente por el estado de su solicitud, aumenta la carga operativa de Sara y de las áreas académicas. | El sistema debe mostrar el historial de cambios de estado para reducir solicitudes manuales de información. |
+| Social | El estudiante necesita conocer el avance de su solicitud para planear su movilidad, matrícula y tiempos académicos. | Si no tiene información clara, puede perder plazos importantes o tomar decisiones académicas con incertidumbre. | El sistema debe mostrar el estado de la solicitud de forma clara y comprensible para el estudiante. |
+| Tecnológico | El historial debe actualizarse automáticamente cada vez que cambie el estado de la solicitud. | Si el sistema muestra información desactualizada, el estudiante puede recibir una percepción equivocada del avance de su trámite. | El sistema debe sincronizar el historial visible del estudiante con los cambios reales registrados en el flujo de la solicitud. |
+| Legal | El historial contiene información personal y académica del estudiante. | Si un estudiante puede acceder al historial de otro usuario, se vulnera la privacidad académica y la protección de datos personales. | El sistema debe garantizar que cada estudiante solo pueda consultar sus propias solicitudes e historial asociado. |
+| Ético | El estudiante tiene derecho a conocer el avance de un trámite que afecta su proceso académico. | Ocultar información o mostrar estados ambiguos puede generar desconfianza y sensación de indefensión frente a la institución. | El sistema debe presentar el historial de manera transparente, indicando fechas, estados y observaciones relevantes cuando aplique. |
+
+---
+
+
+## RF3.19 — Registrar fecha, hora y usuario responsable en cada cambio de estado
+
+**Requerimiento base:**  
+El sistema debe registrar la fecha, hora y usuario responsable cada vez que se realice un cambio de estado en una solicitud de preaprobación.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | La trazabilidad de cambios permite demostrar que el proceso de movilidad se gestiona de acuerdo con responsabilidades institucionales claras. | Si no se sabe quién cambió un estado o cuándo lo hizo, se puede perder control sobre el flujo de aprobación. | El sistema debe registrar automáticamente el usuario responsable en cada cambio de estado de una solicitud. |
+| Económico | La auditoría de cambios reduce reprocesos y facilita la resolución de errores administrativos. | Sin registro de cambios, corregir inconsistencias puede requerir revisión manual, aumentar tiempos y generar costos operativos. | El sistema debe permitir consultar el historial de cambios para identificar rápidamente errores o modificaciones realizadas. |
+| Social | El estudiante necesita confiar en que el estado de su solicitud refleja un proceso real y controlado. | Si los estados cambian sin explicación o sin registro, el estudiante puede desconfiar del sistema y del proceso institucional. | El sistema debe mantener un historial visible del avance de la solicitud para los roles autorizados. |
+| Tecnológico | Los cambios de estado deben registrarse de manera automática y consistente en la base de datos. | Si el registro depende de acciones manuales, pueden omitirse datos importantes como fecha, hora o usuario responsable. | El sistema debe generar automáticamente fecha, hora y usuario autenticado en cada modificación de estado. |
+| Legal | La fecha, hora y responsable del cambio son elementos importantes para auditoría y respuesta ante reclamos. | Si no existe trazabilidad, la institución puede tener dificultades para demostrar cómo se gestionó una solicitud. | El sistema debe conservar los registros de cambio de estado como parte del expediente formal de la solicitud. |
+| Ético | La trazabilidad promueve responsabilidad y evita modificaciones arbitrarias o no autorizadas. | Sin auditoría, un usuario podría cambiar estados sin rendir cuentas, afectando injustamente al estudiante. | El sistema debe impedir cambios de estado anónimos y asociar toda modificación a un usuario autenticado. |
+
+---
+
+## RF3.22 — Generar PDF de preaprobado descargable por el estudiante
+
+**Requerimiento base:**  
+El sistema debe generar un PDF de preaprobado descargable por el estudiante cuando la solicitud haya sido aprobada.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | El PDF de preaprobado debe estar alineado con el proceso institucional de movilidad y equivalencias académicas. | Si el documento no tiene una estructura oficial o reconocible, puede perder validez como soporte dentro del proceso académico. | El sistema debe generar el PDF de preaprobado con una estructura institucional estandarizada. |
+| Económico | El PDF puede reducir reprocesos al servir como soporte formal para trámites posteriores. | Si el documento no se genera correctamente, el estudiante puede tener que solicitar correcciones o repetir trámites administrativos. | El sistema debe permitir generar el PDF solo cuando la solicitud tenga una decisión aprobada y datos completos. |
+| Social | El estudiante necesita un soporte claro para demostrar el resultado de su solicitud. | Si el PDF es confuso o incompleto, el estudiante puede no entender el alcance real de la preaprobación. | El sistema debe mostrar en el PDF la decisión, fecha, curso externo y curso HAC asociado de manera clara. |
+| Tecnológico | La generación del PDF depende de los datos registrados en la solicitud y de la correcta integración del sistema. | Si hay errores técnicos, el PDF puede generarse con información incompleta, desactualizada o incorrecta. | El sistema debe validar los datos de la solicitud antes de generar el PDF descargable. |
+| Legal | El PDF contiene información académica y personal del estudiante. | Si el documento puede ser descargado por usuarios no autorizados, se puede exponer información sensible del estudiante. | El sistema debe permitir la descarga del PDF únicamente al estudiante titular y a usuarios autorizados según su rol. |
+| Ético | El PDF debe representar fielmente la decisión emitida y no inducir al estudiante a interpretaciones equivocadas. | Si el documento se presenta como aprobación definitiva de equivalencia, el estudiante podría asumir que ya completó todo el proceso formal. | El sistema debe aclarar en el PDF que el preaprobado es un soporte académico y no necesariamente la equivalencia formal definitiva. |
+
+## RF3.23 — Incluir datos del estudiante, universidad, curso externo, curso HAC, decisión y fecha en el PDF
+
+**Requerimiento base:**  
+El sistema debe incluir en el PDF de preaprobado los datos del estudiante, universidad destino, curso externo, curso HAC, decisión emitida y fecha de generación o decisión.
+
+| Dimensión PESTLE | Hallazgo | Impacto | Requerimiento derivado |
+|---|---|---|---|
+| Político | El PDF debe reflejar información académica oficial y estar alineado con el proceso institucional de preaprobación y equivalencias. | Si el documento contiene datos incompletos o no reconocidos por la institución, puede perder validez como soporte académico. | El sistema debe generar el PDF con una estructura institucional estandarizada y campos obligatorios definidos. |
+| Económico | El PDF puede servir como soporte para procesos posteriores y evitar trámites repetidos. | Si el documento tiene errores, el estudiante puede tener que solicitar correcciones, repetir trámites o retrasar su proceso de movilidad. | El sistema debe permitir revisar una vista previa del PDF antes de descargarlo o usarlo como soporte formal. |
+| Social | El estudiante necesita un documento claro que le permita entender y demostrar el resultado de su solicitud. | Si el PDF no presenta la información de forma comprensible, puede generar confusión sobre qué curso fue preaprobado y bajo qué decisión. | El sistema debe mostrar en el PDF la relación entre curso externo, curso HAC, decisión y fecha de manera clara y ordenada. |
+| Tecnológico | El PDF se genera a partir de datos almacenados en diferentes partes del sistema. | Si hay errores de integración o datos desactualizados, el documento puede contener información incorrecta. | El sistema debe tomar los datos del PDF directamente de la solicitud aprobada y validar que estén completos antes de generarlo. |
+| Legal | El PDF contiene datos personales y académicos sensibles del estudiante. | Si el documento se comparte o descarga sin control, puede exponerse información privada del estudiante. | El sistema debe permitir la descarga del PDF únicamente al estudiante titular y a usuarios autorizados según su rol. |
+| Ético | El documento debe proteger la privacidad del estudiante y presentar solo la información necesaria. | Incluir datos innecesarios puede aumentar el riesgo de exposición o uso indebido de información personal. | El sistema debe incluir en el PDF únicamente los datos necesarios para certificar la preaprobación y evitar información personal no requerida. |
 
 ---
 
