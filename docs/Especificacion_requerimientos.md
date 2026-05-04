@@ -120,3 +120,120 @@ Ambas problemáticas comparten la necesidad de un repositorio centralizado de in
 | RP7 | Criterios administrativos de movilidad definidos por la Oficina de Admisiones Académicas |
 | RP8 | Integraciones con Banner y Workflow realizadas vía API (modelo Grupo SIRI) |
 | RP9 | Documentación técnica actualizada en el repositorio GitHub del proyecto |
+
+---
+
+# Requerimientos Funcionales — EduMobility HAC
+
+---
+
+## RF1 — Catálogo de Electivas
+
+- **RF1.1** El sistema debe mostrar un catálogo navegable con todos los cursos electivos activos del área HAC, organizados por departamento (HUM, HTC, CRE), accesible sin necesidad de autenticación.
+- **RF1.2** El sistema debe mostrar los contenidos temáticos y la metodología de cada asignatura dentro de la ficha del curso.
+- **RF1.3** El sistema debe mostrar los porcentajes, tipos de evaluación y perfil del estudiante recomendado dentro de la ficha del curso.
+- **RF1.4** El sistema debe mostrar las competencias transversales que desarrolla cada asignatura (pensamiento crítico, multiperspectivismo, creatividad, entre otras).
+- **RF1.5** El sistema debe mostrar un video introductorio del docente en la ficha de cada curso.
+- **RF1.6** El sistema debe permitir filtrar el catálogo por departamento (HUM, HTC, CRE).
+- **RF1.7** El sistema debe permitir filtrar el catálogo por competencia transversal.
+- **RF1.8** El sistema debe permitir buscar cursos por palabras clave en el nombre o descripción.
+- **RF1.9** El sistema debe permitir a un administrador crear un nuevo curso en el repositorio centralizado con toda su información académica.
+- **RF1.10** El sistema debe permitir a un administrador editar la información de un curso existente en el repositorio.
+- **RF1.11** El sistema debe permitir a un administrador desactivar un curso del catálogo cuando no esté disponible en el semestre vigente.
+- **RF1.12** El sistema debe permitir a un administrador cargar y actualizar los recursos multimedia (video, infografías) asociados a un curso.
+
+---
+
+## RF2 — Retroalimentación Estudiantil
+
+- **RF2.1** El sistema debe permitir a un estudiante autenticado registrar una calificación general (escala 1 a 5) sobre un curso HAC que haya cursado.
+- **RF2.2** El sistema debe permitir al estudiante valorar individualmente cada competencia transversal desarrollada por el curso (escala 1 a 5).
+- **RF2.3** El sistema debe permitir al estudiante registrar comentarios sobre la metodología del curso (campo de texto, máximo 500 caracteres).
+- **RF2.4** El sistema debe validar que el estudiante haya cursado la asignatura antes de habilitar el formulario de retroalimentación. No se permite retroalimentar cursos no cursados.
+- **RF2.5** El sistema debe mostrar a docentes y coordinadores el promedio general y por competencia de las retroalimentaciones recibidas por cada curso.
+- **RF2.6** El sistema debe mostrar a docentes y coordinadores la distribución de calificaciones de las retroalimentaciones por curso.
+- **RF2.7** El sistema debe mostrar a docentes y coordinadores la evolución histórica de los promedios de retroalimentación por semestre académico.
+
+---
+
+## RF3 — Gestión de Preaprobaciones de Equivalencias
+
+- **RF3.1** El sistema debe permitir a un estudiante autenticado registrar el nombre y país de la universidad de destino al iniciar una solicitud de preaprobación.
+- **RF3.2** El sistema debe permitir al estudiante indicar si la movilidad es nacional o internacional al registrar la solicitud.
+- **RF3.3** El sistema debe permitir al estudiante registrar el nombre del curso externo y el número de créditos según el sistema del país destino.
+- **RF3.4** El sistema debe permitir al estudiante seleccionar el curso HAC al que desea equivaler el curso externo.
+- **RF3.5** El sistema debe permitir al estudiante adjuntar el syllabus del curso externo (obligatorio, formatos PDF o DOCX, máximo 10 MB) a la solicitud.
+- **RF3.6** El sistema debe permitir al estudiante adjuntar documentación de apoyo adicional a la solicitud (opcional, hasta 3 archivos, máximo 5 MB cada uno).
+- **RF3.7** El sistema debe clasificar automáticamente cada solicitud como nivel **ALTO** cuando el curso externo ya fue preaprobado anteriormente para el mismo curso HAC en la misma universidad.
+- **RF3.8** El sistema debe clasificar automáticamente cada solicitud como nivel **MEDIO** cuando el análisis del syllabus externo muestra alta coincidencia con las competencias del curso HAC propuesto.
+- **RF3.9** El sistema debe clasificar automáticamente cada solicitud como nivel **BAJO** cuando la compatibilidad entre el curso externo y el curso HAC es reducida.
+- **RF3.10** El sistema debe mantener un repositorio consultable de todas las materias externas previamente preaprobadas, con su universidad de origen, curso HAC equivalente y syllabus de referencia.
+- **RF3.11** El sistema debe permitir a la asistente académica (Sara) consultar el listado de todas las solicitudes activas con su estado actual.
+- **RF3.12** El sistema debe permitir a la asistente académica verificar si la documentación adjunta de cada solicitud está completa.
+- **RF3.13** El sistema debe permitir a la asistente académica registrar observaciones de acompañamiento en una solicitud, sin posibilidad de emitir decisiones de aprobación o rechazo.
+- **RF3.14** El sistema debe permitir al jefe de departamento (Pablo) consultar el detalle completo de cada solicitud asignada para revisión (datos del estudiante, curso externo, clasificación automática, syllabus adjunto).
+- **RF3.15** El sistema debe permitir al jefe de departamento emitir la decisión de preaprobado: Aprobado, Rechazado o Requiere información adicional.
+- **RF3.16** El sistema debe exigir un campo de observaciones obligatorio cuando la decisión del jefe de departamento sea Rechazado o Requiere información adicional.
+- **RF3.17** El sistema debe permitir al estudiante consultar el estado e historial de sus propias solicitudes de preaprobación.
+- **RF3.18** El sistema debe permitir a la asistente académica y al jefe de departamento filtrar el historial de solicitudes por estado, universidad, curso HAC y rango de fechas.
+- **RF3.19** El sistema debe registrar fecha, hora y usuario responsable en cada cambio de estado de una solicitud.
+- **RF3.20** El sistema debe notificar al estudiante por correo electrónico cuando su solicitud cambie al estado Aprobado o Rechazado.
+- **RF3.21** El sistema debe notificar al estudiante cuando su solicitud pase al estado Requiere información adicional, indicando qué documentación debe completar.
+- **RF3.22** El sistema debe generar un documento PDF de preaprobado académico descargable por el estudiante cuando su solicitud sea aprobada.
+- **RF3.23** El sistema debe incluir en el documento de preaprobado los datos del estudiante, universidad de destino, curso externo, curso HAC equivalente, decisión y fecha de emisión.
+
+---
+
+## RF4 — Agente Inteligente de Consulta
+
+- **RF4.1** El sistema debe permitir al estudiante consultar al agente de IA qué materias de una universidad destino específica han sido previamente preaprobadas, con detalle del curso HAC equivalente.
+- **RF4.2** El sistema debe permitir al estudiante consultar al agente qué asignaturas electivas HAC están disponibles en una franja horaria específica durante el semestre vigente.
+- **RF4.3** El sistema debe permitir al agente sugerir universidades de destino donde es más factible homologar créditos, basándose en el historial de preaprobaciones y el perfil del estudiante.
+
+---
+
+## RF5 — Integración Institucional
+
+- **RF5.1** El sistema debe autenticar usuarios mediante integración con el sistema de identidad institucional de Icesi (SSO o Banner).
+- **RF5.2** El sistema debe asignar a cada usuario autenticado un rol con permisos diferenciados: Estudiante, Asistente Académica, Director de Programa, Jefe de Departamento o Administrador del Sistema.
+- **RF5.3** El sistema debe integrarse con Workflow vía API para que el documento de preaprobado generado sea reconocido como soporte válido en el flujo formal de equivalencias.
+- **RF5.4** El sistema debe consumir datos académicos de Banner (matrícula, cursos cursados) para validar el perfil del estudiante en procesos de retroalimentación y solicitudes.
+  
+---
+
+## Requerimientos No Funcionales
+
+- **RNF1 — Rendimiento:** El catálogo de electivas debe cargarse en menos de 3 segundos bajo condiciones normales de uso.
+- **RNF2 — Disponibilidad:** El sistema debe estar disponible al menos el 99% del tiempo durante los periodos académicos activos (semanas 1 a 16 de cada semestre).
+- **RNF3 — Seguridad de acceso:** El acceso a cada funcionalidad debe estar restringido estrictamente al rol que le corresponde. Un estudiante no puede ver solicitudes de otros estudiantes ni emitir decisiones.
+- **RNF4 — Seguridad de sesión:** Las sesiones de usuario deben expirar automáticamente tras 30 minutos de inactividad.
+- **RNF5 — Protección de datos:** El sistema debe cumplir con la Ley 1581 de 2012 (habeas data) para el tratamiento de información personal de los estudiantes.
+- **RNF6 — Escalabilidad:** El sistema debe soportar el crecimiento del catálogo a 90 o más cursos y el aumento de solicitudes de equivalencia sin degradación del rendimiento.
+- **RNF7 — Compatibilidad:** La aplicación debe funcionar correctamente en Chrome, Firefox y Safari en sus versiones vigentes.
+- **RNF8 — Responsive:** La interfaz debe adaptarse correctamente a dispositivos móviles y tabletas.
+- **RNF9 — Mantenibilidad:** El código debe seguir el patrón de arquitectura MVC y estar documentado para facilitar futuras extensiones de funcionalidad por parte del Grupo SIRI.
+- **RNF10 — Compatibilidad tecnológica:** El stack tecnológico debe ser compatible con Java y TypeScript, siguiendo los estándares institucionales del Grupo SIRI.
+- **RNF11 — Trazabilidad:** Todas las acciones sobre solicitudes de preaprobación deben quedar auditadas con usuario, fecha y hora.
+- **RNF12 — Interoperabilidad:** Los documentos de preaprobado generados deben ser compatibles con el formato aceptado por Workflow para no duplicar el proceso formal de equivalencias.
+
+---
+
+## Requerimientos de Proceso
+
+- **RP1 — Sprints:** El desarrollo se realizará en sprints iterativos de 3 semanas. El Sprint 1 corresponde a la Semana 12, con fecha del 2 de mayo de 2026, y tiene como entregable el SRS completo. El Sprint 2 corresponde a la Semana 15, con fecha del 23 de mayo de 2026, y tiene como entregable los casos de uso y los formatos bicolumnares. Finalmente, las sustentaciones se realizarán en la Semana 16.
+
+- **RP2 — Control de versiones:** El código fuente del proyecto debe gestionarse en el repositorio GitHub compartido del equipo. Cada integrante debe realizar commits individuales que evidencien su aporte al desarrollo y documentación del proyecto.
+
+- **RP3 — Gitflow:** Cada commit debe realizarse siguiendo la metodología Gitflow, diferenciando ramas de desarrollo, funcionalidades y releases. Para esto, el equipo debe trabajar con ramas como *`develop`, `feature`, `release` y `main`*, evitando realizar cambios directamente sobre la rama principal.
+
+- **RP4 — Uso de IAG:** El uso de herramientas de Inteligencia Artificial Generativa debe documentarse mediante un registro de prompts utilizados y contenido de autoría propia aportado por los integrantes. Todo contenido generado o asistido con IAG debe citarse explícitamente en el documento correspondiente.
+
+- **RP5 — Configurabilidad:** Los criterios de aprobación de equivalencias, como la coincidencia de competencias y la conversión de créditos entre sistemas internacionales, deben ser configurables por el jefe de departamento sin necesidad de realizar cambios en el código fuente.
+
+- **RP6 — Complementariedad con Workflow:** EduMobility debe funcionar como un complemento al proceso formal de Workflow. El preaprobado generado por el sistema tiene carácter de soporte académico previo; sin embargo, la equivalencia formal se tramita en Workflow cuando el estudiante regresa de su movilidad. El sistema no debe interferir con ese proceso institucional.
+
+- **RP7 — Criterios administrativos:** Los criterios administrativos del proceso de movilidad, como requisitos formales y plazos, deben consultarse con la Oficina de Admisiones Académicas de Icesi. Estos criterios no serán gestionados directamente por EduMobility.
+
+- **RP8 — Integración vía API:** Las integraciones con Banner y Workflow deben realizarse vía API, siguiendo el modelo establecido por el Grupo SIRI. Además, deben coordinarse con la Oficina de Admisiones Académicas para definir correctamente los flujos de información entre los sistemas.
+
+- **RP9 — Documentación técnica:** La documentación técnica del sistema, incluyendo el SRS, diagramas, mockups, casos de uso y formatos bicolumnares, debe mantenerse actualizada en el repositorio GitHub del proyecto.
