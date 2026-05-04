@@ -177,6 +177,46 @@
 
 ---
 
+## Historia de Usuario N° 8 — Buscar cursos por palabras clave
+
+| Historia N°: | 8 |
+|---|---|
+| Yo como | estudiante o visitante |
+| Quiero | buscar cursos del catálogo escribiendo palabras clave |
+| Para | encontrar rápidamente asignaturas relacionadas con un tema de mi interés |
+
+---
+
+### Escenario 8.1 — Búsqueda con resultados
+
+| Scenario: | Coincidencias encontradas en nombre o descripción |
+|---|---|
+| **Given** | el usuario se encuentra en el catálogo de cursos |
+| **When** | escribe una o más palabras clave en el campo de búsqueda |
+| **Then** | el sistema muestra los cursos cuyo nombre o descripción coinciden con las palabras ingresadas |
+| **And** | el sistema indica la cantidad total de resultados encontrados |
+
+---
+
+### Escenario 8.2 — Búsqueda sin resultados
+
+| Scenario: | No hay cursos que coincidan |
+|---|---|
+| **Given** | el usuario se encuentra en el catálogo de cursos |
+| **When** | escribe una palabra clave que no coincide con ningún curso |
+| **Then** | el sistema muestra un mensaje indicando que no hay resultados |
+| **And** | sugiere ajustar las palabras clave o revisar los filtros aplicados |
+
+---
+
+### Escenario 8.3 — Búsqueda combinada con filtros activos
+
+| Scenario: | Búsqueda aplicada sobre un catálogo ya filtrado |
+|---|---|
+| **Given** | el usuario tiene aplicados filtros por departamento o competencia |
+| **When** | escribe palabras clave en el campo de búsqueda |
+| **Then** | el sistema muestra solo los cursos que cumplen con los filtros y además coinciden con la búsqueda |
+| **And** | mantiene los filtros activos hasta que el usuario los retire manualmente |
 
 ## 
 
