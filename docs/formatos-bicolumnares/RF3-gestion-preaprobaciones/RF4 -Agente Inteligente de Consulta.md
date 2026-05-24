@@ -1,1 +1,108 @@
+# Formato Bicomular RF4
+---
 
+## RF4.1 — Consultar materias preaprobadas
+
+| **Campo** | **Descripción** |
+|---|---|
+| **ID** | RF4.1 |
+| **Autor** | Juan Puerta |
+| **Caso de uso** | Consultar materias preaprobadas |
+| **Casos de uso relacionados** | RF4 (Agente Inteligente de Consulta), RF4.2, RF4.3 – Procesar consulta inteligente (<<include>>) |
+| **Precondición** | El estudiante está autenticado en el sistema EduMobility. Existe al menos una universidad de destino seleccionada. |
+| **Contexto** | El estudiante autenticado desea conocer qué cursos externos han sido preaprobados para una universidad de destino específica, junto con el curso HAC equivalente y la fecha de aprobación. |
+
+| **Secuencia normal** | **Paso** | **Acción** |
+|---|---|---|
+| | 1 | El estudiante selecciona la opción "Consultar materias preaprobadas" en el agente de IA. |
+| | 2 | El sistema solicita al estudiante que especifique la universidad de destino. |
+| | 3 | El estudiante ingresa o selecciona la universidad de destino deseada. |
+| | 4 | El sistema invoca al agente de IA (Procesar consulta inteligente) con los parámetros recibidos. |
+| | 5 | El agente consulta el repositorio de EduMobility y obtiene la lista de cursos externos preaprobados para esa universidad. |
+| | 6 | El sistema muestra al estudiante: nombre del curso externo, curso HAC equivalente y fecha de aprobación. |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Postcondición** | El estudiante visualiza la lista de cursos externos preaprobados para la universidad de destino indicada, con el equivalente HAC y la fecha de aprobación correspondiente. |
+
+| **Excepciones** | **Paso** | **Acción** |
+|---|---|---|
+| | 4a | La universidad de destino no existe en el repositorio: el sistema muestra un mensaje de error y solicita al estudiante ingresar una universidad válida. |
+| | 5a | No existen materias preaprobadas para la universidad indicada: el sistema informa al estudiante que no hay registros disponibles y sugiere consultar otra universidad. |
+| | 6a | Fallo de conexión con el repositorio: el sistema muestra un mensaje de error de conectividad y recomienda intentarlo más tarde. |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Comentarios** | El caso de uso incluye el caso de uso "Procesar consulta inteligente" (RF4) mediante la relación <<include>>. La consulta se realiza sobre el repositorio histórico de EduMobility. |
+
+---
+
+## RF4.2 — Consultar electivas HAC por franja horaria
+
+| **Campo** | **Descripción** |
+|---|---|
+| **ID** | RF4.2 |
+| **Autor** | Juan Puerta |
+| **Caso de uso** | Consultar electivas HAC por franja horaria |
+| **Casos de uso relacionados** | RF4 (Agente Inteligente de Consulta), RF4.1, RF4.3 – Procesar consulta inteligente (<<include>>) |
+| **Precondición** | El estudiante está autenticado en el sistema EduMobility. El semestre vigente está configurado en el sistema. |
+| **Contexto** | El estudiante autenticado desea conocer qué asignaturas electivas HAC están disponibles en una franja horaria específica durante el semestre vigente, con el fin de planificar su carga académica. |
+
+| **Secuencia normal** | **Paso** | **Acción** |
+|---|---|---|
+| | 1 | El estudiante selecciona la opción "Consultar electivas HAC por franja horaria" en el agente de IA. |
+| | 2 | El sistema solicita al estudiante que especifique la franja horaria de interés (día y rango de horas). |
+| | 3 | El estudiante ingresa la franja horaria deseada. |
+| | 4 | El sistema invoca al agente de IA (Procesar consulta inteligente) con la franja horaria y el semestre vigente. |
+| | 5 | El agente consulta el repositorio de EduMobility y obtiene las asignaturas electivas HAC disponibles en la franja indicada. |
+| | 6 | El sistema presenta al estudiante el listado de electivas disponibles con nombre de la asignatura, código, horario y cupos disponibles. |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Postcondición** | El estudiante visualiza el listado de asignaturas electivas HAC disponibles para la franja horaria solicitada en el semestre vigente. |
+
+| **Excepciones** | **Paso** | **Acción** |
+|---|---|---|
+| | 3a | El estudiante ingresa una franja horaria con formato inválido: el sistema solicita que se ingrese el formato correcto (ej. Lunes 08:00–10:00). |
+| | 5a | No existen electivas disponibles en la franja horaria indicada: el sistema informa al estudiante y sugiere consultar otra franja. |
+| | 5b | Fallo en el acceso al repositorio de horarios: el sistema muestra mensaje de error de servicio y recomienda intentarlo más tarde. |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Comentarios** | El caso de uso incluye el caso de uso "Procesar consulta inteligente" (RF4) mediante la relación <<include>>. La consulta se realiza sobre el catálogo del semestre actualmente activo en EduMobility. |
+
+---
+
+## RF4.3 — Sugerir universidades destino
+
+| **Campo** | **Descripción** |
+|---|---|
+| **ID** | RF4.3 |
+| **Autor** | Juan Puerta |
+| **Caso de uso** | Sugerir universidades destino |
+| **Casos de uso relacionados** | RF4 (Agente Inteligente de Consulta), RF4.1, RF4.2 – Procesar consulta inteligente (<<include>>) |
+| **Precondición** | El estudiante está autenticado en el sistema EduMobility. El repositorio histórico de EduMobility contiene registros de preaprobaciones anteriores. |
+| **Contexto** | El estudiante autenticado desea recibir sugerencias de universidades de destino donde sea más factible obtener una preaprobación de sus materias, basándose en el historial del repositorio de EduMobility. |
+
+| **Secuencia normal** | **Paso** | **Acción** |
+|---|---|---|
+| | 1 | El estudiante selecciona la opción "Sugerir universidades de destino" en el agente de IA. |
+| | 2 | El sistema solicita al estudiante información sobre las materias HAC que desea homologar (opcional: el estudiante puede omitirlo para ver sugerencias generales). |
+| | 3 | El estudiante proporciona la información solicitada o indica que desea sugerencias generales. |
+| | 4 | El sistema invoca al agente de IA (Procesar consulta inteligente) con los datos del estudiante y el historial del repositorio. |
+| | 5 | El agente analiza el historial de EduMobility y determina las universidades con mayor tasa de preaprobación para el perfil del estudiante. |
+| | 6 | El sistema presenta al estudiante el listado de universidades sugeridas, ordenadas por factibilidad de preaprobación, con datos de soporte (número de preaprobaciones históricas, porcentaje de éxito). |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Postcondición** | El estudiante recibe una lista de universidades de destino sugeridas, ordenadas por factibilidad de preaprobación, basada en el historial del repositorio de EduMobility. |
+
+| **Excepciones** | **Paso** | **Acción** |
+|---|---|---|
+| | 4a | El repositorio no contiene historial suficiente para generar sugerencias confiables: el sistema informa al estudiante y muestra las universidades disponibles sin ranking. |
+| | 5a | Fallo en el procesamiento del agente de IA: el sistema muestra un mensaje de error y recomienda intentarlo más tarde. |
+| | 6a | No existe ninguna universidad registrada en el sistema: el sistema informa al estudiante que el repositorio no contiene información y sugiere contactar al administrador. |
+
+| **Campo** | **Descripción** |
+|---|---|
+| **Comentarios** | El caso de uso incluye el caso de uso "Procesar consulta inteligente" (RF4) mediante la relación <<include>>. Las sugerencias se basan exclusivamente en el historial del repositorio de EduMobility y no garantizan aprobación definitiva. |
