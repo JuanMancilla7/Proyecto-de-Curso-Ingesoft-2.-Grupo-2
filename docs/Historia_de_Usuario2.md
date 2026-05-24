@@ -269,7 +269,7 @@
 | **Y** | tiene una solicitud en estado editable con el syllabus ya adjunto |
 | **Cuando** | el estudiante carga un documento adicional en formato válido dentro del límite de tamaño |
 | **Entonces** | el sistema valida el archivo y lo asocia a la solicitud |
-| **And** |  el documento se muestra en el listado de adjuntos de la solicitud |
+| **Y** |  el documento se muestra en el listado de adjuntos de la solicitud |
 
 ### **Escenario 18.2**
 
