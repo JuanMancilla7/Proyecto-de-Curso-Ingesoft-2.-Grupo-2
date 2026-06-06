@@ -225,15 +225,15 @@
 ## **Historia de Usuario N° 9**
 
 | Historia N°: | HU9 |
-| :---: | :---- |
+|---|---|
 | Yo como | administrador del área HAC  |
 | Quiero | crear un nuevo curso académico en el repositorio centralizado de EduMobility |
 | Para | que el curso se encuentre disponible en el catálogo interactivo y pueda ser consultado por los estudiantes al momento de elegir sus electivas |
 
 ### **Escenario 9.1**
 
-| Scenario: Creación exitosa de un curso con todos los campos obligatorios |  |
-| ----- | :---- |
+| Scenario: | Creación exitosa de un curso con todos los campos obligatorios | 
+|---|---|
 | **Given** | que el administrador está autenticado en EduMobility con rol Admin y se encuentra en el módulo de gestión de cursos |
 | **When** | el administrador envía el formulario con la información del curso |
 | **Then** | el sistema guarda la información del curso  |
@@ -241,7 +241,7 @@
 
 ### **Escenario 9.2**
 
-| Scenario: Intento de crear un curso con campos obligatorios vacíos |  |
+| Scenario | Intento de crear un curso con campos obligatorios vacíos |  
 | ----- | :---- |
 | **Given** | que el administrador está autenticado en EduMobility con rol Admin y se encuentra en el módulo de gestión de cursos |
 | **When** | el administrador envía el formulario con campos vacíos |
@@ -251,15 +251,15 @@
 ## **Historia de Usuario N° 10**
 
 | Historia N°: | HU10 |
-| :---: | :---- |
+|---|---|
 | Yo como | administrador del área HAC |
 | Quiero | editar la información de un curso existente en el repositorio centralizado |
 | Para | mantener el catálogo actualizado ayudando a que los estudiantes tomen decisiones informadas al elegir sus electivas |
 
 ### **Escenario 10.1**
 
-| Scenario: Edición exitosa de un curso activo |  |
-| ----- | :---- |
+| Scenario: | Edición exitosa de un curso activo |  
+|---|---|
 | **Given** | que el administrador está autenticado  |
 | **When** | el administrador guarda las modificaciones de uno o más campos del formulario  |
 | **Then** | el sistema actualiza la información del curso  |
@@ -267,8 +267,8 @@
 
 ### **Escenario 10.2**
 
-| Scenario: Intento de guardar edición con campo obligatorio vacío |  |
-| ----- | :---- |
+| Scenario: | Intento de guardar edición con campo obligatorio vacío |  
+|---|---|
 | **Given** | que el administrador está autenticado  |
 | **When** | el administrador borra el contenido de un campo obligatorio e intenta guardar los cambios |
 | **Then** | el sistema muestra un mensaje de error indicando que el campo no puede quedar vacío |
@@ -277,15 +277,15 @@
 ## **Historia de Usuario N° 11**
 
 | Historia N°: | HU11 |
-| :---: | :---- |
+|---|---|
 | Yo como | administrador del área HAC |
 | Quiero | cargar el video introductorio del docente en la ficha de un curso |
 | Para | que los estudiantes cuenten con información audiovisual que les permita conocer al profesor y la dinámica del curso antes de elegirlo |
 
 ### **Escenario 11.1**
 
-| Scenario: Carga exitosa de un video introductorio |  |
-| ----- | :---- |
+| Scenario: | Carga exitosa de un video introductorio |  
+|---|---|
 | **Given** | que el administrador está autenticado  |
 | **When** | el administrador carga un archivo de video en formato MP4 de 45 MB  |
 | **Then** | el sistema asocia el recurso multimedia al curso |
@@ -293,8 +293,8 @@
 
 ### **Escenario 11.2**
 
-| Scenario: Intento de cargar un archivo con formato no permitido |  |
-| ----- | :---- |
+| Scenario: |  Intento de cargar un archivo con formato no permitido |  
+|---|---|
 | **Given** | que el administrador está autenticado  |
 | **When** | el administrador intenta cargar un archivo en formato diferente a MP4 |
 | **Then** | el sistema rechaza el archivo y muestra un mensaje indicando que solo se acepta formato MP4  |
@@ -303,15 +303,15 @@
 ## **Historia de Usuario N° 12**
 
 | Historia N°: | HU12 |
-| :---: | :---- |
+|---|---|
 | Yo como | administrador del área HAC |
 | Quiero | desactivar un curso del catálogo cuando ya no se vaya a ofrecer |
 | Para | que los estudiantes no vean cursos no vigentes en su búsqueda, conservando el historial académico del curso en el sistema |
 
 ### **Escenario 12.1**
 
-| Scenario: Desactivación exitosa de un curso activo |  |
-| ----- | :---- |
+| Scenario: | Desactivación exitosa de un curso activo |  
+|---|---|
 | **Given** | que el administrador está autenticado  |
 | **When** | el administrador selecciona la opción Desactivar curso y confirma la acción en el diálogo de confirmación |
 | **Then** | el sistema cambia el estado del curso a Inactivo |
@@ -319,8 +319,8 @@
 
 ### **Escenario 12.2**
 
-| Scenario: Cancelación de la desactivación |  |
-| ----- | :---- |
+| Scenario: | Cancelación de la desactivación |  
+|---|---|
 | **Given** | el administrador está autenticado  |
 | **When** | el administrador cancela la acción en el diálogo de confirmación |
 | **Then** | el sistema no realiza ningún cambio sobre el curso |
@@ -331,15 +331,15 @@
 ## **Historia de Usuario N° 13**
 
 | Historia N°: | HU13 |
-| :---: | :---- |
+|---|---|
 | Yo como | estudiante en proceso de movilidad nacional o internacional |
 | Quiero | registrar una solicitud de preaprobación de equivalencia  |
 | Para | iniciar formalmente el proceso digital de preaprobación y tener un registro de seguimiento de mi solicitud en lugar de gestionarlo por correo electrónico |
 
 ### **Escenario 13.1**
 
-| Scenario: Creación de una solicitud con todos los campos completos |  |
-| ----- | :---- |
+| Scenario: | Creación de una solicitud con todos los campos completos |  
+|---|---|
 | **Given** | que el estudiante está autenticado con su cuenta institucional  |
 | **When** | el estudiante completa los campos obligatorios y guarda la solicitud |
 | **Then** | el sistema registra la solicitud  |
@@ -347,8 +347,8 @@
 
 ### **Escenario 13.2**
 
-| Scenario: Intento de guardar solicitud con campos obligatorios vacíos |  |
-| ----- | :---- |
+| Scenario: | Intento de guardar solicitud con campos obligatorios vacíos |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante deja algún campo vacío e intenta guardar |
 | **Then** | el sistema muestra un mensaje de error indicando los campos obligatorios que faltan |
@@ -357,15 +357,15 @@
 ## **Historia de Usuario N° 14**
 
 | Historia N°: | HU14 |
-| :---: | :---- |
+|---|---|
 | Yo como | estudiante en proceso de movilidad |
 | Quiero | registrar la información de la universidad dentro de mi solicitud de preaprobación |
 | Para |  reducir el tiempo de aprobación de mi equivalencia |
 
 ### **Escenario 14.1**
 
-| Scenario: Registro exitoso de universidad  |  |
-| ----- | :---- |
+| Scenario: | Registro exitoso de universidad  |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante envía los datos de la información de la universidad  |
 | **Then** | el sistema guarda la información de la universidad |
@@ -373,8 +373,8 @@
 
 ### **Escenario 14.2**
 
-| Scenario: Ingreso manual de una universidad no listada |  |
-| ----- | :---- |
+| Scenario | Ingreso manual de una universidad no listada |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante envía un nombre de una universidad que no aparece en el listado sugerido  |
 | **Then** | el sistema guarda el nombre escrito manualmente  |
@@ -383,15 +383,15 @@
 ## **Historia de Usuario N° 15**
 
 | Historia N°: | HU15 |
-| :---: | :---- |
+|---|---|
 | Yo como | estudiante en proceso de movilidad |
 | Quiero | registrar el nombre y el número de créditos del curso externo que deseo homologar |
 | Para |  asegurar una correcta validación del curso |
 
 ### **Escenario 15.1**
 
-| Scenario: Registro exitoso del curso externo |  |
-| ----- | :---- |
+| Scenario: | Registro exitoso del curso externo |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante ingresa el nombre del curso externo y el número de créditos |
 | **Then** | el sistema guarda la información del curso externo en la solicitud |
@@ -399,8 +399,8 @@
 
 ### **Escenario 15.2**
 
-| Scenario: Intento de avanzar sin ingresar el número de créditos |  |
-| ----- | :---- |
+| Scenario: | Intento de avanzar sin ingresar el número de créditos |  
+||---|---|
 | **Given** | que el estudiante está autenticado y ha ingresado el nombre del curso externo, pero dejó el campo de créditos vacío |
 | **When** | el estudiante intenta continuar al siguiente paso de la solicitud |
 | **Then** | el sistema muestra un mensaje de error indicando que el campo de créditos es obligatorio |
@@ -408,16 +408,16 @@
 
 ## **Historia de Usuario N° 16**
 
-| Historia N°: | HU16 |
-| :---: | :---- |
+| Historia N° | HU16 |
+|---|---|
 | Yo como | estudiante en proceso de movilidad |
 | Quiero | seleccionar de una lista el curso HAC activo al que deseo equivaler mi curso externo |
 | Para | garantizar que la equivalencia seleccionada sea adecuada  |
 
 ### **Escenario 16.1**
 
-| Scenario: Selección exitosa de un curso HAC desde el listado |  |
-| ----- | :---- |
+| Scenario |  Selección exitosa de un curso HAC desde el listado |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante busca por nombre y selecciona un curso HAC activo del listado |
 | **Then** | el sistema vincula el curso HAC seleccionado a la solicitud |
@@ -425,8 +425,8 @@
 
 ### **Escenario 16.2**
 
-| Scenario: Intento de enviar solicitud sin seleccionar curso HAC |  |
-| ----- | :---- |
+| Scenario: |  Intento de enviar solicitud sin seleccionar curso HAC |  
+|---|---|
 | **Given** | el estudiante está autenticado  |
 | **When** | el estudiante intenta enviar la solicitud sin haber seleccionado ningún curso HAC |
 | **Then** | el sistema bloquea el envío  |
@@ -435,15 +435,15 @@
 ## **Historia de Usuario N° 17**
 
 | Historia N°: | HU17 |
-| :---: | :---- |
+|---|---|
 | Yo como | estudiante en proceso de movilidad |
 | Quiero | adjuntar el syllabus del curso externo a mi solicitud de preaprobación en formato PDF o DOCX |
 | Para | respaldar la evaluación de mi solicitud de equivalencia |
 
 ### **Escenario 17.1**
 
-| Scenario: Adjuntar syllabus en formato válido y dentro del límite de peso |  |
-| ----- | :---- |
+| Scenario: |  Adjuntar syllabus en formato válido y dentro del límite de peso |  
+|---|---|
 | **Given** | el estudiante está autenticado  |
 | **When** | el estudiante carga un archivo PDF dentro del límite de tamaño |
 | **Then** | el sistema valida el archivo y lo asocia a la solicitud |
@@ -451,8 +451,8 @@
 
 ### **Escenario 17.2**
 
-| Scenario: Intento de cargar un syllabus que supera el límite de tamaño |  |
-| ----- | :---- |
+| Scenario: |  Intento de cargar un syllabus que supera el límite de tamaño |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante intenta cargar un archivo PDF que supere el límite del tamaño |
 | **Then** | el sistema rechaza el archivo y muestra un mensaje indicando que el tamaño máximo permitido es 10 MB |
@@ -461,15 +461,15 @@
 ## **Historia de Usuario N° 18**
 
 | Historia N°: | HU18 |
-| :---: | :---- |
+|---|---|
 | Yo como | estudiante en proceso de movilidad |
 | Quiero | adjuntar documentos de apoyo adicionales a mi solicitud (como carta de aceptación, plan de estudios o traducción del syllabus) |
 | Para | respaldar mi solicitud con información adicional relevante |
 
 ### **Escenario 18.1**
 
-| Scenario: Adjuntar documento adicional válido |  |
-| ----- | :---- |
+| Scenario: |  Adjuntar documento adicional válido |  
+|---|---|
 | **Given** | el estudiante está autenticado  |
 | **When** | el estudiante carga un documento adicional en formato válido dentro del límite de tamaño |
 | **Then** | el sistema valida el archivo y lo asocia a la solicitud |
@@ -477,8 +477,8 @@
 
 ### **Escenario 18.2**
 
-| Scenario: Envío de solicitud sin documentos adicionales |  |
-| ----- | :---- |
+| Scenario: |  Envío de solicitud sin documentos adicionales |  
+|---|---|
 | **Given** | que el estudiante está autenticado  |
 | **When** | el estudiante envía la solicitud sin adjuntar ningún documento adicional |
 | **Then** | el sistema permite el envío de la solicitud |
@@ -1328,7 +1328,7 @@
 |---|---|
 | **Historia N°** | 41 |
 | Yo como | estudiante de pregrado |
-| Quiero  preguntarle al agente de IA qué electivas HAC están disponibles en una franja horaria específica |
+| Quiero | preguntarle al agente de IA qué electivas HAC están disponibles en una franja horaria específica |
 | Para | armar mi horario académico sin que se me crucen con otras asignaturas |
 
 **Notas técnicas:** Robin lo dijo en la entrevista, si la oferta llega a 90 o más cursos, buscar a mano se vuelve inviable. La info la trae directo de Banner por API según la oferta del semestre que esté corriendo.
