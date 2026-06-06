@@ -400,7 +400,7 @@
 ### **Escenario 15.2**
 
 | Scenario: | Intento de avanzar sin ingresar el número de créditos |  
-||---|---|
+|---|---|
 | **Given** | que el estudiante está autenticado y ha ingresado el nombre del curso externo, pero dejó el campo de créditos vacío |
 | **When** | el estudiante intenta continuar al siguiente paso de la solicitud |
 | **Then** | el sistema muestra un mensaje de error indicando que el campo de créditos es obligatorio |
