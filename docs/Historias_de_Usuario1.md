@@ -8,9 +8,9 @@
 
 | Historia N°: | 1 |
 |---|---|
-| Yo como | estudiante autenticado |
+| Yo como | estudiante o visitante |
 | Quiero | visualizar el catálogo de cursos electivos HAC |
-| Para | conocer la oferta académica disponible y tomar decisiones informadas sobre mis electivas |
+| Para | conocer la oferta académica disponible sin necesidad de iniciar sesión |
 
 ---
 
@@ -18,11 +18,11 @@
 
 | Scenario: | Catálogo cargado correctamente |
 |---|---|
-| **Given** | el estudiante ha iniciado sesión con su cuenta institucional |
+| **Given** | el usuario accede a la plataforma sin autenticación |
 | **When** | navega a la sección de catálogo |
-| **Then** | el sistema muestra todos los cursos activos organizados por departamento (HUM, HTC, CRE) |
-| **And** | cada curso muestra nombre, departamento, número de créditos y descripción corta |
+| **Then** | el sistema muestra todos los cursos activos organizados por departamento |
 | **And** | el sistema indica la cantidad total de cursos disponibles |
+| **And** | el acceso no requiere inicio de sesión |
 
 ---
 
@@ -30,7 +30,7 @@
 
 | Historia N°: | 2 |
 |---|---|
-| Yo como | estudiante autenticado |
+| Yo como | estudiante |
 | Quiero | visualizar la ficha completa de un curso |
 | Para | tomar una decisión informada sobre qué asignatura elegir |
 
@@ -40,7 +40,7 @@
 
 | Scenario: | Ficha académica completa visible |
 |---|---|
-| **Given** | el estudiante autenticado se encuentra en el catálogo |
+| **Given** | el usuario se encuentra en el catálogo |
 | **When** | selecciona un curso activo |
 | **Then** | el sistema muestra los contenidos temáticos del curso |
 | **And** | muestra la metodología de enseñanza |
@@ -54,7 +54,7 @@
 
 | Historia N°: | 3 |
 |---|---|
-| Yo como | estudiante autenticado |
+| Yo como | estudiante |
 | Quiero | ver el video introductorio del docente |
 | Para | conocer el enfoque del curso antes de seleccionarlo |
 
@@ -65,7 +65,7 @@
 | Scenario: | Reproducción de video |
 |---|---|
 | **Given** | el curso tiene video introductorio registrado |
-| **When** | el estudiante autenticado accede a la ficha del curso |
+| **When** | el usuario accede a la ficha del curso |
 | **Then** | el sistema reproduce el video del docente |
 
 ---
@@ -75,7 +75,7 @@
 | Scenario: | Video ausente |
 |---|---|
 | **Given** | el curso no tiene video cargado |
-| **When** | el estudiante autenticado accede a la ficha del curso |
+| **When** | el usuario accede a la ficha del curso |
 | **Then** | el sistema muestra toda la información académica disponible |
 | **And** | el sistema indica que el video no está disponible |
 
@@ -85,7 +85,7 @@
 
 | Historia N°: | 4 |
 |---|---|
-| Yo como | estudiante autenticado |
+| Yo como | estudiante |
 | Quiero | filtrar los cursos por departamento |
 | Para | encontrar más rápido los cursos de mi interés |
 
@@ -95,8 +95,8 @@
 
 | Scenario: | Resultados filtrados |
 |---|---|
-| **Given** | el estudiante autenticado está en el catálogo |
-| **When** | selecciona un departamento específico (HUM, HTC o CRE) |
+| **Given** | el usuario está en el catálogo |
+| **When** | selecciona un departamento específico |
 | **Then** | el sistema muestra únicamente los cursos de ese departamento |
 | **And** | el sistema indica la cantidad de resultados encontrados |
 
@@ -106,7 +106,7 @@
 
 | Historia N°: | 5 |
 |---|---|
-| Yo como | estudiante autenticado |
+| Yo como | estudiante |
 | Quiero | filtrar cursos por competencias |
 | Para | elegir asignaturas según las habilidades que quiero desarrollar |
 
@@ -116,7 +116,7 @@
 
 | Scenario: | Resultados filtrados por competencia |
 |---|---|
-| **Given** | el estudiante autenticado está en el catálogo |
+| **Given** | el usuario está en el catálogo |
 | **When** | selecciona una competencia transversal |
 | **Then** | el sistema muestra cursos que desarrollan esa competencia |
 | **And** | el sistema indica la cantidad de resultados encontrados |
@@ -162,20 +162,63 @@
 |---|---|
 | Yo como | visitante |
 | Quiero | acceder al catálogo sin iniciar sesión |
-| Para | explorar la oferta académica y decidir si quiero hacer parte del proceso de movilidad |
+| Para | explorar la oferta académica libremente |
 
 ---
 
-### Escenario 7.1 — Acceso público permitido solo a vista general
+### Escenario 7.1 — Acceso público permitido
 
-| Scenario: | Navegación sin autenticación — acceso restringido |
+| Scenario: | Navegación sin autenticación |
 |---|---|
-| **Given** | el visitante no ha iniciado sesión |
-| **When** | accede a la sección del catálogo de electivas |
-| **Then** | el sistema permite ver el listado general de cursos activos con nombre, departamento, créditos y descripción corta |
-| **And** | el sistema restringe el acceso a la ficha completa, retroalimentación y solicitudes, requiriendo autenticación institucional para esas funcionalidades |
+| **Given** | el usuario no ha iniciado sesión |
+| **When** | accede al catálogo de electivas |
+| **Then** | el sistema permite ver cursos y sus fichas completas |
+| **And** | el sistema restringe funcionalidades avanzadas como retroalimentación o solicitudes |
 
 ---
+
+## Historia de Usuario N° 8 — Buscar cursos por palabras clave
+
+| Historia N°: | 8 |
+|---|---|
+| Yo como | estudiante o visitante |
+| Quiero | buscar cursos del catálogo escribiendo palabras clave |
+| Para | encontrar rápidamente asignaturas relacionadas con un tema de mi interés |
+
+---
+
+### Escenario 8.1 — Búsqueda con resultados
+
+| Scenario: | Coincidencias encontradas en nombre o descripción |
+|---|---|
+| **Given** | el usuario se encuentra en el catálogo de cursos |
+| **When** | escribe una o más palabras clave en el campo de búsqueda |
+| **Then** | el sistema muestra los cursos cuyo nombre o descripción coinciden con las palabras ingresadas |
+| **And** | el sistema indica la cantidad total de resultados encontrados |
+
+---
+
+### Escenario 8.2 — Búsqueda sin resultados
+
+| Scenario: | No hay cursos que coincidan |
+|---|---|
+| **Given** | el usuario se encuentra en el catálogo de cursos |
+| **When** | escribe una palabra clave que no coincide con ningún curso |
+| **Then** | el sistema muestra un mensaje indicando que no hay resultados |
+| **And** | sugiere ajustar las palabras clave o revisar los filtros aplicados |
+
+---
+
+### Escenario 8.3 — Búsqueda combinada con filtros activos
+
+| Scenario: | Búsqueda aplicada sobre un catálogo ya filtrado |
+|---|---|
+| **Given** | el usuario tiene aplicados filtros por departamento o competencia |
+| **When** | escribe palabras clave en el campo de búsqueda |
+| **Then** | el sistema muestra solo los cursos que cumplen con los filtros y además coinciden con la búsqueda |
+| **And** | mantiene los filtros activos hasta que el usuario los retire manualmente |
+
+## 
 
 ## **Administración de cursos:**
 
@@ -183,131 +226,105 @@
 
 | Historia N°: | HU9 |
 | :---: | :---- |
-| **Yo como** | jefe de departamento |
-| **Quiero** | registrar manualmente un nuevo curso académico en el repositorio de EduMobility |
-| **Para** | que el curso se encuentre disponible en el catálogo y pueda ser consultado por los estudiantes al momento de elegir sus electivas |
+| Yo como | administrador del área HAC  |
+| Quiero | crear un nuevo curso académico en el repositorio centralizado de EduMobility |
+| Para | que el curso se encuentre disponible en el catálogo interactivo y pueda ser consultado por los estudiantes al momento de elegir sus electivas |
 
 ### **Escenario 9.1**
 
 | Scenario: Creación exitosa de un curso con todos los campos obligatorios |  |
 | ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado en EduMobility con su rol institucional y se encuentra en el módulo de gestión de cursos |
-| **Cuando** | el jefe de departamento envía el formulario con la información completa del curso (nombre, código, departamento, créditos, descripción, contenidos, metodología, criterios de evaluación, competencias y perfil del estudiante) |
-| **Entonces** | el sistema guarda la información del curso  |
-| **Y** | registra el estado del curso como Activo |
+| **Given** | que el administrador está autenticado en EduMobility con rol Admin y se encuentra en el módulo de gestión de cursos |
+| **When** | el administrador envía el formulario con la información del curso |
+| **Then** | el sistema guarda la información del curso  |
+| **And** | registra el estado del curso como Activo |
 
 ### **Escenario 9.2**
 
 | Scenario: Intento de crear un curso con campos obligatorios vacíos |  |
 | ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado en EduMobility con su rol institucional y se encuentra en el módulo de gestión de cursos |
-| **Cuando** | el jefe de departamento envía el formulario con campos obligatorios vacíos |
-| **Entonces** | el sistema muestra un mensaje de error señalando los campos obligatorios que faltan |
-| **Y** | el sistema no registra la información del curso |
+| **Given** | que el administrador está autenticado en EduMobility con rol Admin y se encuentra en el módulo de gestión de cursos |
+| **When** | el administrador envía el formulario con campos vacíos |
+| **Then** | el sistema muestra un mensaje de error señalando los campos obligatorios que faltan |
+| **And** | el sistema no registra la información del curso |
 
 ## **Historia de Usuario N° 10**
 
 | Historia N°: | HU10 |
 | :---: | :---- |
-| **Yo como** | jefe de departamento |
-| **Quiero** | editar la información académica de un curso existente en el repositorio de EduMobility |
-| **Para** | mantener el catálogo actualizado ayudando a que los estudiantes tomen decisiones informadas al elegir sus electivas |
+| Yo como | administrador del área HAC |
+| Quiero | editar la información de un curso existente en el repositorio centralizado |
+| Para | mantener el catálogo actualizado ayudando a que los estudiantes tomen decisiones informadas al elegir sus electivas |
 
 ### **Escenario 10.1**
 
-| Scenario: Edición exitosa de campos editables de un curso activo |  |
+| Scenario: Edición exitosa de un curso activo |  |
 | ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado con su rol institucional |
-| **Y** | ha seleccionado un curso activo desde el módulo de gestión |
-| **Cuando** | el jefe de departamento guarda modificaciones en campos editables (descripción, contenidos temáticos, metodología, criterios de evaluación, competencias o perfil del estudiante) |
-| **Entonces** | el sistema actualiza la información del curso  |
-| **Y** | los cambios quedan reflejados de inmediato en la ficha del curso dentro del catálogo |
+| **Given** | que el administrador está autenticado  |
+| **When** | el administrador guarda las modificaciones de uno o más campos del formulario  |
+| **Then** | el sistema actualiza la información del curso  |
+| **And** | los cambios quedan reflejados de inmediato en la ficha del curso dentro del catálogo público |
 
 ### **Escenario 10.2**
 
 | Scenario: Intento de guardar edición con campo obligatorio vacío |  |
 | ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado con su rol institucional |
-| **Y** | ha seleccionado un curso activo desde el módulo de gestión |
-| **Cuando** | el jefe de departamento borra el contenido de un campo obligatorio e intenta guardar los cambios |
-| **Entonces** | el sistema muestra un mensaje de error indicando que el campo no puede quedar vacío |
-| **Y** | los cambios no se guardan  |
-
-### **Escenario 10.3**
-
-| Scenario: Intento de editar campos no editables |  |
-| ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado con su rol institucional |
-| **Y** | ha seleccionado un curso desde el módulo de gestión |
-| **Cuando** | intenta modificar el nombre, código o número de créditos del curso |
-| **Entonces** | el sistema muestra esos campos como de solo lectura |
-| **Y** | muestra un mensaje indicando que esos campos no son editables desde EduMobility |
+| **Given** | que el administrador está autenticado  |
+| **When** | el administrador borra el contenido de un campo obligatorio e intenta guardar los cambios |
+| **Then** | el sistema muestra un mensaje de error indicando que el campo no puede quedar vacío |
+| **And** | los cambios no se guardan  |
 
 ## **Historia de Usuario N° 11**
 
 | Historia N°: | HU11 |
 | :---: | :---- |
-| **Yo como** | docente |
-| **Quiero** | cargar el video introductorio de mi curso en la plataforma |
-| **Para** | que los estudiantes cuenten con información audiovisual que les permita conocer mi enfoque y la dinámica del curso antes de elegirlo |
+| Yo como | administrador del área HAC |
+| Quiero | cargar el video introductorio del docente en la ficha de un curso |
+| Para | que los estudiantes cuenten con información audiovisual que les permita conocer al profesor y la dinámica del curso antes de elegirlo |
 
 ### **Escenario 11.1**
 
 | Scenario: Carga exitosa de un video introductorio |  |
 | ----- | :---- |
-| **Dado** | que el docente está autenticado con su rol institucional |
-| **Y** | ha abierto la sección de multimedia de su curso |
-| **Cuando** | el docente carga un archivo de video en formato MP4 de hasta 500 MB |
-| **Entonces** | el sistema asocia el recurso multimedia al curso |
-| **Y** | el video queda visible en la ficha del curso dentro del catálogo |
+| **Given** | que el administrador está autenticado  |
+| **When** | el administrador carga un archivo de video en formato MP4 de 45 MB  |
+| **Then** | el sistema asocia el recurso multimedia al curso |
+| **And** | el video queda visible en la ficha pública del curso dentro del catálogo |
 
 ### **Escenario 11.2**
 
 | Scenario: Intento de cargar un archivo con formato no permitido |  |
 | ----- | :---- |
-| **Dado** | que el docente está autenticado con su rol institucional |
-| **Y** | se encuentra en la sección de multimedia de su curso |
-| **Cuando** | el docente intenta cargar un archivo en formato diferente a MP4 |
-| **Entonces** | el sistema rechaza el archivo y muestra un mensaje indicando que solo se acepta formato MP4  |
-| **Y** | el campo de video permanece sin cambios |
-
-### **Escenario 11.3**
-
-| Scenario: Intento de cargar un video que supera el límite de tamaño |  |
-| ----- | :---- |
-| **Dado** | que el docente está autenticado con su rol institucional |
-| **Y** | se encuentra en la sección de multimedia de su curso |
-| **Cuando** | el docente intenta cargar un archivo MP4 que supera los 500 MB |
-| **Entonces** | el sistema rechaza el archivo y muestra un mensaje indicando que el tamaño máximo permitido es 500 MB |
-| **Y** | el campo de video permanece sin cambios |
+| **Given** | que el administrador está autenticado  |
+| **When** | el administrador intenta cargar un archivo en formato diferente a MP4 |
+| **Then** | el sistema rechaza el archivo y muestra un mensaje indicando que solo se acepta formato MP4  |
+| **And** | el campo de video permanece sin cambios |
 
 ## **Historia de Usuario N° 12**
 
 | Historia N°: | HU12 |
 | :---: | :---- |
-| **Yo como** | jefe de departamento |
-| **Quiero** | marcar un curso como inactivo cuando no esté disponible en el semestre vigente |
-| **Para** | que los estudiantes no vean cursos no vigentes en su búsqueda, conservando el historial académico del curso en el sistema |
+| Yo como | administrador del área HAC |
+| Quiero | desactivar un curso del catálogo cuando ya no se vaya a ofrecer |
+| Para | que los estudiantes no vean cursos no vigentes en su búsqueda, conservando el historial académico del curso en el sistema |
 
 ### **Escenario 12.1**
 
 | Scenario: Desactivación exitosa de un curso activo |  |
 | ----- | :---- |
-| **Dado** | que el jefe de departamento está autenticado con su rol institucional |
-| **Y** | ha seleccionado un curso activo desde el módulo de gestión |
-| **Cuando** | el jefe de departamento selecciona la opción Marcar como inactivo y confirma la acción en el diálogo de confirmación |
-| **Entonces** | el sistema cambia el estado del curso a Inactivo |
-| **Y** | el curso desaparece del catálogo visible para los estudiantes, pero su información se conserva en el repositorio con estado Inactivo |
+| **Given** | que el administrador está autenticado  |
+| **When** | el administrador selecciona la opción Desactivar curso y confirma la acción en el diálogo de confirmación |
+| **Then** | el sistema cambia el estado del curso a Inactivo |
+| **And** | el curso desaparece del catálogo público, pero su información se conserva en el repositorio con estado Inactivo |
 
 ### **Escenario 12.2**
 
 | Scenario: Cancelación de la desactivación |  |
 | ----- | :---- |
-| **Dado** | el jefe de departamento está autenticado con su rol institucional |
-| **Y** | ha seleccionado la opción Marcar como inactivo para un curso activo |
-| **Cuando** | el jefe de departamento cancela la acción en el diálogo de confirmación |
-| **Entonces** | el sistema no realiza ningún cambio sobre el curso |
-| **Y** | el curso permanece activo y visible en el catálogo |
+| **Given** | el administrador está autenticado  |
+| **When** | el administrador cancela la acción en el diálogo de confirmación |
+| **Then** | el sistema no realiza ningún cambio sobre el curso |
+| **And** | el curso permanece activo y visible en el catálogo público |
 
 ## **Equivalencias:** 
 
@@ -315,168 +332,158 @@
 
 | Historia N°: | HU13 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad nacional o internacional |
-| **Quiero** | registrar una solicitud de preaprobación de equivalencia  |
-| **Para** | iniciar formalmente el proceso digital de preaprobación y tener un registro de seguimiento de mi solicitud en lugar de gestionarlo por correo electrónico |
+| Yo como | estudiante en proceso de movilidad nacional o internacional |
+| Quiero | registrar una solicitud de preaprobación de equivalencia  |
+| Para | iniciar formalmente el proceso digital de preaprobación y tener un registro de seguimiento de mi solicitud en lugar de gestionarlo por correo electrónico |
 
 ### **Escenario 13.1**
 
 | Scenario: Creación de una solicitud con todos los campos completos |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado con su cuenta institucional  |
-| **Y** |  se encuentra en el módulo de equivalencias |
-| **Cuando** | el estudiante completa los campos obligatorios y guarda la solicitud |
-| **Entonces** | el sistema registra la solicitud  |
-| **Y** |  la asigna al estado En borrador |
+| **Given** | que el estudiante está autenticado con su cuenta institucional  |
+| **When** | el estudiante completa los campos obligatorios y guarda la solicitud |
+| **Then** | el sistema registra la solicitud  |
+| **And** |  la asigna al estado En borrador |
 
 ### **Escenario 13.2**
 
 | Scenario: Intento de guardar solicitud con campos obligatorios vacíos |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | está completando el formulario de solicitud de preaprobación |
-| **Cuando** | el estudiante deja algún campo vacío e intenta guardar |
-| **Entonces** | el sistema muestra un mensaje de error indicando los campos obligatorios que faltan |
-| **Y** | la solicitud no se registra |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante deja algún campo vacío e intenta guardar |
+| **Then** | el sistema muestra un mensaje de error indicando los campos obligatorios que faltan |
+| **And** | la solicitud no se registra |
 
 ## **Historia de Usuario N° 14**
 
 | Historia N°: | HU14 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad |
-| **Quiero** | registrar la información de la universidad dentro de mi solicitud de preaprobación |
-| **Para** |  reducir el tiempo de aprobación de mi equivalencia |
+| Yo como | estudiante en proceso de movilidad |
+| Quiero | registrar la información de la universidad dentro de mi solicitud de preaprobación |
+| Para |  reducir el tiempo de aprobación de mi equivalencia |
 
 ### **Escenario 14.1**
 
 | Scenario: Registro exitoso de universidad  |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | tiene una solicitud en estado de creación |
-| **Cuando** | el estudiante envía los datos de la información de la universidad  |
-| **Entonces** | el sistema guarda la información de la universidad |
-| **Y** | la información queda registrada en la solicitud |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante envía los datos de la información de la universidad  |
+| **Then** | el sistema guarda la información de la universidad |
+| **And** | la información queda registrada en la solicitud |
 
 ### **Escenario 14.2**
 
 | Scenario: Ingreso manual de una universidad no listada |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | está diligenciando el campo de universidad de destino en su solicitud |
-| **Cuando** | el estudiante envía un nombre de una universidad que no aparece en el listado sugerido  |
-| **Entonces** | el sistema guarda el nombre escrito manualmente  |
-| **Y** | la información, aunque no esté en el listadoqueda registrada en la solicitud |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante envía un nombre de una universidad que no aparece en el listado sugerido  |
+| **Then** | el sistema guarda el nombre escrito manualmente  |
+| **And** | la información, aunque no esté en el listadoqueda registrada en la solicitud |
 
 ## **Historia de Usuario N° 15**
 
 | Historia N°: | HU15 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad |
-| **Quiero** | registrar el nombre y el número de créditos del curso externo que deseo homologar |
-| **Para** |  asegurar una correcta validación del curso |
+| Yo como | estudiante en proceso de movilidad |
+| Quiero | registrar el nombre y el número de créditos del curso externo que deseo homologar |
+| Para |  asegurar una correcta validación del curso |
 
 ### **Escenario 15.1**
 
 | Scenario: Registro exitoso del curso externo |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | tiene una solicitud en proceso de creación con la universidad de destino ya registrada |
-| **Cuando** | el estudiante ingresa el nombre del curso externo y el número de créditos |
-| **Entonces** | el sistema guarda la información del curso externo en la solicitud |
-| **Y** | el curso externo se muestra con su nombre y número de créditos en la solicitud |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante ingresa el nombre del curso externo y el número de créditos |
+| **Then** | el sistema guarda la información del curso externo en la solicitud |
+| **And** | el curso externo se muestra con su nombre y número de créditos en la solicitud |
 
 ### **Escenario 15.2**
 
 | Scenario: Intento de avanzar sin ingresar el número de créditos |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado y ha ingresado el nombre del curso externo, pero dejó el campo de créditos vacío |
-| **Cuando** | el estudiante intenta continuar al siguiente paso de la solicitud |
-| **Entonces** | el sistema muestra un mensaje de error indicando que el campo de créditos es obligatorio |
-| **Y** | el estudiante no puede avanzar hasta ingresar un valor numérico válido en el campo de créditos |
+| **Given** | que el estudiante está autenticado y ha ingresado el nombre del curso externo, pero dejó el campo de créditos vacío |
+| **When** | el estudiante intenta continuar al siguiente paso de la solicitud |
+| **Then** | el sistema muestra un mensaje de error indicando que el campo de créditos es obligatorio |
+| **And** | el estudiante no puede avanzar hasta ingresar un valor numérico válido en el campo de créditos |
 
 ## **Historia de Usuario N° 16**
 
 | Historia N°: | HU16 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad |
-| **Quiero** | seleccionar de una lista el curso HAC activo al que deseo equivaler mi curso externo |
-| **Para** | garantizar que la equivalencia seleccionada sea adecuada  |
+| Yo como | estudiante en proceso de movilidad |
+| Quiero | seleccionar de una lista el curso HAC activo al que deseo equivaler mi curso externo |
+| Para | garantizar que la equivalencia seleccionada sea adecuada  |
 
 ### **Escenario 16.1**
 
 | Scenario: Selección exitosa de un curso HAC desde el listado |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | se encuentra en el paso de selección de curso HAC dentro del formulario de solicitud |
-| **Cuando** | el estudiante busca por nombre y selecciona un curso HAC activo del listado |
-| **Entonces** | el sistema vincula el curso HAC seleccionado a la solicitud |
-| **Y** | el curso HAC seleccionado se muestra en el resumen de la solicitud |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante busca por nombre y selecciona un curso HAC activo del listado |
+| **Then** | el sistema vincula el curso HAC seleccionado a la solicitud |
+| **And** | el curso HAC seleccionado se muestra en el resumen de la solicitud |
 
 ### **Escenario 16.2**
 
 | Scenario: Intento de enviar solicitud sin seleccionar curso HAC |  |
 | ----- | :---- |
-| **Dado** | el estudiante está autenticado  |
-| **Y** | ha completado todos los demás campos de la solicitud excepto el curso HAC propuesto |
-| **Cuando** | el estudiante intenta enviar la solicitud sin haber seleccionado ningún curso HAC |
-| **Entonces** | el sistema bloquea el envío  |
-| **Y** | muestra un mensaje indicando que el campo Curso HAC propuesto es obligatorio |
+| **Given** | el estudiante está autenticado  |
+| **When** | el estudiante intenta enviar la solicitud sin haber seleccionado ningún curso HAC |
+| **Then** | el sistema bloquea el envío  |
+| **And** | muestra un mensaje indicando que el campo Curso HAC propuesto es obligatorio |
 
 ## **Historia de Usuario N° 17**
 
 | Historia N°: | HU17 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad |
-| **Quiero** | adjuntar el syllabus del curso externo a mi solicitud de preaprobación en formato PDF o DOCX |
-| **Para** | respaldar la evaluación de mi solicitud de equivalencia |
+| Yo como | estudiante en proceso de movilidad |
+| Quiero | adjuntar el syllabus del curso externo a mi solicitud de preaprobación en formato PDF o DOCX |
+| Para | respaldar la evaluación de mi solicitud de equivalencia |
 
 ### **Escenario 17.1**
 
 | Scenario: Adjuntar syllabus en formato válido y dentro del límite de peso |  |
 | ----- | :---- |
-| **Dado** | el estudiante está autenticado  |
-| **Y** | tiene una solicitud en estado borrador con los campos principales completos |
-| **Cuando** | el estudiante carga un archivo PDF dentro del límite de tamaño |
-| **Entonces** | el sistema valida el archivo y lo asocia a la solicitud |
-| **Y** | el archivo adjunto se muestra en el resumen de la solicitud |
+| **Given** | el estudiante está autenticado  |
+| **When** | el estudiante carga un archivo PDF dentro del límite de tamaño |
+| **Then** | el sistema valida el archivo y lo asocia a la solicitud |
+| **And** | el archivo adjunto se muestra en el resumen de la solicitud |
 
 ### **Escenario 17.2**
 
 | Scenario: Intento de cargar un syllabus que supera el límite de tamaño |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | se dispone a adjuntar el syllabus a su solicitud |
-| **Cuando** | el estudiante intenta cargar un archivo PDF que supere el límite del tamaño |
-| **Entonces** | el sistema rechaza el archivo y muestra un mensaje indicando que el tamaño máximo permitido es 10 MB |
-| **Y** | el campo de adjunto permanece vacío  |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante intenta cargar un archivo PDF que supere el límite del tamaño |
+| **Then** | el sistema rechaza el archivo y muestra un mensaje indicando que el tamaño máximo permitido es 10 MB |
+| **And** | el campo de adjunto permanece vacío  |
 
 ## **Historia de Usuario N° 18**
 
 | Historia N°: | HU18 |
 | :---: | :---- |
-| **Yo como** | estudiante en proceso de movilidad |
-| **Quiero** | adjuntar documentos de apoyo adicionales a mi solicitud (como carta de aceptación, plan de estudios o traducción del syllabus) |
-| **Para** | respaldar mi solicitud con información adicional relevante |
+| Yo como | estudiante en proceso de movilidad |
+| Quiero | adjuntar documentos de apoyo adicionales a mi solicitud (como carta de aceptación, plan de estudios o traducción del syllabus) |
+| Para | respaldar mi solicitud con información adicional relevante |
 
 ### **Escenario 18.1**
 
 | Scenario: Adjuntar documento adicional válido |  |
 | ----- | :---- |
-| **Dado** | el estudiante está autenticado  |
-| **Y** | tiene una solicitud en estado editable con el syllabus ya adjunto |
-| **Cuando** | el estudiante carga un documento adicional en formato válido dentro del límite de tamaño |
-| **Entonces** | el sistema valida el archivo y lo asocia a la solicitud |
-| **Y** |  el documento se muestra en el listado de adjuntos de la solicitud |
+| **Given** | el estudiante está autenticado  |
+| **When** | el estudiante carga un documento adicional en formato válido dentro del límite de tamaño |
+| **Then** | el sistema valida el archivo y lo asocia a la solicitud |
+| **And** |  el documento se muestra en el listado de adjuntos de la solicitud |
 
 ### **Escenario 18.2**
 
 | Scenario: Envío de solicitud sin documentos adicionales |  |
 | ----- | :---- |
-| **Dado** | que el estudiante está autenticado  |
-| **Y** | tiene una solicitud en estado editable, pero no ha cargado documentos adicionales |
-| **Cuando** | el estudiante envía la solicitud sin adjuntar ningún documento adicional |
-| **Entonces** | el sistema permite el envío de la solicitud |
-| **Y** | la solicitud cambia al estado Pendiente de revisión |
+| **Given** | que el estudiante está autenticado  |
+| **When** | el estudiante envía la solicitud sin adjuntar ningún documento adicional |
+| **Then** | el sistema permite el envío de la solicitud |
+| **And** | la solicitud cambia al estado Pendiente de revisión |
+
 
 ## **Autenticación y Retroalimentación**
 
@@ -739,25 +746,25 @@
 
 ---
 
-## **Historia de Usuario N° 27 — Consultar promedios y estadísticas de retroalimentación**
+## **Historia de Usuario N° 27 — Ver promedios y estadísticas**
 
 | Historia N°: | 27 |
 |---|---|
-| Yo como | jefe de departamento |
-| Quiero | consultar los promedios de valoración y estadísticas de retroalimentación de cada curso de mi departamento |
-| Para | identificar oportunidades de mejora en la oferta académica |
+| Yo como | estudiante |
+| Quiero | ver estadísticas de un curso |
+| Para | tomar mejores decisiones |
 
 ---
 
-### **Escenario 27.1 — Visualización de promedios por pregunta y competencia**
+### **Escenario 27.1 — Visualización de estadísticas**
 
-| Scenario: | Estadísticas disponibles para el jefe de departamento |
+| Scenario: | Estadísticas disponibles |
 |---|---|
-| **Given** | el jefe de departamento está autenticado con su rol institucional |
-| **And** | el curso tiene retroalimentación registrada |
-| **When** | accede a la sección de estadísticas de retroalimentación del curso y selecciona un semestre académico |
-| **Then** | el sistema muestra los promedios de valoración por pregunta y por competencia filtrados por ese semestre |
-| **And** | muestra los comentarios libres registrados por los estudiantes |
+| **Given** | el curso tiene retroalimentación registrada |
+| **When** | el usuario accede a estadísticas |
+| **Then** | el sistema muestra promedio de calificaciones |
+| **And** | muestra resultados de competencias |
+| **And** | muestra cantidad de comentarios |
 
 ---
 
@@ -765,22 +772,10 @@
 
 | Scenario: | Sin estadísticas disponibles |
 |---|---|
-| **Given** | el jefe de departamento está autenticado con su rol institucional |
-| **And** | el curso no tiene retroalimentación registrada para el semestre seleccionado |
-| **When** | accede a la sección de estadísticas del curso |
-| **Then** | el sistema muestra un mensaje indicando que aún no hay retroalimentación disponible para ese semestre |
+| **Given** | el curso no tiene retroalimentación registrada |
+| **When** | el usuario accede a la sección de estadísticas del curso |
+| **Then** | el sistema muestra un mensaje indicando que aún no hay calificaciones ni comentarios disponibles |
 | **And** | no despliega ningún promedio ni resultado de competencias |
-
----
-
-### **Escenario 27.3 — Restricción de acceso para otros roles**
-
-| Scenario: | Acceso bloqueado para estudiantes y docentes |
-|---|---|
-| **Given** | un usuario con rol Estudiante o Docente intenta acceder a las estadísticas de retroalimentación |
-| **When** | invoca la funcionalidad |
-| **Then** | el sistema deniega el acceso |
-| **And** | muestra un mensaje indicando que esa información es de acceso exclusivo del jefe de departamento |
 
 ---
 
@@ -794,9 +789,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 28 |
-| **Yo como** | jefe de departamento |
-| **Quiero** | recibir las solicitudes de preaprobación clasificadas automáticamente en niveles Alto, Medio o Bajo |
-| **Para** | priorizar mi tiempo de revisión y enfocarme primero en los casos que requieren más análisis |
+| Yo como | jefe de departamento |
+| Quiero | recibir las solicitudes de preaprobación clasificadas automáticamente en niveles Alto, Medio o Bajo |
+| Para | priorizar mi tiempo de revisión y enfocarme primero en los casos que requieren más análisis |
+
+**Notas técnicas:** Según el PESTLE que hicimos, una clasificación automática nunca puede ser una decisión definitiva, debe quedar como una sugerencia para que un humano la valide (RNFT-11-01). También deberíamos guardar el criterio que usó el sistema para clasificar, por si después se quiere auditar el algoritmo (RFEt-11-02).
 
 ---
 
@@ -839,9 +836,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 29 |
-| **Yo como** | estudiante interesado en movilidad académica |
-| **Quiero** | consultar las materias que ya fueron preaprobadas previamente para una universidad destino específica |
-| **Para** | ver qué opciones tienen mayor probabilidad de aprobación cuando esté planeando mi movilidad |
+| Yo como | estudiante interesado en movilidad académica |
+| Quiero | consultar las materias que ya fueron preaprobadas previamente para una universidad destino específica |
+| Para | ver qué opciones tienen mayor probabilidad de aprobación cuando esté planeando mi movilidad |
+
+**Notas técnicas:** La idea de esto es reemplazar el Excel personal que tiene Sara ahora, para que la información esté disponible para todos los estudiantes y no dependa de ella. Cada vez que una solicitud cambia a estado Aprobado, el sistema registra automáticamente la preaprobación en el repositorio.
 
 ---
 
@@ -867,24 +866,24 @@
 
 ---
 
-## Historia de Usuario N° 30 — Consultar listado de solicitudes pendientes (Director de Programa)
+## Historia de Usuario N° 30 — Consultar listado de solicitudes activas (Asistente Académica)
 
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 30 |
-| **Yo como** | director de programa |
-| **Quiero** | ver el listado de solicitudes de preaprobación de los estudiantes de mi programa que estén pendientes de revisión |
-| **Para** | hacerles seguimiento y dar mi visto bueno antes de que pasen al jefe de departamento |
+| Yo como | asistente académica |
+| Quiero | ver el listado de todas las solicitudes activas con su estado actual |
+| Para | hacerles seguimiento y orientar a los estudiantes a tiempo |
 
 ---
 
-### Escenario 30.1 — Acceso al panel de solicitudes pendientes
+### Escenario 30.1 — Acceso al panel de solicitudes activas
 
-| Scenario: | Listado de solicitudes pendientes visible al director de programa |
+| Scenario: | Listado completo visible al rol Asistente |
 |---|---|
-| **Given** | el director de programa está autenticado con su rol institucional |
+| **Given** | la asistente académica está autenticada con su rol institucional |
 | **When** | accede al módulo de seguimiento de solicitudes |
-| **Then** | el sistema muestra las solicitudes de los estudiantes de su programa que estén pendientes de revisión, con: estudiante, universidad destino, curso HAC propuesto, nivel asignado y estado actual |
+| **Then** | el sistema muestra todas las solicitudes activas con estudiante, universidad destino, curso HAC propuesto, nivel asignado y estado actual |
 
 ---
 
@@ -892,10 +891,10 @@
 
 | Scenario: | Acceso bloqueado a usuarios sin rol autorizado |
 |---|---|
-| **Given** | un usuario con rol Estudiante o Docente intenta acceder al listado de solicitudes |
+| **Given** | un usuario con rol distinto a Asistente, Jefe o Director intenta acceder al listado |
 | **When** | invoca la URL o acción del panel |
 | **Then** | el sistema deniega el acceso |
-| **And** | redirige a la vista permitida para su rol (RNF3 — seguridad por rol) |
+| **And** | redirige a la vista permitida para su rol (esto va de la mano con el RNF3 de seguridad por rol) |
 
 ---
 
@@ -904,9 +903,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 31 |
-| **Yo como** | director de programa |
-| **Quiero** | revisar si la documentación adjunta a cada solicitud está completa, legible y es la apropiada |
-| **Para** | confirmar que la solicitud está lista para registrar mi visto bueno y habilitarla en la cola del jefe de departamento |
+| Yo como | asistente académica |
+| Quiero | revisar y marcar si la documentación adjunta a cada solicitud está completa, legible y es la apropiada |
+| Para | confirmar que la solicitud está lista para pasar al jefe o pedirle al estudiante que complete información |
+
+**Notas técnicas:** La asistente solo revisa que la documentación esté en orden (que el syllabus sea legible, que corresponda al curso, que los créditos sean claros). No puede aprobar ni rechazar nada, eso lo dejaron claro Sara y Robin en las entrevistas.
 
 ---
 
@@ -914,10 +915,10 @@
 
 | Scenario: | Documentación completa y legible |
 |---|---|
-| **Given** | el director de programa abre el detalle de una solicitud pendiente |
+| **Given** | la asistente abre el detalle de una solicitud activa |
 | **When** | confirma que el syllabus es legible, corresponde al curso externo y los créditos son consistentes |
 | **Then** | marca la solicitud con el indicador "Documentación verificada" |
-| **And** | la solicitud queda disponible para que el director registre su visto bueno (HU32) |
+| **And** | la solicitud queda dispobible para revisión del jefe de departamento |
 
 ---
 
@@ -925,40 +926,42 @@
 
 | Scenario: | Documentación incompleta o ilegible |
 |---|---|
-| **Given** | el director de programa abre el detalle de una solicitud |
+| **Given** | la asistente abre el detalle de una solicitud |
 | **When** | detecta que un documento no es legible, no corresponde, o falta información requerida |
 | **Then** | marca la solicitud con el indicador "Requiere completar documentación" |
 | **And** | registra una observación detallando la información faltante (HU32), sin cambiar el estado oficial de la solicitud |
 
 ---
 
-## Historia de Usuario N° 32 — Registrar visto bueno con observaciones opcionales
+## Historia de Usuario N° 32 — Registrar observaciones de acompañamiento
 
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 32 |
-| **Yo como** | director de programa |
-| **Quiero** | registrar mi visto bueno sobre una solicitud, con campo de observaciones opcional |
-| **Para** | habilitarla en la cola de revisión del jefe de departamento sin tomar la decisión de aprobación o rechazo |
+| Yo como | asistente académica |
+| Quiero | registrar observaciones de acompañamiento en una solicitud |
+| Para | dejar constancia de mi orientación al estudiante sin estar emitiendo decisiónes de aprobación o rechazo |
+
+**Notas técnicas:** Pablo y Robin lo dijeron en sus entrevistas, la asistente no tiene autoridad para aprobar ni rechazar nada, solo el jefe de departamento puede tomar esas decisiónes. El sistema debería bloquear esto a nivel de permisos.
 
 ---
 
-### Escenario 32.1 — Registro exitoso de visto bueno
+### Escenario 32.1 — Registro exitoso de observación
 
-| Scenario: | Visto bueno registrado correctamente |
+| Scenario: | Observación registrada correctamente |
 |---|---|
-| **Given** | el director de programa accede al detalle de una solicitud pendiente |
-| **When** | registra su visto bueno con observaciones opcionales y confirma |
-| **Then** | el sistema guarda el visto bueno con fecha, hora y usuario responsable |
-| **And** | la solicitud queda habilitada en la cola de revisión del jefe de departamento |
+| **Given** | la asistente accede al detalle de una solicitud activa |
+| **When** | redacta una observación sobre la documentación o el proceso y la confirma |
+| **Then** | el sistema guarda la observación con fecha, hora y autora |
+| **And** | la observación queda visible para el estudiante y el jefe de departamento |
 
 ---
 
 ### Escenario 32.2 — Bloqueo de acciones fuera del rol
 
-| Scenario: | Intento de cambio de estado por el director de programa |
+| Scenario: | Intento de cambio de estado por la asistente |
 |---|---|
-| **Given** | el director de programa accede al detalle de una solicitud |
+| **Given** | la asistente accede al detalle de una solicitud |
 | **When** | intenta cambiar el estado a Aprobado o Rechazado |
 | **Then** | el sistema bloquea la acción |
 | **And** | muestra un mensaje indicando que esa decisión solo puede emitirla el jefe de departamento |
@@ -970,10 +973,9 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 33 |
-| **Yo como** | jefe de departamento |
-| **Quiero** | consultar el detalle completo de cada solicitud asignada a mi departamento |
-| **Para** | tomar una decisión informada sobre la equivalencia |
-
+| Yo como | jefe de departamento |
+| Quiero | consultar el detalle completo de cada solicitud asignada a mi departamento |
+| Para | tomar una decisión informada sobre la equivalencia |
 ---
 
 ### Escenario 33.1 — Visualización del detalle completo
@@ -982,7 +984,7 @@
 |---|---|
 | **Given** | el jefe de departamento está autenticado con su rol institucional |
 | **When** | selecciona una solicitud de su bandeja |
-| **Then** | el sistema muestra datos del estudiante, universidad destino, curso externo, créditos, curso HAC propuesto, nivel asignado automáticamente, syllabus adjunto y observaciones del director de programa |
+| **Then** | el sistema muestra datos del estudiante, universidad destino, curso externo, créditos, curso HAC propuesto, nivel asignado automáticamente, syllabus adjunto y observaciones de la asistente |
 | **And** | habilita las acciones de decisión permitidas para el rol (aprobar, rechazar, requerir información adicional) |
 
 ---
@@ -1003,9 +1005,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 34 |
-| **Yo como** | jefe de departamento |
-| **Quiero** | registrar la decisión de cada solicitud (Aprobado, Rechazado o Requiere información adicional) |
-| **Para** | dar respuesta formal al estudiante y avanzar el proceso de movilidad |
+| Yo como | jefe de departamento |
+| Quiero | registrar la decisión de cada solicitud (Aprobado, Rechazado o Requiere información adicional) |
+| Para | dar respuesta formal al estudiante y avanzar el proceso de movilidad |
+
+**Notas técnicas:** Si el jefe rechaza la solicitud o pide más info, sí o sí tiene que dejar observaciones, no se puede saltar ese campo. Esto sale del RF3.16 y también del PESTLE (RFEt-02-02), que pedía que las decisiónes fueran transparentes para el estudiante. Cada decisión queda registrada en la trazabilidad de HU37.
 
 ---
 
@@ -1060,10 +1064,9 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 35 |
-| **Yo como** | estudiante |
-| **Quiero** | consultar el estado y la trayectoria de mis propias solicitudes de preaprobación |
-| **Para** | hacerle seguimiento a mis procesos de movilidad sin depender de correos electrónicos |
-
+| Yo como | estudiante |
+| Quiero | consultar el estado y la trayectoria de mis propias solicitudes de preaprobación |
+| Para | hacerle seguimiento a mis procesos de movilidad sin depender de correos electrónicos |
 ---
 
 ### Escenario 35.1 — Estudiante con solicitudes registradas
@@ -1112,9 +1115,9 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 36 |
-| **Yo como** | director de programa o jefe de departamento |
-| **Quiero** | filtrar el historial de solicitudes por estado, universidad de destino, curso HAC y rango de fechas |
-| **Para** | encontrar rápidamente solicitudes específicas cuando hay mucho volumen |
+| Yo como | asistente académica o jefe de departamento |
+| Quiero | filtrar el historial de solicitudes por estado, universidad, curso HAC y rango de fechas |
+| Para | encontrar rápidamente solicitudes específicas cuando hay mucho volumen |
 
 ---
 
@@ -1122,9 +1125,9 @@
 
 | Scenario: | Resultados filtrados por estado |
 |---|---|
-| **Given** | el director de programa o el jefe de departamento accede al historial |
+| **Given** | la asistente o el jefe accede al historial |
 | **When** | aplica el filtro por estado (por ejemplo, Aprobado) |
-| **Then** | el sistema muestra solo las solicitudes que cumplen con el filtro seleccionado |
+| **Then** | el sistema muestra solo las solicitudes que cumple con los filtros seleccionados |
 | **And** | indica la cantidad total de resultados encontrados |
 
 ---
@@ -1155,9 +1158,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 37 |
-| **Yo como** | jefe de departamento o auditor del sistema |
-| **Quiero** | consultar el registro completo de cambios de estado de cada solicitud, con fecha, hora y usuario responsable |
-| **Para** | auditar el proceso, resolver disputas y garantizar la trazabilidad institucional |
+| Yo como | jefe de departamento o auditor del sistema |
+| Quiero | consultar el registro completo de cambios de estado de cada solicitud, con fecha, hora y usuario responsable |
+| Para | auditar el proceso, resolver disputas y garantizar la trazabilidad institucional |
+
+**Notas técnicas:** Esto cubre el RNF11 de auditoría y va de la mano con lo que sacamos en el PESTLE sobre prevenir fraude académico (RNFL-16-01). El registro tiene que ser inmutable, una vez escrito no se puede editar ni borrar, ni siquiera por un admin.
 
 ---
 
@@ -1188,10 +1193,9 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 38 |
-| **Yo como** | estudiante |
-| **Quiero** | recibir notificación por correo cuando cambie el estado de mi solicitud |
-| **Para** | actuar a tiempo sin tener que estar entrando a la plataforma todo el tiempo |
-
+| Yo como | estudiante |
+| Quiero | recibir notificación por correo cuando cambie el estado de mi solicitud |
+| Para | actuar a tiempo sin tener que estar entrando a la plataforma todo el tiempo |
 ---
 
 ### Escenario 38.1 — Notificación de Aprobado
@@ -1243,9 +1247,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 39 |
-| **Yo como** | estudiante con solicitud aprobada |
-| **Quiero** | descargar un documento PDF oficial de mi preaprobado |
-| **Para** | usarlo como soporte en el trámite formal de equivalencia en Workflow cuando regrese de la movilidad |
+| Yo como | estudiante con solicitud aprobada |
+| Quiero | descargar un documento PDF oficial de mi preaprobado |
+| Para | usarlo como soporte en el trámite formal de equivalencia en Workflow cuando regrese de la movilidad |
+
+**Notas técnicas:** El PDF tiene que ser compatible con Workflow (RNF12) y llevar las medidas de seguridad que pusimos en el PESTLE: marca de agua institucional (RNFL-19-01) y un hash que lo vincule al syllabus original (RNFL-07-02). Así nadie puede falsificarlo y se valida automático en HU43.
 
 ---
 
@@ -1287,9 +1293,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 40 |
-| **Yo como** | estudiante interesado en planear mi movilidad |
-| **Quiero** | preguntarle al agente de IA qué materias han sido preaprobadas en una universidad destino específica |
-| **Para** | identificar rápido cursos con alta probabilidad de aprobación sin tener que revisar manualmente todo el repositorio |
+| Yo como | estudiante interesado en planear mi movilidad |
+| Quiero | preguntarle al agente de IA qué materias han sido preaprobadas en una universidad destino específica |
+| Para | identificar rápido cursos con alta probabilidad de aprobación sin tener que revisar manualmente todo el repositorio |
+
+**Notas técnicas:** Las respuestas del agente son sugerencias, no garantizan que la materia vaya a ser aprobada. Cada respuesta debería mostrar de dónde sacó la información (los registros del repositorio) para que el estudiante pueda verificarla. Esto sale del PESTLE (RNFT-11-01).
 
 ---
 
@@ -1319,9 +1327,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 41 |
-| **Yo como** | estudiante de pregrado |
-| **Quiero** | preguntarle al agente de IA qué electivas HAC están disponibles en una franja horaria específica |
-| **Para** | armar mi horario académico sin que se me crucen con otras asignaturas |
+| Yo como | estudiante de pregrado |
+| Quiero  preguntarle al agente de IA qué electivas HAC están disponibles en una franja horaria específica |
+| Para | armar mi horario académico sin que se me crucen con otras asignaturas |
+
+**Notas técnicas:** Robin lo dijo en la entrevista, si la oferta llega a 90 o más cursos, buscar a mano se vuelve inviable. La info la trae directo de Banner por API según la oferta del semestre que esté corriendo.
 
 ---
 
@@ -1352,9 +1362,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 42 |
-| **Yo como** | estudiante interesado en hacer movilidad académica |
-| **Quiero** | recibir recomendaciones de universidades destino donde sea más factible homologar créditos |
-| **Para** | tomar decisiónes informadas sobre dónde realizar mi intercambio |
+| Yo como | estudiante interesado en hacer movilidad académica |
+| Quiero | recibir recomendaciones de universidades destino donde sea más factible homologar créditos |
+| Para | tomar decisiónes informadas sobre dónde realizar mi intercambio |
+
+**Notas técnicas:** La recomendación se basa en el historial de preaprobaciones y el perfil académico del estudiante. Igual que con las otras funciones de IA, son sugerencias y no decisiónes (RNFT-11-01). También sería bueno auditar el algoritmo cada cierto tiempo, para que no termine favoreciendo siempre las mismas universidades (RFEt-11-02).
 
 ---
 
@@ -1385,9 +1397,11 @@
 | Campo | Detalle |
 |---|---|
 | **Historia N°** | 43 |
-| **Yo como** | estudiante que regresa de movilidad académica |
-| **Quiero** | que el documento de preaprobado generado por EduMobility sea reconocido automáticamente por Workflow |
-| **Para** | iniciar el trámite formal de equivalencia sin tener que volver a subir el documento |
+| Yo como | estudiante que regresa de movilidad académica |
+| Quiero | que el documento de preaprobado generado por EduMobility sea reconocido automáticamente por Workflow |
+| Para | iniciar el trámite formal de equivalencia sin tener que volver a subir el documento |. 
+
+**Notas técnicas:** El Grupo SIRI fue claro en la entrevista, la integración va por API igual que ellos hicieron con Workflow (RP8). El documento usa el hash que se genera en HU39 para que Workflow pueda validarlo solo. Importante: EduMobility no reemplaza a Workflow, solo lo complementa (RP6), el proceso formal de equivalencias sigue funcionando como siempre.
 
 ---
 
@@ -1421,59 +1435,3 @@
 | **When** | la validación falla por error de conexión |
 | **Then** | Workflow registra el evento en una cola de validación pendiente |
 | **And** | notifica al equipo técnico para resolver y reintentar la validación |
-
----
-
-## Historia de Usuario N° 44 — Configurar umbrales de clasificación de compatibilidad
-
-| Campo | Detalle |
-|---|---|
-| **Historia N°** | 44 |
-| **Yo como** | jefe de departamento |
-| **Quiero** | configurar y consultar los umbrales de clasificación de compatibilidad (ALTO, MEDIO, BAJO) desde la interfaz de EduMobility |
-| **Para** | ajustar los criterios de clasificación automática sin necesidad de modificar el código fuente |
-
----
-
-### Escenario 44.1 — Configuración exitosa de umbrales
-
-| Scenario: | Umbrales actualizados correctamente |
-|---|---|
-| **Given** | el jefe de departamento está autenticado con su rol institucional |
-| **When** | accede al módulo de configuración de umbrales y establece un nuevo porcentaje de coincidencia para los niveles MEDIO y BAJO (por ejemplo: MEDIO ≥ 80%, BAJO < 80%) |
-| **Then** | el sistema guarda la nueva configuración de umbrales |
-| **And** | los registra con fecha, hora y usuario responsable |
-| **And** | las nuevas solicitudes son clasificadas automáticamente usando los umbrales actualizados |
-
----
-
-### Escenario 44.2 — Consulta de umbrales vigentes
-
-| Scenario: | Jefe consulta la configuración actual |
-|---|---|
-| **Given** | el jefe de departamento está autenticado con su rol institucional |
-| **When** | accede al módulo de configuración de umbrales |
-| **Then** | el sistema muestra los umbrales vigentes para cada nivel (ALTO, MEDIO, BAJO) |
-| **And** | muestra la fecha y el usuario de la última modificación |
-
----
-
-### Escenario 44.3 — Configuración con valores inválidos
-
-| Scenario: | Intento de guardar umbrales fuera de rango |
-|---|---|
-| **Given** | el jefe de departamento accede al módulo de configuración de umbrales |
-| **When** | intenta guardar un valor de umbral fuera del rango permitido (por ejemplo, un porcentaje mayor a 100 o menor a 0) |
-| **Then** | el sistema muestra un mensaje de error indicando el rango válido |
-| **And** | no aplica la configuración hasta que se ingresen valores válidos |
-
----
-
-### Escenario 44.4 — Restricción de acceso para otros roles
-
-| Scenario: | Acceso bloqueado a usuarios sin rol autorizado |
-|---|---|
-| **Given** | un usuario con rol distinto a Jefe de Departamento intenta acceder al módulo de configuración de umbrales |
-| **When** | invoca la funcionalidad |
-| **Then** | el sistema deniega el acceso |
-| **And** | muestra un mensaje indicando que esa configuración es exclusiva del jefe de departamento |
